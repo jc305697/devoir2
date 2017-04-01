@@ -3,10 +3,10 @@
  */
 public class Muret
 {
-    public int x;
-    public int y;
-    public boolean orientation;
-    public boolean visible;
+    private int x;
+    private int y;
+    private boolean orientation;
+    private boolean visible;
 
     public Muret(int x,int y,boolean orientation,boolean visible)
     {
@@ -39,4 +39,13 @@ public class Muret
        return false;//si arrive ici alors necessairement false
 
     }
+
+    public void setVisible(boolean nouveauVisible)
+    {
+        this.visible=nouveauVisible;
+    }
+
+
+
+
 }
