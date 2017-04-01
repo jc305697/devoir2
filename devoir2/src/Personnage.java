@@ -11,7 +11,7 @@ public class Personnage {
         positionX = newPosX;
     }
 
-    private double positiionY;
+    private double positionY;
     public double getPositionYPersonnage(){
         return positionX;
     }
@@ -22,7 +22,7 @@ public class Personnage {
 
 
     //////SET ET GET POUR NBR DE VIES
-    double viesRestantes;
+    int viesRestantes;
     public int getviesRestantes(){
         return viesRestantes;
     }
