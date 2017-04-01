@@ -40,6 +40,10 @@ public class Muret
 
     }
 
+    /**
+     *
+     * @param nouveauVisible: met ce boolean comme valeur de l'attribut visible de l'objet
+     */
     public void setVisible(boolean nouveauVisible)
     {
         this.visible=nouveauVisible;
