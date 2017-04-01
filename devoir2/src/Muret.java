@@ -49,6 +49,14 @@ public class Muret
         this.visible=nouveauVisible;
     }
 
+    /**
+     *
+     * @return la valeur de l'attribut visible de l'objet
+     */
+    public boolean getVisible()
+    {
+        return this.visible;
+    }
 
 
 
