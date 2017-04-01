@@ -5,14 +5,14 @@ public class Muret
 {
     private int x;
     private int y;
-    private boolean orientation;
+    private boolean vertical;//false=horizontal true=vertical
     private boolean visible;
 
-    public Muret(int x,int y,boolean orientation,boolean visible)
+    public Muret(int x,int y,boolean vertical,boolean visible)
     {
       this.x=x;
       this.y=y;
-      this.orientation=orientation;
+      this.vertical=vertical;
       this.visible=visible;
     }
 
@@ -29,8 +29,8 @@ public class Muret
 
            boolean coordX = this.x == referenceObj.x;
            boolean coordY= this.y==referenceObj.y;
-           boolean compOrient= this.orientation==referenceObj.orientation;
-           if (coordX && coordY && compOrient)
+           boolean compVert= this.vertical==referenceObj.vertical;
+           if (coordX && coordY && compVert)
            {
                return true;//si les coordonnes en x, y et l'orientation sont = alors true
            }
