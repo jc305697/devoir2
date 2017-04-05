@@ -1,6 +1,7 @@
 /**
  * Created by jeremycoulombe on 17-04-01.
  */
+
 public class NoeudMuret
 {
     Muret element;
@@ -12,3 +13,4 @@ public class NoeudMuret
         this.noeudSuivant=noeudSuivant;
     }
 }
+

@@ -33,7 +33,7 @@ public class Personnage {
 
 
     //////MÉTHODE POUR DESSINER LE PERSONNAGE DANS LE GRAPH
-    public void dessine(Graphics g, int x1, int y1, int x2, int y2){
+    /*public void dessine(Graphics g, int x1, int y1, int x2, int y2){
         //TO DO:
         /*une méthode void dessine(Graphics g, int x1, int y1, int x2, int y2)
         qui sera appelée en lui passant un contexte graphique,
@@ -46,4 +46,4 @@ public class Personnage {
     }
 
 
-}
+
