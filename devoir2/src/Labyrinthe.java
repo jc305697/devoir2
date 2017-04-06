@@ -71,29 +71,29 @@ public class Labyrinthe
         }
         this.perso.setViesRestantes(nbVie);
 
-        double posAleatPersoX= (double)Math.round(Math.random())+0.5;
-        double posAleatPersoY= (double)Math.round(Math.random())+0.5;
+        //perso doit etre colle sur mur le gauche
+        double posAleatPersoX= 0.5;
+        double posAleatPersoY= (double)Math.round(Math.random()*(h-1))+0.5;
 
         this.perso.setPositionXPersonnage(posAleatPersoX);
         this.perso.setPositionYPersonnage(posAleatPersoY);
 
-        int posAleatSortieX=0;//position en x ou sera la sortie initialise a 0 pour eviter probleme
-        int posAleatSortieY=0;//position en y ou sera la sortie
+        int posAleatSortieX;//position en x ou sera la sortie
+        int posAleatSortieY;//position en y ou sera la sortie
 
         double nbAleat= Math.random();
 
-        if (nbAleat<0.25)
+        /*if (nbAleat<0.25)
         {
             posAleatSortieX=0;
             posAleatSortieY=(int)(Math.random()*(h-1));
-        }
+        }*/
 
-        if ((nbAleat<0.50)&&(nbAleat>0.25))
-        {
+       //sortie doit etre sur le mur droit
             posAleatSortieX=l-1;
             posAleatSortieY=(int)(Math.random()*(h-1));
-        }
 
+        /*
         if ((nbAleat<0.75)&&(nbAleat>0.50))
         {
             posAleatSortieX=(int)(Math.random()*(l-1));
@@ -104,7 +104,7 @@ public class Labyrinthe
         {
             posAleatSortieX=(int)(Math.random()*(l-1));
             posAleatSortieY=h-1;
-        }
+        }*/
 
         this.sortieX=posAleatSortieX;
 
