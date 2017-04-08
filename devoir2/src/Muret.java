@@ -16,6 +16,15 @@ public class Muret
       this.visible=visible;
     }
 
+    public int getX()
+    {
+        return this.x;
+    }
+
+    public int getY()
+    {
+        return this.y;
+    }
     /**
      * redefinition de la methode equals
      * @param obj: variable de type Object

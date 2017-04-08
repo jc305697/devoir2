@@ -6,6 +6,9 @@ public class ListeMuret
     NoeudMuret premierNeud;
     int size;
 
+    /**
+     * constructeur de la liste
+     */
     public ListeMuret()
     {
         premierNeud=null;
@@ -26,7 +29,10 @@ public class ListeMuret
         size++;
     }
 
-    public void tousInvisible()
+    /**
+     * rend tous les murs invisible
+     */
+   public void tousInvisible()
     {
        if(premierNeud!=null)//si premier noeud n'est pas nulle
        {
@@ -41,6 +47,9 @@ public class ListeMuret
        }
     }
 
+    /**
+     * rend tous les murs de la liste visible
+     */
     public void tousVisible()
     {
         if(premierNeud!=null)//si premier noeud n'est pas nulle
@@ -76,9 +85,14 @@ public class ListeMuret
             noeud = noeud.noeudSuivant;
         }
 
-        if (noeud.element.equals(m))
+       // if (noeud.element.equals(m))
+        if (noeud!=null)
         {
-            return noeud.element;
+
+            if (noeud.element.equals(m))//methode equals redefini dans muret
+            {
+                return noeud.element;
+            }
         }
 
         return null;//si rendu ici alors pas dans la liste
