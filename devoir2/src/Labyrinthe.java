@@ -232,11 +232,11 @@ public class Labyrinthe
         switch (direction)
         {
             case 'D':
-                Muret muretDVert1= new Muret((int)(posXPerso+0.5),(int)posYPerso,true,true);
-                Muret muretDVert2= new Muret((int)(posXPerso+0.5),(int)(posYPerso+1),true,true);
+                Muret muretDVert1= new Muret((int)(posXPerso+0.5),(int)(posYPerso-0.5),true,true);
+              //  Muret muretDVert2= new Muret((int)(posXPerso+0.5),(int)(posYPerso+1),true,true);
 
-                Muret muretDHori1= new Muret((int)(posXPerso+0.5),(int)posYPerso,false,true);
-                Muret muretDHori2= new Muret((int)(posXPerso-0.5),(int)posYPerso,false,true);
+              //  Muret muretDHori1= new Muret((int)(posXPerso+0.5),(int)posYPerso,false,true);
+               // Muret muretDHori2= new Muret((int)(posXPerso-0.5),(int)posYPerso,false,true);
 
                /* if ((this.liste.chercheMuret(muretDHori1)!=null) || (this.liste.chercheMuret(muretDHori2)!=null)
                         ||(this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null) )                {
@@ -249,18 +249,20 @@ public class Labyrinthe
                     {
                         this.liste.chercheMuret(muretDHori2).setVisible(true);
                     }*/
-               if ((this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null))
-               {
+               //if ((this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null))
+                if (this.liste.chercheMuret(muretDVert1)!=null)
+
+            {
 
                     if (this.liste.chercheMuret(muretDVert1)!=null)
                     {
                         this.liste.chercheMuret(muretDVert1).setVisible(true);
                     }
 
-                    if (this.liste.chercheMuret(muretDVert2)!=null)
+                    /*if (this.liste.chercheMuret(muretDVert2)!=null)
                     {
                         this.liste.chercheMuret(muretDVert2).setVisible(true);
-                    }
+                    }*/
 
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
@@ -270,15 +272,16 @@ public class Labyrinthe
                 return true;
 
             case 'G':
-                Muret muretGVert1= new Muret((int)(posXPerso-0.5),(int)posYPerso,true,true);
-                Muret muretGVert2= new Muret((int)(posXPerso-0.5),(int)(posYPerso+1),true,true);
+                Muret muretGVert1= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),true,true);
+                //Muret muretGVert2= new Muret((int)(posXPerso-0.5),(int)(posYPerso+1),true,true);
 
                 /*Muret muretGHori1= new Muret((int)(posXPerso-0.5),(int)posYPerso,false,true);
                 Muret muretGHori2= new Muret((int)(posXPerso-1.5),(int)posYPerso,false,true);
 
                 if ((this.liste.chercheMuret(muretGHori1)!=null) || (this.liste.chercheMuret(muretGHori2)!=null)
                         ||(this.liste.chercheMuret(muretGVert1)!=null)||(this.liste.chercheMuret(muretGVert2)!=null) )*/
-                if ((this.liste.chercheMuret(muretGVert1)!=null)||(this.liste.chercheMuret(muretGVert2)!=null))
+               // if ((this.liste.chercheMuret(muretGVert1)!=null)||(this.liste.chercheMuret(muretGVert2)!=null))
+                if (this.liste.chercheMuret(muretGVert1)!=null)
                 {
                    /* if (this.liste.chercheMuret(muretGHori1)!=null)
                     {
@@ -295,10 +298,10 @@ public class Labyrinthe
                         this.liste.chercheMuret(muretGVert1).setVisible(true);
                     }
 
-                    if (this.liste.chercheMuret(muretGVert2)!=null)
+                   /* if (this.liste.chercheMuret(muretGVert2)!=null)
                     {
                         this.liste.chercheMuret(muretGVert2).setVisible(true);
-                    }
+                    }*/
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
@@ -310,24 +313,25 @@ public class Labyrinthe
                 /*Muret muretHVert1= new Muret((int)(posXPerso-0.5),(int)posYPerso,true,true);
                 Muret muretHVert2= new Muret((int)(posXPerso-0.5),(int)(posYPerso+1),true,true);*/
 
-                Muret muretHHori1= new Muret((int)(posXPerso+0.5),(int)(posYPerso-0.5),false,true);
-                Muret muretHHori2= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),false,true);
+                Muret muretHHori1= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),false,true);
+                //Muret muretHHori2= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),false,true);
 
                /* if ((this.liste.chercheMuret(muretHHori1)!=null) || (this.liste.chercheMuret(muretHHori2)!=null)
                         ||(this.liste.chercheMuret(muretHVert1)!=null)||(this.liste.chercheMuret(muretHVert2)!=null) ) */
-               if ((this.liste.chercheMuret(muretHHori1)!=null) || (this.liste.chercheMuret(muretHHori2)!=null))
+               //if ((this.liste.chercheMuret(muretHHori1)!=null) || (this.liste.chercheMuret(muretHHori2)!=null))
+                if (this.liste.chercheMuret(muretHHori1)!=null)
                {
                     if (this.liste.chercheMuret(muretHHori1)!=null)
                     {
                         this.liste.chercheMuret(muretHHori1).setVisible(true);
                     }
 
-                    if (this.liste.chercheMuret(muretHHori2)!=null)
+                    /*if (this.liste.chercheMuret(muretHHori2)!=null)
                     {
                         this.liste.chercheMuret(muretHHori2).setVisible(true);
                     }
 
-                    /*if (this.liste.chercheMuret(muretHVert1)!=null)
+                    if (this.liste.chercheMuret(muretHVert1)!=null)
                     {
                         this.liste.chercheMuret(muretHVert1).setVisible(true);
                     }
@@ -348,22 +352,23 @@ public class Labyrinthe
                 /*Muret muretBVert1= new Muret((int)(posXPerso-0.5),(int)posYPerso,true,true);
                 Muret muretBVert2= new Muret((int)(posXPerso-0.5),(int)(posYPerso+1),true,true);*/
 
-                Muret muretBHori1= new Muret((int)(posXPerso+0.5),(int)(posYPerso+0.5),false,true);
-                Muret muretBHori2= new Muret((int)(posXPerso-0.5),(int)(posYPerso+0.5),false,true);
+                Muret muretBHori1= new Muret((int)(posXPerso-0.5),(int)(posYPerso+0.5),false,true);
+              //  Muret muretBHori2= new Muret((int)(posXPerso-0.5),(int)(posYPerso+0.5),false,true);
 
-                if ((this.liste.chercheMuret(muretBHori1)!=null) || (this.liste.chercheMuret(muretBHori2)!=null))
+                //if ((this.liste.chercheMuret(muretBHori1)!=null) || (this.liste.chercheMuret(muretBHori2)!=null))
+                if (this.liste.chercheMuret(muretBHori1)!=null)
                 {
                     if (this.liste.chercheMuret(muretBHori1)!=null)
                     {
                         this.liste.chercheMuret(muretBHori1).setVisible(true);
                     }
 
-                    if (this.liste.chercheMuret(muretBHori2)!=null)
+                  /*  if (this.liste.chercheMuret(muretBHori2)!=null)
                     {
                         this.liste.chercheMuret(muretBHori2).setVisible(true);
                     }
 
-                    /*if (this.liste.chercheMuret(muretHVert1)!=null)
+                    if (this.liste.chercheMuret(muretHVert1)!=null)
                     {
                         this.liste.chercheMuret(muretHVert1).setVisible(true);
                     }
