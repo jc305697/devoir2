@@ -125,7 +125,8 @@ public class Labyrinthe
         String resultat=""; //Accumulateur pour tout la grille.
         resultat +=bordureAcc; //Première ligne horizontale ajoutée, on va en ajouter une autre à la fin
 
-        for(double i=0; i<this.h; i++){ //AXE Y, META-LIGNES
+        for(double i=0; i<this.h; i++)
+        { //AXE Y, META-LIGNES
 
             //les lignes horizontales qu'on change à chaque tour. Chaque tout de i permet de créer une méta-ligne qui sera ajoutée à résultat.
 
@@ -135,53 +136,80 @@ public class Labyrinthe
             String murPersLigne = "|"; //Ligne avec barres verticales AVEC personnage
             String murLigneHorizo = "|";//Ligne horizontale de murs horizontaux composés de tirets "-"
 
-            for(double j=0; j<this.l; j++){ //AXE X, META-COLONNES
+            for(double j=0; j<this.l; j++)
+            { //AXE X, META-COLONNES
 
                 Muret muretPosVert2 = new Muret((int) j, (int) i, true, true);
                 Muret muretPosHorizo2 = new Muret((int) j, (int) i, false, true);
 
-                if(this.liste.chercheMuret(muretPosVert2) !=null){
+                if(this.liste.chercheMuret(muretPosVert2) !=null)
+                {
                     murLigne+="   |";
                 }
-                else{
+
+                else
+                {
                     murLigne+="    ";
                 }
-                if(this.liste.chercheMuret(muretPosHorizo2) !=null){
+
+                if(this.liste.chercheMuret(muretPosHorizo2) !=null)
+                {
                     murLigneHorizo+="----";
                 }
-                else{
+
+                else
+                {
                     murLigneHorizo+="    ";
                 }
-                if(this.perso.getPositionXPersonnage()==i+0.5){ //Si dans la ligne y a un personnage, procédure spéciale
+                if(this.perso.getPositionXPersonnage()==i+0.5)
+                { //Si dans la ligne y a un personnage, procédure spéciale
+
                     flagCharTrouvéEtMis++;
-                    if(this.perso.getPositionYPersonnage()==j+0.5){ //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
+
+                    if(this.perso.getPositionYPersonnage()==j+0.5)
+                    { //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
+
                         Muret muretPosVert = new Muret((int) j, (int) i, true, true);
-                        if(this.liste.chercheMuret(muretPosVert)!=null){//S'il y a un mur à cette position...
+
+                        if(this.liste.chercheMuret(muretPosVert)!=null)
+                        {//S'il y a un mur à cette position...
                             murPersLigne +="  c  |";//Avec mur
                         }
-                        else{
+
+                        else
+                        {
                             murPersLigne+= "  c   "; //Sans mur
                         }
                     }
-                    else{
+
+                    else
+                    {
                         Muret muretPosVert = new Muret((int) j, (int) i, true, true);
-                        if(this.liste.chercheMuret(muretPosVert)!=null){
+
+                        if(this.liste.chercheMuret(muretPosVert)!=null)
+                        {
                             murPersLigne+= "   |";
                         }
-                        else{
+
+                        else
+                        {
                             murPersLigne +="    ";
                         }
 
                     }
                 }
             }
-            if (flagCharTrouvéEtMis!=0){ //À la méta-ligne donnée, si flagCharTrouvéEtMis n'est pas égal à 0, on va créer une méta-ligne
+
+            if (flagCharTrouvéEtMis!=0)
+            { //À la méta-ligne donnée, si flagCharTrouvéEtMis n'est pas égal à 0, on va créer une méta-ligne
                 resultat+=murLigne+ "/n"; //Ligne de murs simples, car le personnage est au centre
                 resultat+=murPersLigne+ "/n"; //Ligne de murs CONTENANT le personnage
                 resultat+=murLigne+ "/n"; //Ligne de murs simples
                 resultat+=murLigneHorizo+ "/n"; //Ligne de murets horizontaux
             }
-            else{                               //Aucun perso, alors on se contente de répéter trois fois la même ligne
+
+            else
+            {                               //Aucun perso, alors on se contente de répéter trois fois la même ligne
                 resultat+=murLigne+ "/n";       //Ligne de murs simple
                 resultat+=murLigne+ "/n";       //Bis
                 resultat+=murLigne+ "/n";       //Bis!
@@ -189,14 +217,18 @@ public class Labyrinthe
             }
             //Une fois la meta-ligne faite, on passe à la meta-ligne suivante, avec incrémentation de i, dans sa boucle for
         }
+
         resultat+=bordureAcc; //On ajoute ici une bordure horizontale inférieure ("-----------.....------")
+
         return resultat; //Et le résultat, la grille, est retournée, pour impressiond ans le jeu!
     }
 
     public boolean deplace(char direction)
     {
         double posXPerso= this.perso.getPositionXPersonnage();
+
         double posYPerso= this.perso.getPositionYPersonnage();
+
         switch (direction)
         {
             case 'D':
