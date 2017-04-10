@@ -59,7 +59,6 @@ public class Muret
     }
 
     /**
-     *
      * @return la valeur de l'attribut visible de l'objet
      */
     public boolean getVisible()

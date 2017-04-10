@@ -8,12 +8,14 @@ import java.util.Scanner;
 /////Note: cette version de jeuLaby est concue pour être executée en console uniquement. Ne pas executer sur la console de IntelliJ
 public class JeuLaby
 {
-    public static void main (String[] args){
-        int alertChanged = 0;
+    public static void main (String[] args2){ //RETIRER LE 2 DE ARGS POUR MÉTHODE CMD
+        int alertChanged = 1;                   /////changer alertChanged à 0 POUR MÉTHODE CMD
+        String[] args = new String[5];/////////AJOUTÉ POUR JOUABILITÉ DANS CONSOLE INTELLIJ, SUPPRIMER LE 2 DE ARGS
         while(true) {//Si les paramètres sont incorrects, on recommence la saisie de données pour le jeu lui-même
             if(alertChanged!=0){ //Si la personne désire changer les paramètres
                 Scanner snap = new Scanner(System.in);
                 System.out.println("Hauteur?");
+
                 args[0] = snap.nextLine();
                 System.out.println("Largeur?");
                 args[1] = snap.nextLine();
@@ -28,7 +30,10 @@ public class JeuLaby
 
             if (args.length == 5) {//Bon nombre de paramètres
                 //Ce qui ensuit est un gros paquet de conditions, pour la validité des arguments, à modifier pour limites supérieures...
-                if ((Integer.parseInt(args[0]) < 1 || Integer.parseInt(args[0]) > 50) || (Integer.parseInt(args[1]) < 1 || Integer.parseInt(args[1]) > 50) || (Integer.parseInt(args[2]) > 1 || Integer.parseInt(args[2]) < 0) || (Integer.parseInt(args[3]) < 0) || (Integer.parseInt(args[4]) < 1)) {
+                if ((Integer.parseInt(args[0]) < 1 || Integer.parseInt(args[0]) > 50)
+                        || (Integer.parseInt(args[1]) < 1 || Integer.parseInt(args[1]) > 50)
+                        || (Double.parseDouble(args[2]) > 1 || Double.parseDouble(args[2]) < 0)
+                        || (Integer.parseInt(args[3]) < 0) || (Integer.parseInt(args[4]) < 1)) {
                     System.out.println("Paramètres incorrects...");
                     System.out.println("Utilisation: java Laby <hauteur (entre 1 et 50)> <largeur(entre 1 et 50)> <densite(entre 1 exclus et 0 inclus)> <duree visible (+ que 0)> <nb vies(+ que 0)>");
                     System.out.println("Exemple: java Laby 10 20 0.20 10 5");
@@ -44,6 +49,8 @@ public class JeuLaby
                         int visibiliteTimed = Integer.parseInt(args[3]);
                         int viesRestantes = Integer.parseInt(args[4]);
                         Labyrinthe laby  = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
+                       // laby.toString();
+                        System.out.println(laby);
                         while (true) {
                             Scanner snap = new Scanner(System.in);
                             String deplacement = snap.nextLine();
