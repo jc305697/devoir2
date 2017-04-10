@@ -112,47 +112,78 @@ public class Labyrinthe
 
     }
 
-    public String toString()
-    {
-        String resultat="";
-        for (double i=0;i<this.h;i=i+0.5)//hauteur "y"
-        {
-            for (double j=0;j<this.l;j=j+0.5)//largeur "x"
-            {
-                if ((j-0.5==(int)j)&&(i-0.5==(int)i))//si j ai 2 chiffres avec .5
-                {
-                    boolean memeX= this.perso.getPositionXPersonnage()==j;
-                    boolean memeY= this.perso.getPositionYPersonnage()==i;
-                    if (memeX&&memeY)
-                    {
-                      //  this.perso.dessine();
-                    }
+    public String toString() {
+
+        String bordureSup = "---";
+        String bordureAcc = "";
+        for(int h=0; h<l; h++){ //Crée les lignes de bordure sup et inf. Besoin seulement que ce soit répété deux fois.
+            bordureAcc += bordureSup;
+        }
+        bordureAcc +="/n";
+
+        String resultat=""; //Acc pour tout la grille.
+        resultat +=bordureAcc; //Première ligne horizontale
+
+        for(double i=0; i<this.l; i++){ //AXE "x"
+            int flagOver = 0;
+            String murLigne = "|"; //Ligne, avec barres verticales, sans personnage
+            String murPersLigne = "|"; //Ligne avec barres verticales AVEC personnage
+            String murLigneHorizo = "|";//Ligne horizontale avec tirets "-"
+            for(double j=0; j<this.h; j++){//AXE "y"
+
+                Muret muretPosVert2 = new Muret((int) j, (int) i, true, true);
+                Muret muretPosHorizo2 = new Muret((int) j, (int) i, false, true);
+
+                if(this.liste.chercheMuret(muretPosVert2) !=null){
+                    murLigne+="   |";
                 }
-
-
-                if (!((j-0.5==(int)j)&&(i-0.5==(int)i)))// au moins 1 chiffre avec 0.5
-                {
-                    Muret muretPosHoriz = new Muret((int) j, (int) i, false, true);
-                    Muret muretPosVert = new Muret((int) j, (int) i, true, true);
-                    if (this.liste.chercheMuret(muretPosHoriz) != null) {
-                        //System.out.print("---");
-                        resultat+="---";
+                else{
+                    murLigne+="    ";
+                }
+                if(this.liste.chercheMuret(muretPosHorizo2) !=null){
+                    murLigneHorizo+="----";
+                }
+                else{
+                    murLigneHorizo+="    ";
+                }
+                if(this.perso.getPositionXPersonnage()==i+0.5){ //Si dans la ligne y a un personnage, procédure spéciale
+                    flagOver++;
+                    if(this.perso.getPositionYPersonnage()==j){ //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
+                        Muret muretPosVert = new Muret((int) j, (int) i, true, true);
+                        if(this.liste.chercheMuret(muretPosVert)!=null){//S'il y a un mur à cette position...
+                            murPersLigne +="  c  |";//Avec mur
+                        }
+                        else{
+                            murPersLigne+= "  c   "; //Sans mur
+                        }
                     }
-
-                   /* if (this.liste.chercheMuret(muretPosVert) != null) probleme il faut ajouter le contenu des cases apres avant de mettre les autres de marcations de case
-                    {
-                        for (int k = 0; k < 2; k++)
-                        {
-                           // System.out.print("|\n");
-                          //  resultat+="|\n";
+                    else{
+                        Muret muretPosVert = new Muret((int) j, (int) i, true, true);
+                        if(this.liste.chercheMuret(muretPosVert)!=null){
+                            murPersLigne+= "   |";
+                        }
+                        else{
+                            murPersLigne +="    ";
                         }
 
-                        //System.out.print("|");
-
-                    }*/
+                    }
                 }
             }
+            if (flagOver!=0){ //S'il y avait un personnage à la ligne donnée
+                resultat+=murLigne+ "/n";
+                resultat+=murPersLigne+ "/n"; //Ligne contenant le personnage.
+                resultat+=murLigne+ "/n";
+                resultat+=murLigneHorizo+ "/n";
+            }
+            else{                               //Aucun perso, alors on se contente de répéter trois fois la même ligne
+                resultat+=murLigne+ "/n";
+                resultat+=murLigne+ "/n";
+                resultat+=murLigne+ "/n";
+                resultat+=murLigneHorizo+ "/n";
+            }
+            //Une fois la meta-ligne faite, on passe à la meta-ligne suivante.
         }
+        resultat+=bordureAcc; //Ligne horizo inférieure...
         return resultat;
     }
 
