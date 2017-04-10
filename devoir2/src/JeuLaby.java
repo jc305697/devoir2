@@ -28,8 +28,10 @@ public class JeuLaby
             }
 
 
-            if (args.length == 5) {//Bon nombre de paramètres
+            if (args.length == 5)
+            {//Bon nombre de paramètres
                 //Ce qui ensuit est un gros paquet de conditions, pour la validité des arguments, à modifier pour limites supérieures...
+
                 if ((Integer.parseInt(args[0]) < 1 || Integer.parseInt(args[0]) > 50)
                         || (Integer.parseInt(args[1]) < 1 || Integer.parseInt(args[1]) > 50)
                         || (Double.parseDouble(args[2]) > 1 || Double.parseDouble(args[2]) < 0)
@@ -52,14 +54,30 @@ public class JeuLaby
                        // laby.toString();
                         System.out.println(laby);
                         while (true) {
+                            System.out.println("veuillez entrez une direction");
                             Scanner snap = new Scanner(System.in);
                             String deplacement = snap.nextLine();
-                            if(deplacement != "d" ||deplacement != "g"||deplacement != "h"||deplacement != "b"){
-                                System.out.println("Commande inconnue... S'il vous plâit entrer 'd', 'g', 'h' ou encore 'b'");
+                            //if(deplacement != "d" ||deplacement != "g"||deplacement != "h"||deplacement != "b"){
+
+                            if(deplacement.length()==1)
+                            {
+                                char direction= deplacement.charAt(0);//CharAt permet de faire un cast vers char
+
+                                if (direction!='D' || direction!='G' || direction!='H'|| direction!='B')
+                                {
+                                    System.out.println("Commande inconnue... S'il vous plâit entrer 'd', 'g', 'h' ou encore 'b'");
+                                }
+
+                                else
+                                {//Si touche est correcte...
+                                    laby.deplace(direction);
+                                    laby.toString(); //Reprint de la laby
+                                }
                             }
-                            else{//Si touche est correcte...
-                                laby.deplace(deplacement.charAt(0)); //CharAt permet de faire un cast vers char
-                                laby.toString(); //Reprint de la laby
+
+                            if (deplacement.length()!=1)
+                            {
+                                System.out.println("longueur de commande illégale veuillez recommencez");
                             }
 
                             //Partie du jeu, appeler fonctions.
@@ -69,29 +87,46 @@ public class JeuLaby
                                 break;
                             }
                         }//BOUCLE WHILE POUR LA PARTIE JEU, BREAK==PASSER À L'INTERFACE UTIL
-                        if (viesRestantes == 0) {
-                            while(true) {
+                        if (viesRestantes == 0)
+                        {
+                            while(true)
+                            {
                                 System.out.println("Vous êtes mort, il ne vous restait plus de vies! Réessayer? (Oui/Non):");
                                 Scanner scan = new Scanner(System.in);
-                                if (scan.equals("Oui")) {
+                                if (scan.equals("Oui"))
+                                {
                                     System.out.println("Parfait, nous allons réinitialiser le jeu pour vous! Mêmes arguments?");//Lets continue the while!
                                     //Faut avoir qqch pour changer les paramètres? Qqch plus interactif?
-                                    while (true) {
-                                        if (scan.nextLine().equals("Non")) {
+                                    while (true)
+                                    {
+                                        if (scan.nextLine().equals("Non"))
+                                        {
                                             alertChanged = 1;
                                             break;
-                                        } else if (scan.nextLine().equals("Oui")) {
+                                        }
+
+                                        else if (scan.nextLine().equals("Oui"))
+                                        {
                                             break;
                                             //Do nothing, while(true) gonna take care of dis
-                                        } else {
+                                        }
+
+                                        else
+                                        {
                                             System.out.println("Désolé, la réponse n'était pas claire! Voulez-vous réinitialiser les arguments? (Oui/Non)");
                                         }
                                     }
 
-                                } else if (scan.equals("Non")) {
+                                }
+
+                                else if (scan.equals("Non"))
+                                {
                                     Runtime.getRuntime().exit(0);//Sortie de la console, status=0 signifie que tout va bien
                                     //Le programme achève ici? Commande permettant de shutdown l'app?
-                                } else {
+                                }
+
+                                else
+                                {
                                     System.out.println("Désolé, la réponse n'était pas claire! Voulez-vous sortir du jeu? (Oui/Non)");
                                 }
                             }
@@ -101,7 +136,8 @@ public class JeuLaby
 
             }//IF DE IF (ARGS LENGTH==5)
 
-            else {
+            else
+                {
                 System.out.println("Nombre de paramètres incorrect: il faut 5 paramètres exactement");
                 System.out.println("Utilisation: java Laby <hauteur> <largeur> <densite> <duree visible> <nb vies>");
             }//ELSE DE IF (ARGS LENGTH ==5)
