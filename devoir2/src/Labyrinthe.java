@@ -3,6 +3,7 @@
  */
 public class Labyrinthe
 {
+    
     private int  l;//largeur
     private int h; //hauteur
     private Personnage perso;
