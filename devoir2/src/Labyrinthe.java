@@ -132,7 +132,7 @@ public class Labyrinthe
 
             //les lignes horizontales qu'on change à chaque tour. Chaque tout de i permet de créer une méta-ligne qui sera ajoutée à résultat.
 
-            int flagCharTrouvéEtMis = 0; //Permet de déterminer si un personnage était à la ligne. C'est plus tard utilisé pour créer la méta-ligne
+            int flagCharTrouveEtMis = 0; //Permet de déterminer si un personnage était à la ligne. C'est plus tard utilisé pour créer la méta-ligne
 
             String murLigne = "|"; //Mini-ligne, crée une ligne de murs verticaux uniquement, sans personnage
             String murPersLigne = "|"; //Ligne avec barres verticales AVEC personnage
@@ -166,7 +166,7 @@ public class Labyrinthe
                 if(this.perso.getPositionXPersonnage()==i+0.5)
                 { //Si dans la ligne y a un personnage, procédure spéciale
 
-                    flagCharTrouvéEtMis++;
+                    flagCharTrouveEtMis++;
 
                     if(this.perso.getPositionYPersonnage()==j+0.5)
                     { //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
@@ -202,7 +202,7 @@ public class Labyrinthe
                 }
             }
 
-            if (flagCharTrouvéEtMis!=0)
+            if (flagCharTrouveEtMis!=0)
             { //À la méta-ligne donnée, si flagCharTrouvéEtMis n'est pas égal à 0, on va créer une méta-ligne
                 resultat+=murLigne+ "|\n"; //Ligne de murs simples, car le personnage est au centre
                 resultat+=murPersLigne+ "|\n"; //Ligne de murs CONTENANT le personnage

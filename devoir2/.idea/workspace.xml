@@ -16,8 +16,8 @@
       <file leaf-file-name="JeuLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+            <state relative-caret-position="900">
+              <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -26,11 +26,9 @@
       <file leaf-file-name="JeuLaby.class" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/out/production/devoir2/JeuLaby.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-681">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#4540#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -38,11 +36,9 @@
       <file leaf-file-name="Labyrinthe.class" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/out/production/devoir2/Labyrinthe.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#7754#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="450">
+              <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,25 +67,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Personnage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Personnage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Personnage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+              <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#439#440#0" expanded="true" />
                 <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#568#569#0" expanded="true" />
-                <element signature="e#619#620#0" expanded="true" />
-                <element signature="e#651#652#0" expanded="true" />
-                <element signature="e#713#714#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
-                <element signature="e#891#892#0" expanded="true" />
-                <element signature="e#927#928#0" expanded="true" />
-                <element signature="e#993#994#0" expanded="true" />
-                <element signature="e#1045#1046#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,6 +93,9 @@
                 <element signature="e#480#481#0" expanded="true" />
                 <element signature="e#1479#1480#0" expanded="true" />
                 <element signature="e#1522#1523#0" expanded="true" />
+                <marker date="1491850750000" expanded="true" signature="1529:1598" ph="/**...*/" />
+                <marker date="1491850750000" expanded="false" signature="1630:1645" ph=" { " />
+                <marker date="1491850750000" expanded="false" signature="1665:1671" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -116,17 +105,17 @@
         <entry file="file://$PROJECT_DIR$/src/ListeMuret.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1095">
-              <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+              <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="218">
+              <caret line="171" column="37" lean-forward="true" selection-start-line="171" selection-start-column="37" selection-end-line="171" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -170,8 +159,8 @@
         <option value="$PROJECT_DIR$/src/Muret.java" />
         <option value="$PROJECT_DIR$/src/ListeMuret.java" />
         <option value="$PROJECT_DIR$/src/JeuLaby.java" />
-        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
         <option value="$PROJECT_DIR$/src/Personnage.java" />
+        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
       </list>
     </option>
   </component>
@@ -222,8 +211,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -515,16 +504,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#439#440#0" expanded="true" />
             <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -540,6 +519,9 @@
             <element signature="e#480#481#0" expanded="true" />
             <element signature="e#1479#1480#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
+            <marker date="1491850750000" expanded="true" signature="1529:1598" ph="/**...*/" />
+            <marker date="1491850750000" expanded="false" signature="1630:1645" ph=" { " />
+            <marker date="1491850750000" expanded="false" signature="1665:1671" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -612,16 +594,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#439#440#0" expanded="true" />
             <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -637,6 +609,9 @@
             <element signature="e#480#481#0" expanded="true" />
             <element signature="e#1479#1480#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
+            <marker date="1491850750000" expanded="true" signature="1529:1598" ph="/**...*/" />
+            <marker date="1491850750000" expanded="false" signature="1630:1645" ph=" { " />
+            <marker date="1491850750000" expanded="false" signature="1665:1671" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -733,16 +708,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#439#440#0" expanded="true" />
             <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -758,6 +723,9 @@
             <element signature="e#480#481#0" expanded="true" />
             <element signature="e#1479#1480#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
+            <marker date="1491850750000" expanded="true" signature="1529:1598" ph="/**...*/" />
+            <marker date="1491850750000" expanded="false" signature="1630:1645" ph=" { " />
+            <marker date="1491850750000" expanded="false" signature="1665:1671" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -798,16 +766,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#439#440#0" expanded="true" />
             <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -823,6 +781,9 @@
             <element signature="e#480#481#0" expanded="true" />
             <element signature="e#1479#1480#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
+            <marker date="1491850750000" expanded="true" signature="1529:1598" ph="/**...*/" />
+            <marker date="1491850750000" expanded="false" signature="1630:1645" ph=" { " />
+            <marker date="1491850750000" expanded="false" signature="1665:1671" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -895,16 +856,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#439#440#0" expanded="true" />
             <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -920,6 +871,9 @@
             <element signature="e#480#481#0" expanded="true" />
             <element signature="e#1479#1480#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
+            <marker date="1491850750000" expanded="true" signature="1529:1598" ph="/**...*/" />
+            <marker date="1491850750000" expanded="false" signature="1630:1645" ph=" { " />
+            <marker date="1491850750000" expanded="false" signature="1665:1671" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -995,42 +949,33 @@
             <element signature="e#480#481#0" expanded="true" />
             <element signature="e#1479#1480#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
+            <marker date="1491850750000" expanded="true" signature="1529:1598" ph="/**...*/" />
+            <marker date="1491850750000" expanded="false" signature="1630:1645" ph=" { " />
+            <marker date="1491850750000" expanded="false" signature="1665:1671" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+        <state relative-caret-position="900">
+          <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/devoir2/JeuLaby.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-681">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#4540#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/devoir2/Labyrinthe.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#7754#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        <state relative-caret-position="450">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1038,7 +983,7 @@
     <entry file="file://$PROJECT_DIR$/src/ListeMuret.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1095">
-          <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+          <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1046,22 +991,20 @@
     <entry file="file://$PROJECT_DIR$/src/Personnage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#439#440#0" expanded="true" />
             <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="171" column="37" lean-forward="true" selection-start-line="171" selection-start-column="37" selection-end-line="171" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
