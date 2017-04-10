@@ -114,22 +114,27 @@ public class Labyrinthe
 
     public String toString() {
 
-        String bordureSup = "---";
-        String bordureAcc = "";
+        String bordureSup = "---"; //On va accumuler cette unité
+        String bordureAcc = ""; //Accumulateur, la longueur dépend de la largeur du laby demandé
         for(int h=0; h<l; h++){ //Crée les lignes de bordure sup et inf. Besoin seulement que ce soit répété deux fois.
             bordureAcc += bordureSup;
         }
-        bordureAcc +="/n";
+        bordureAcc +="|/n"; //Ajout d'une bordure verticale (Muret) et d'un saut de ligne
 
-        String resultat=""; //Acc pour tout la grille.
-        resultat +=bordureAcc; //Première ligne horizontale
+        String resultat=""; //Accumulateur pour tout la grille.
+        resultat +=bordureAcc; //Première ligne horizontale ajoutée, on va en ajouter une autre à la fin
 
-        for(double i=0; i<this.l; i++){ //AXE "x"
-            int flagOver = 0;
-            String murLigne = "|"; //Ligne, avec barres verticales, sans personnage
+        for(double i=0; i<this.h; i++){ //AXE Y, META-LIGNES
+
+            //les lignes horizontales qu'on change à chaque tour. Chaque tout de i permet de créer une méta-ligne qui sera ajoutée à résultat.
+
+            int flagCharTrouvéEtMis = 0; //Permet de déterminer si un personnage était à la ligne. C'est plus tard utilisé pour créer la méta-ligne
+
+            String murLigne = "|"; //Mini-ligne, crée une ligne de murs verticaux uniquement, sans personnage
             String murPersLigne = "|"; //Ligne avec barres verticales AVEC personnage
-            String murLigneHorizo = "|";//Ligne horizontale avec tirets "-"
-            for(double j=0; j<this.h; j++){//AXE "y"
+            String murLigneHorizo = "|";//Ligne horizontale de murs horizontaux composés de tirets "-"
+
+            for(double j=0; j<this.l; j++){ //AXE X, META-COLONNES
 
                 Muret muretPosVert2 = new Muret((int) j, (int) i, true, true);
                 Muret muretPosHorizo2 = new Muret((int) j, (int) i, false, true);
@@ -147,8 +152,8 @@ public class Labyrinthe
                     murLigneHorizo+="    ";
                 }
                 if(this.perso.getPositionXPersonnage()==i+0.5){ //Si dans la ligne y a un personnage, procédure spéciale
-                    flagOver++;
-                    if(this.perso.getPositionYPersonnage()==j){ //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
+                    flagCharTrouvéEtMis++;
+                    if(this.perso.getPositionYPersonnage()==j+0.5){ //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
                         Muret muretPosVert = new Muret((int) j, (int) i, true, true);
                         if(this.liste.chercheMuret(muretPosVert)!=null){//S'il y a un mur à cette position...
                             murPersLigne +="  c  |";//Avec mur
@@ -169,22 +174,22 @@ public class Labyrinthe
                     }
                 }
             }
-            if (flagOver!=0){ //S'il y avait un personnage à la ligne donnée
-                resultat+=murLigne+ "/n";
-                resultat+=murPersLigne+ "/n"; //Ligne contenant le personnage.
-                resultat+=murLigne+ "/n";
-                resultat+=murLigneHorizo+ "/n";
+            if (flagCharTrouvéEtMis!=0){ //À la méta-ligne donnée, si flagCharTrouvéEtMis n'est pas égal à 0, on va créer une méta-ligne
+                resultat+=murLigne+ "/n"; //Ligne de murs simples, car le personnage est au centre
+                resultat+=murPersLigne+ "/n"; //Ligne de murs CONTENANT le personnage
+                resultat+=murLigne+ "/n"; //Ligne de murs simples
+                resultat+=murLigneHorizo+ "/n"; //Ligne de murets horizontaux
             }
             else{                               //Aucun perso, alors on se contente de répéter trois fois la même ligne
-                resultat+=murLigne+ "/n";
-                resultat+=murLigne+ "/n";
-                resultat+=murLigne+ "/n";
-                resultat+=murLigneHorizo+ "/n";
+                resultat+=murLigne+ "/n";       //Ligne de murs simple
+                resultat+=murLigne+ "/n";       //Bis
+                resultat+=murLigne+ "/n";       //Bis!
+                resultat+=murLigneHorizo+ "/n"; //Murets horizontaux
             }
-            //Une fois la meta-ligne faite, on passe à la meta-ligne suivante.
+            //Une fois la meta-ligne faite, on passe à la meta-ligne suivante, avec incrémentation de i, dans sa boucle for
         }
-        resultat+=bordureAcc; //Ligne horizo inférieure...
-        return resultat;
+        resultat+=bordureAcc; //On ajoute ici une bordure horizontale inférieure ("-----------.....------")
+        return resultat; //Et le résultat, la grille, est retournée, pour impressiond ans le jeu!
     }
 
     public boolean deplace(char direction)
