@@ -34,6 +34,7 @@ public class JeuLaby
                     System.out.println("Exemple: java Laby 10 20 0.20 10 5");
                 } //FIN IF SI PARAMÈTRES ONT BORNES NON RESPECTÉES
                 else {
+
                     while(true) {
 
 
@@ -42,9 +43,17 @@ public class JeuLaby
                         double densite = Double.parseDouble(args[2]);
                         int visibiliteTimed = Integer.parseInt(args[3]);
                         int viesRestantes = Integer.parseInt(args[4]);
+                        Labyrinthe laby  = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
                         while (true) {
-                            //Ajouter un truc si la personne est rendue à la sortie, il faut break le while
-
+                            Scanner snap = new Scanner(System.in);
+                            String deplacement = snap.nextLine();
+                            if(deplacement != "d" ||deplacement != "g"||deplacement != "h"||deplacement != "b"){
+                                System.out.println("Commande inconnue... S'il vous plâit entrer 'd', 'g', 'h' ou encore 'b'");
+                            }
+                            else{//Si touche est correcte...
+                                laby.deplace(deplacement.charAt(0)); //CharAt permet de faire un cast vers char
+                                laby.toString(); //Reprint de la laby
+                            }
 
                             //Partie du jeu, appeler fonctions.
 
