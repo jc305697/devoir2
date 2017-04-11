@@ -65,7 +65,7 @@ public class JeuLaby
 
                                 if (direction!='D' || direction!='G' || direction!='H'|| direction!='B')
                                 {
-                                    System.out.println("Commande inconnue... S'il vous plâit entrer 'd', 'g', 'h' ou encore 'b'");
+                                    System.out.println("Commande inconnue... S'il vous plâit entrer 'D', 'G', 'H' ou encore 'B'");
                                 }
 
                                 else

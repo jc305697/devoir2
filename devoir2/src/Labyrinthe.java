@@ -4,8 +4,8 @@
 public class Labyrinthe
 {
     
-    private int  l;//largeur
-    private int h; //hauteur
+    private int  l;//largeur en termes de cases
+    private int h; //hauteur en termes de cases
     private Personnage perso;
     private ListeMuret liste;
     private int sortieX;
@@ -114,6 +114,16 @@ public class Labyrinthe
 
         this.sortieY=posAleatSortieY;
 
+    }
+
+    public int getL()
+    {
+        return l;
+    }
+
+    public int getH()
+    {
+        return h;
     }
 
     public String toString() {

@@ -23,8 +23,16 @@ public class AffichageLaby extends JComponent
 
         int hauteur=getHeight();//obtient hauteur disponible
 
+        int tailleMurHorizontal= largeur/100*labyrinthe.getL();
+
+        int tailleMurVertical= hauteur/100*labyrinthe.getH();
+
+
+
         graphics2D.drawRect(0,0,largeur,hauteur);//met rectangle pour enlever ce qui etait la avant
         //coordonne a verifier
+
+
 
     }
 
