@@ -126,6 +126,16 @@ public class Labyrinthe
         return h;
     }
 
+    public int getSortieX()
+    {
+        return sortieX;
+    }
+
+    public int getSortieY()
+    {
+        return sortieY;
+    }
+
     public String toString() {
 
         String bordureSup = "- - - "; //On va accumuler cette unité
