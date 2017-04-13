@@ -67,6 +67,9 @@ public class Personnage
         votre AffichageLaby. Vous pouvez par exemple commencer
         par représenter votre personnage par un simple cercle ou ovale
         (et plus tard faire quelque chose de plus joli). */
+
+       // Graphics2D graphics2D= (Graphics2D)g;
+        g.fillOval(x1,y1,x2-x1,y2-y1);
     }
 }
 

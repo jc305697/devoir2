@@ -48,64 +48,63 @@ public class JeuLaby
                     System.out.println("Exemple: java Laby 10 20 0.20 10 5");
                 } //FIN IF SI PARAMÈTRES ONT BORNES NON RESPECTÉES
 
-                else
-                {
+                else {
 
-                    while(true) {
-
-
-                        int hauteur = Integer.parseInt(args[0]);
-                        int largeur = Integer.parseInt(args[1]);
-                        double densite = Double.parseDouble(args[2]);
-                        int visibiliteTimed = Integer.parseInt(args[3]);
-                        int viesRestantes = Integer.parseInt(args[4]);
-                        Labyrinthe laby  = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
-                        laby.toString();
-                        System.out.println(laby);
-
-                        JFrame fenetreJeu= new JFrame("Labyrinthe");//cree fenetre de jeu
+                    // while(true) {
 
 
-                        JPanelLaby panelLaby=new JPanelLaby(laby);
+                    int hauteur = Integer.parseInt(args[0]);
+                    int largeur = Integer.parseInt(args[1]);
+                    double densite = Double.parseDouble(args[2]);
+                    int visibiliteTimed = Integer.parseInt(args[3]);
+                    int viesRestantes = Integer.parseInt(args[4]);
 
-                        fenetreJeu.add(panelLaby);
+                    Labyrinthe laby = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
 
-                        Dimension dimensionEcran = Toolkit.getDefaultToolkit().getScreenSize();
-                        int hauteurAffichage = (int)(dimensionEcran.height*0.25);//hauteur de la fenetre sera le 1/4 de l ecran au debut
+                    // laby.toString();
+                    //System.out.println(laby);
 
-                        int largeurAffichage = (int)(dimensionEcran.width*0.25);//largeur de la fenetre sera le 1/4 de l ecran au debut
-
-                        fenetreJeu.setSize(largeurAffichage,hauteurAffichage);//specifie la taille au depart de la fentre de jeu
-
-                        fenetreJeu.setVisible(true);
-
-                        while (true)
-                        {
-
-                            boolean gagne = panelLaby.boucleDeJeu(laby);
-
-                            if (gagne==false)
-                            {
-                                //mettre fenetre de dialogue qui dit que la personne a perdu et demander si veut jouer encore...
-                                //JoptionPane.showMessageDialog;
-                                //if(veutplus jouer ) fait break
-                                //si veut jouer encore appele fonction qui reset le affichage jlaby
-                            }
-
-                            if (gagne)
-                            {
-                                //mettre fenetre de dialogue qui dit que la personne a gagner et demander si veut jouer encore...
-                                //JoptionPane.showMessageDialog;
-                                //if(veutplus jouer ) fait break
-                                //si veut jouer encore appele fonction qui reset le affichage jlaby et les composants
-                            }
+                    JFrame fenetreJeu = new JFrame("Labyrinthe");//cree fenetre de jeu
 
 
+                    JPanelLaby panelLaby = new JPanelLaby(laby);
+
+                    fenetreJeu.add(panelLaby);
+
+                    Dimension dimensionEcran = Toolkit.getDefaultToolkit().getScreenSize();
+                    int hauteurAffichage = (int) (dimensionEcran.height * 0.25);//hauteur de la fenetre sera le 1/4 de l ecran au debut
+
+                    int largeurAffichage = (int) (dimensionEcran.width * 0.25);//largeur de la fenetre sera le 1/4 de l ecran au debut
+
+                    fenetreJeu.setSize(largeurAffichage, hauteurAffichage);//specifie la taille au depart de la fentre de jeu
+
+                    fenetreJeu.setVisible(true);
+
+                    while (true) {
+
+                        boolean gagne = panelLaby.boucleDeJeu(laby);
+
+                        if (gagne == false) {
+                            //mettre fenetre de dialogue qui dit que la personne a perdu et demander si veut jouer encore...
+                            //JoptionPane.showMessageDialog;
+                            //if(veutplus jouer ) fait break
+                            //si veut jouer encore appele fonction qui reset le affichage jlaby
+                        }
+
+                        if (gagne) {
+                            //mettre fenetre de dialogue qui dit que la personne a gagner et demander si veut jouer encore...
+                            //JoptionPane.showMessageDialog;
+                            //if(veutplus jouer ) fait break
+                            //si veut jouer encore appele fonction qui reset le affichage jlaby et les composants
                         }
 
 
+                    }
+                }
 
-                        while (true)
+
+
+                       /* while (true)
                         {
                             System.out.println("veuillez entrez une direction");
                             Scanner snap = new Scanner(System.in);
@@ -188,7 +187,7 @@ public class JeuLaby
                             }
                         }
                     }
-                }//ELSE SI TOUT EST CORRECT DANS LES BORNES DES PARAMÈTRES --- BOUCLE DE JEU
+                }//ELSE SI TOUT EST CORRECT DANS LES BORNES DES PARAMÈTRES --- BOUCLE DE JEU*/
 
             }//IF DE IF (ARGS LENGTH==5)
 

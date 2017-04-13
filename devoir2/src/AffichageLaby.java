@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Graphics.*;
 
 /**
  * Created by jeremycoulombe on 17-04-01.
@@ -45,13 +44,48 @@ public class AffichageLaby extends JComponent
 
         g.drawLine(largeur,0,largeur,labyrinthe.getSortieY());
         //fait cote droit jusqu a sortie
+
         if (labyrinthe.getSortieY()!= hauteur)
         { //si sortie pas en bas a droite alors continue 1 case plus loin
             g.drawLine(largeur, labyrinthe.getSortieY() + tailleMurVertical, largeur,hauteur );
         }
 
-        
+        for (int i=0;i<labyrinthe.getH();i++)//hauteur y
+        {
+            for(int j=0; j< labyrinthe.getL();j++)//largeur x
+            {
+                boolean murVertical= labyrinthe.getListe().chercheMuret(new Muret(j,i,true,false))!=null;
+                boolean murHorizontal= labyrinthe.getListe().chercheMuret(new Muret(j,i,false,false))!=null;
 
+                if (murVertical || murHorizontal )
+                {
+                    boolean enBordure= i==0 || j==labyrinthe.getL()-1 || j==0 || i== labyrinthe.getH()-1;
+
+                    if(!enBordure)
+                    {
+                        int x2=j*tailleMurHorizontal+tailleMurHorizontal;
+                        int y2=i*tailleMurVertical+tailleMurVertical;
+
+                        if(murVertical)
+                        {
+                            g.drawLine(j * tailleMurHorizontal, i * tailleMurVertical, j * tailleMurHorizontal, y2);
+                        }
+
+                        if(murHorizontal)
+                        {
+                            g.drawLine(j * tailleMurHorizontal,i * tailleMurVertical,x2,i * tailleMurVertical);
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        int x1= (int)(labyrinthe.getPerso().getPositionXPersonnage())*tailleMurHorizontal;
+        int y1= (int)(labyrinthe.getPerso().getPositionYPersonnage())*tailleMurVertical;
+
+        labyrinthe.getPerso().dessine(g,x1,y1,x1+tailleMurHorizontal,y1+tailleMurVertical);
 
 
 

@@ -141,6 +141,11 @@ public class Labyrinthe
         return perso;
     }
 
+    public ListeMuret getListe()
+    {
+        return liste;
+    }
+
 
     public String toString() {
 
