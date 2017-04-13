@@ -6,14 +6,35 @@ import java.awt.*;
  */
 public class JPanelLaby extends JPanel
 {
-    public JPanelLaby(int largeur,int hauteur,double densiteLaby,double delai, int nbVie)
+
+    //mettre differents boutons
+    public JPanelLaby(Labyrinthe labyrinthe)
     {
-        AffichageLaby affichageLaby= new AffichageLaby(new Labyrinthe(largeur,hauteur,densiteLaby,delai,nbVie));
+
+        AffichageLaby affichageLaby= new AffichageLaby(labyrinthe);
         //cree affichageLaby qui sera afficher au Centre
 
-        setLayout(new BorderLayout());//mets le Borderlayout comme layout
+        this.setLayout(new BorderLayout());//mets le Borderlayout comme layout
 
-        add(affichageLaby,BorderLayout.CENTER);//mets affichageLaby au centre
+        this.add(affichageLaby,BorderLayout.CENTER);//mets affichageLaby au centre
 
+    }
+
+
+    public boolean boucleDeJeu(Labyrinthe labyrinthe)
+    {
+
+        while (labyrinthe.getPerso().getviesRestantes()!=0)
+        {
+            double positionXPerso= labyrinthe.getPerso().getPositionXPersonnage();
+
+            double positionYPerso= labyrinthe.getPerso().getPositionYPersonnage();
+
+            if ((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()-0.5))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

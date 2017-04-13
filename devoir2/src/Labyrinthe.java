@@ -136,6 +136,12 @@ public class Labyrinthe
         return sortieY;
     }
 
+    public Personnage getPerso()
+    {
+        return perso;
+    }
+
+
     public String toString() {
 
         String bordureSup = "- - - "; //On va accumuler cette unité
