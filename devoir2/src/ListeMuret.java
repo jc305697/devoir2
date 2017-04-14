@@ -3,8 +3,8 @@
  */
 public class ListeMuret
 {
-    NoeudMuret premierNoeud;
-    int size;
+    private NoeudMuret premierNoeud;
+   private int size;
 
     /**
      * constructeur de la liste
@@ -14,6 +14,18 @@ public class ListeMuret
         premierNoeud=null;
         size=0;
     }
+
+    public int getSize()
+    {
+        return size;
+    }
+
+    public NoeudMuret getPremierNoeud()
+    {
+        return premierNoeud;
+    }
+
+
 
 
     /**
@@ -77,6 +89,7 @@ public class ListeMuret
         if (premierNoeud == null)//si premier noeud n'est pas nulle
         {
           //  System.out.println("retourne null");
+            //System.out.println("premierNoeud==null");
             return null;
 
         }
@@ -90,7 +103,7 @@ public class ListeMuret
 
        // if (noeud.element.equals(m))
 
-        if (noeud!=null)
+        if (noeud.element.equals(m))
         {
 
            /* if (noeud.element.equals(m))//methode equals redefini dans muret

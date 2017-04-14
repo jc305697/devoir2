@@ -19,7 +19,7 @@ public class AffichageLaby extends JComponent
 
         Graphics2D graphics2D=(Graphics2D)g;//cast pour avoir plus de methodes
 
-        System.out.println("rendu affichage");
+       // System.out.println("rendu affichage");
 
         int largeur = getWidth();//obtient largeur disponible
 
@@ -76,11 +76,11 @@ public class AffichageLaby extends JComponent
                 //System.out.println("evalue condition");
                 if (murVertical || murHorizontal )
                 {
-                    boolean enBordure= i==0 || j==labyrinthe.getL()-1 || j==0 || i== labyrinthe.getH()-1;
+                  //  boolean enBordure= i==0 || j==labyrinthe.getL()-1 || j==0 || i== labyrinthe.getH()-1;
                     //System.out.println("condition non nulle vrai");
 
-                    if(!enBordure)
-                    {
+                 //   if(!enBordure)
+                  //  {
                      //   System.out.println("pas en bordure");
 
                         int x2=j*tailleMurHorizontal+tailleMurHorizontal;
@@ -96,7 +96,7 @@ public class AffichageLaby extends JComponent
                             g.drawLine(j * tailleMurHorizontal-1,i * tailleMurVertical-1,x2-1,i * tailleMurVertical-1);
                         }
 
-                    }
+                   // }
 
                 }
             }

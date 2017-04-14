@@ -32,7 +32,9 @@ public class Muret
      */
     public boolean equals(Object obj)
     {
-       if (obj instanceof Muret) //si peut voir obj comme muret
+        //System.out.println(obj instanceof Muret);
+
+        if (obj instanceof Muret) //si peut voir obj comme muret
        {
            Muret referenceObj= (Muret)obj;//stocke cast de reference pour simplifier le code
 
@@ -41,9 +43,12 @@ public class Muret
            boolean compVert= this.vertical==referenceObj.vertical; // meme orientation
            if (coordX && coordY && compVert)
            {
+             // System.out.println("retourne true");
                return true;//si les coordonnes en x, y et l'orientation sont = alors retourne true
            }
        }
+
+     //  System.out.println("retourne false");
 
        return false;//si arrive ici alors necessairement false
 

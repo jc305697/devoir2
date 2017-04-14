@@ -58,7 +58,6 @@ public class Labyrinthe
                     if(liste.chercheMuret(nouveauMuret2)==null)
                     {
                         liste.ajoutMuret(nouveauMuret2);//ajoute muret horizontale au bout
-
                         nbMursRestants--;
                         nbMurets++;
                         System.out.println(nbMurets);
@@ -70,7 +69,9 @@ public class Labyrinthe
         System.out.println("sort de while");
 
 
-        */for (int i=0;i<h;i++)//hauteur commence a 0 genre de y
+
+        */ int nbMurs=0;
+     for (int i=0;i<h;i++)//hauteur commence a 0 genre de y
         {
             for (int j=0;j<l;j++)//largeur commence a 0 genre de x
             {
@@ -100,8 +101,9 @@ public class Labyrinthe
                         liste.ajoutMuret(new Muret(j, 0, false, true));//ajoute muret horizontale en bas
                  //   }*/
                // }
-                if (!contour)//je ne suis ni sur la ligne du haut ou sur la ligne du bas
-                {
+                //if (!contour)//je ne suis ni sur la ligne du haut ou sur la ligne du bas
+                //{
+
                     if (Math.random()<densiteLaby)//nb aleatoire < densitelaby   et pas completement a droite
                     {
                         Muret nouveauMuret=new Muret(j,i,false,true);//cree muret horizontal en j,i
@@ -109,8 +111,15 @@ public class Labyrinthe
                         //if (!liste.equals(nouveauMuret))//le muret n'est pas dans la liste
                         if (liste.chercheMuret(nouveauMuret)==null)//le muret n'est pas dans la liste
                         {
-                          System.out.println("ajoute muret");
+
+                         // System.out.println("ajoute muret");
+                            nbMurs++;
+
+                            System.out.println("nombre murs");
+                            System.out.println(nbMurs);
+
                             liste.ajoutMuret(nouveauMuret);//ajoute a la liste
+
                         }
                     }
 
@@ -119,13 +128,18 @@ public class Labyrinthe
                         Muret nouveauMuret1=new Muret(j,i,true,true);//cree mur vertical
                         if (liste.chercheMuret(nouveauMuret1)==null)//n'est pas dans la liste
                         {
-                            System.out.println("ajoute muret");
+                            //System.out.println("ajoute muret");
+                            nbMurs++;
 
+                            System.out.println("nombre murs");
+                            System.out.println(nbMurs);
                             liste.ajoutMuret(nouveauMuret1);//ajoute a la liste
+
+
                         }
                     }
 
-                }
+                //}
 
             }
         }
