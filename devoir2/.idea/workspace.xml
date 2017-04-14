@@ -33,10 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AffichageLaby.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AffichageLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
+            <state relative-caret-position="345">
               <caret line="90" column="87" lean-forward="false" selection-start-line="90" selection-start-column="87" selection-end-line="90" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,7 +58,7 @@
       <file leaf-file-name="Muret.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Muret.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="523">
               <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
               <folding />
             </state>
@@ -90,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1695">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="1191">
+              <caret line="377" column="17" lean-forward="true" selection-start-line="377" selection-start-column="17" selection-end-line="377" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -129,8 +129,8 @@
         <option value="$PROJECT_DIR$/src/JeuLaby.java" />
         <option value="$PROJECT_DIR$/src/ListeMuret.java" />
         <option value="$PROJECT_DIR$/src/Muret.java" />
-        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
         <option value="$PROJECT_DIR$/src/AffichageLaby.java" />
+        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
       </list>
     </option>
   </component>
@@ -153,6 +153,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
@@ -183,7 +184,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -924,22 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Muret.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ListeMuret.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
@@ -953,21 +937,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1695">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
+        <state relative-caret-position="345">
           <caret line="90" column="87" lean-forward="false" selection-start-line="90" selection-start-column="87" selection-end-line="90" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Muret.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1191">
+          <caret line="377" column="17" lean-forward="true" selection-start-line="377" selection-start-column="17" selection-end-line="377" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

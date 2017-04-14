@@ -371,7 +371,7 @@ public class Labyrinthe
                     return false;
                 }
 
-                if (this.perso.getPositionYPersonnage()+.5==h-1)
+                if ((this.perso.getPositionYPersonnage()+.5==h-1) && !(this.perso.getPositionXPersonnage()+.5!=sortieX))
                 {
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
