@@ -33,36 +33,44 @@ public class Labyrinthe
                     {
                         if (((j == 0) || (j == l - 1)))//je suis soit a gauche completement ou a droite completement
                         {
-                            liste.ajoutMuret(new Muret(j, 0, true, true));
-
+                            liste.ajoutMuret(new Muret(j, 0, true, true));//ajoute muret horizontale au bout
+                            System.out.println("ajoute muret");
                         }
+
                         else
                         {
-                            liste.ajoutMuret(new Muret(j, 0, false, true));
+                            System.out.println("ajoute muret");
+
+                            liste.ajoutMuret(new Muret(j, 0, false, true));//ajoute muret horizontale
                         }
                     }
 
                     if(i==h-1)//je suis sur la ligne du bas
                     {
-                        liste.ajoutMuret(new Muret(j, 0, false, true));
+                        System.out.println("ajoute muret");
+                        liste.ajoutMuret(new Muret(j, 0, false, true));//ajoute muret horizontale en bas
                     }
                // }
                 if (!hautOuBas)//je ne suis ni sur la ligne du haut ou sur la ligne du bas
                 {
-                    if ((Math.random()<densiteLaby)&&(j!=l-1))//muret horizontal et pas completement a droite
+                    if ((Math.random()<densiteLaby)&&(j!=l-1))//nb aleatoire < densitelaby   et pas completement a droite
                     {
-                        Muret nouveauMuret=new Muret(j,i,false,true);
-                        if (!liste.equals(nouveauMuret))//n'est pas dans la liste
+                        Muret nouveauMuret=new Muret(j,i,false,true);//cree muret horizontal en j,i
+
+                        if (!liste.equals(nouveauMuret))//le muret n'est pas dans la liste
                         {
+                          System.out.println("ajoute muret");
                             liste.ajoutMuret(nouveauMuret);//ajoute a la liste
                         }
                     }
 
-                    if ((Math.random()<densiteLaby)&&(i!=h-1))//je ne suis pas sur la derniere ligne
+                    if ((Math.random()<densiteLaby)&&(i!=h-1))//nb aleatoire < densitelaby  et je ne suis pas sur la derniere ligne
                     {
-                        Muret nouveauMuret=new Muret(j,i,false,true);
+                        Muret nouveauMuret=new Muret(j,i,true,true);//cree mur vertical
                         if (!liste.equals(nouveauMuret))//n'est pas dans la liste
                         {
+                            System.out.println("ajoute muret");
+
                             liste.ajoutMuret(nouveauMuret);//ajoute a la liste
                         }
                     }
@@ -77,7 +85,7 @@ public class Labyrinthe
 
         //perso doit etre colle sur mur le gauche
         double posAleatPersoX= 0.5;
-        double posAleatPersoY= (double)Math.round(Math.random()*(h-1))+0.5;
+        double posAleatPersoY= (double)(Math.round(Math.random()*(h-1)))+0.5;
 
         this.perso.setPositionXPersonnage(posAleatPersoX);
         this.perso.setPositionYPersonnage(posAleatPersoY);

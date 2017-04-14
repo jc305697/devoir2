@@ -36,12 +36,12 @@ public class Muret
        {
            Muret referenceObj= (Muret)obj;//stocke cast de reference pour simplifier le code
 
-           boolean coordX = this.x == referenceObj.x;
-           boolean coordY= this.y==referenceObj.y;
-           boolean compVert= this.vertical==referenceObj.vertical;
+           boolean coordX = this.x == referenceObj.x;//meme xoord en x
+           boolean coordY= this.y==referenceObj.y; //meme coord en y
+           boolean compVert= this.vertical==referenceObj.vertical; // meme orientation
            if (coordX && coordY && compVert)
            {
-               return true;//si les coordonnes en x, y et l'orientation sont = alors true
+               return true;//si les coordonnes en x, y et l'orientation sont = alors retourne true
            }
        }
 

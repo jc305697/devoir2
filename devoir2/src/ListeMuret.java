@@ -3,7 +3,7 @@
  */
 public class ListeMuret
 {
-    NoeudMuret premierNeud;
+    NoeudMuret premierNoeud;
     int size;
 
     /**
@@ -11,7 +11,7 @@ public class ListeMuret
      */
     public ListeMuret()
     {
-        premierNeud=null;
+        premierNoeud=null;
         size=0;
     }
 
@@ -24,8 +24,9 @@ public class ListeMuret
     {
         NoeudMuret nouveauPremierNoeud=new NoeudMuret(nouveauMuret,null);
 
-        nouveauPremierNoeud.noeudSuivant=premierNeud;
+        nouveauPremierNoeud.noeudSuivant=premierNoeud;
 
+        premierNoeud=nouveauPremierNoeud;
         size++;
     }
 
@@ -34,9 +35,9 @@ public class ListeMuret
      */
    public void tousInvisible()
     {
-       if(premierNeud!=null)//si premier noeud n'est pas nulle
+       if(premierNoeud!=null)//si premier noeud n'est pas nulle
        {
-           NoeudMuret noeud= premierNeud;
+           NoeudMuret noeud= premierNoeud;
 
            while (noeud.noeudSuivant!=null)//continue tant que prochain noeud n'est pas = à null
            {
@@ -52,9 +53,9 @@ public class ListeMuret
      */
     public void tousVisible()
     {
-        if(premierNeud!=null)//si premier noeud n'est pas nulle
+        if(premierNoeud!=null)//si premier noeud n'est pas nulle
         {
-            NoeudMuret noeud= premierNeud;
+            NoeudMuret noeud= premierNoeud;
 
             while (noeud.noeudSuivant!=null)//continue tant que prochain noeud n'est pas = à null
             {
@@ -73,27 +74,35 @@ public class ListeMuret
     public Muret chercheMuret(Muret m)
     {
 
-        if (premierNeud == null)//si premier noeud n'est pas nulle
+        if (premierNoeud == null)//si premier noeud n'est pas nulle
         {
+            System.out.println("retourne null");
             return null;
+
         }
 
-        NoeudMuret noeud = premierNeud;
+        NoeudMuret noeud = premierNoeud;
 
-        while ((noeud.noeudSuivant != null)&&(noeud.element.equals(m)))//continue tant que prochain noeud n'est pas = à null
+        while ((noeud.noeudSuivant != null)&&(noeud.element.equals(m)==false))//continue tant que prochain noeud n'est pas = à null
         {
             noeud = noeud.noeudSuivant;
         }
 
        // if (noeud.element.equals(m))
+
         if (noeud!=null)
         {
 
-            if (noeud.element.equals(m))//methode equals redefini dans muret
+           /* if (noeud.element.equals(m))//methode equals redefini dans muret
             {
+                System.out.println("retourne muret");
                 return noeud.element;
-            }
+            }*/
+            System.out.println("retourne muret");
+
+            return noeud.element;
         }
+        System.out.println("retourne null");
 
         return null;//si rendu ici alors pas dans la liste
 
