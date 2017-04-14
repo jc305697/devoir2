@@ -59,8 +59,10 @@ public class JeuLaby
                     int visibiliteTimed = Integer.parseInt(args[3]);
                     int viesRestantes = Integer.parseInt(args[4]);
 
+                    System.out.println("rendu ici");
                     Labyrinthe laby = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
 
+                    System.out.println("rendu ici");
                     // laby.toString();
                     //System.out.println(laby);
 
@@ -69,7 +71,11 @@ public class JeuLaby
 
                     JPanelLaby panelLaby = new JPanelLaby(laby);
 
+                    System.out.println("rendu ici");
                     fenetreJeu.add(panelLaby);
+                    System.out.println("rendu ici");
+
+
 
                     Dimension dimensionEcran = Toolkit.getDefaultToolkit().getScreenSize();
                     int hauteurAffichage = (int) (dimensionEcran.height * 0.25);//hauteur de la fenetre sera le 1/4 de l ecran au debut

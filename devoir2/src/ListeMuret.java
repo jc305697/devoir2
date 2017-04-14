@@ -76,7 +76,7 @@ public class ListeMuret
 
         if (premierNoeud == null)//si premier noeud n'est pas nulle
         {
-            System.out.println("retourne null");
+          //  System.out.println("retourne null");
             return null;
 
         }
@@ -98,11 +98,11 @@ public class ListeMuret
                 System.out.println("retourne muret");
                 return noeud.element;
             }*/
-            System.out.println("retourne muret");
+          //  System.out.println("retourne muret");
 
             return noeud.element;
         }
-        System.out.println("retourne null");
+      //  System.out.println("retourne null");
 
         return null;//si rendu ici alors pas dans la liste
 

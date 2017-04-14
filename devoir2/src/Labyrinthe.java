@@ -21,15 +21,64 @@ public class Labyrinthe
         //int nbMurs= 2*(l+h);
 
        // for (int i=0;i<nbMurs;i++)
-        for (int i=0;i<h;i++)//hauteur commence a 0 genre de y
+     /*   double Random = densiteLaby*2*l*(h-1);
+        int num_Random = (int) Random;
+
+        int nbMursRestants= num_Random;
+        int nbMurets=0;
+
+        while (nbMursRestants!=0)
+        {
+           int posX= (int)(Math.random()*(l-1));
+           int posY= (int)(Math.random()*(h-1));
+            boolean contour= (posY==0) || (posY==h-1) || (posX==l-1) || (posX==0);
+
+            if (!contour)
+            {
+                double nbAleat= Math.random();
+
+
+         System.out.println(nbMursRestants);
+                if (nbAleat<0.5)
+                {
+                    Muret nouveauMuret1=new Muret(posX, posY, true, true);
+                    if (liste.chercheMuret(nouveauMuret1)==null) {
+                        liste.ajoutMuret(nouveauMuret1);//ajoute muret horizontale au bout
+                        nbMursRestants--;
+                        nbMurets++;
+
+                        System.out.println(nbMurets);
+                    }
+
+                }
+
+                if (nbAleat>=.5)
+                {
+                    Muret nouveauMuret2=new Muret(posX, posY, false, true);
+                    if(liste.chercheMuret(nouveauMuret2)==null)
+                    {
+                        liste.ajoutMuret(nouveauMuret2);//ajoute muret horizontale au bout
+
+                        nbMursRestants--;
+                        nbMurets++;
+                        System.out.println(nbMurets);
+                    }
+
+                }
+            }
+        }
+        System.out.println("sort de while");
+
+
+        */for (int i=0;i<h;i++)//hauteur commence a 0 genre de y
         {
             for (int j=0;j<l;j++)//largeur commence a 0 genre de x
             {
-                boolean hautOuBas= (i==0) || (i==h-1);
+                boolean contour= (i==0) || (i==h-1) || (j==l-1) || (j==0);
 
                 //if (hautOuBas)
                 //{
-                    if (i==0)//je suis sur la ligne en haut ajoute les contours
+                 /* //  if (i==0)//je suis sur la ligne en haut ajoute les contours
                     {
                         if (((j == 0) || (j == l - 1)))//je suis soit a gauche completement ou a droite completement
                         {
@@ -49,32 +98,32 @@ public class Labyrinthe
                     {
                         System.out.println("ajoute muret");
                         liste.ajoutMuret(new Muret(j, 0, false, true));//ajoute muret horizontale en bas
-                    }
+                 //   }*/
                // }
-                if (!hautOuBas)//je ne suis ni sur la ligne du haut ou sur la ligne du bas
+                if (!contour)//je ne suis ni sur la ligne du haut ou sur la ligne du bas
                 {
-                    if ((Math.random()<densiteLaby)&&(j!=l-1))//nb aleatoire < densitelaby   et pas completement a droite
+                    if (Math.random()<densiteLaby)//nb aleatoire < densitelaby   et pas completement a droite
                     {
                         Muret nouveauMuret=new Muret(j,i,false,true);//cree muret horizontal en j,i
 
-                        if (!liste.equals(nouveauMuret))//le muret n'est pas dans la liste
+                        //if (!liste.equals(nouveauMuret))//le muret n'est pas dans la liste
+                        if (liste.chercheMuret(nouveauMuret)==null)//le muret n'est pas dans la liste
                         {
                           System.out.println("ajoute muret");
                             liste.ajoutMuret(nouveauMuret);//ajoute a la liste
                         }
                     }
 
-                    if ((Math.random()<densiteLaby)&&(i!=h-1))//nb aleatoire < densitelaby  et je ne suis pas sur la derniere ligne
+                    if (Math.random()<densiteLaby)//nb aleatoire < densitelaby  et je ne suis pas sur la derniere ligne
                     {
-                        Muret nouveauMuret=new Muret(j,i,true,true);//cree mur vertical
-                        if (!liste.equals(nouveauMuret))//n'est pas dans la liste
+                        Muret nouveauMuret1=new Muret(j,i,true,true);//cree mur vertical
+                        if (liste.chercheMuret(nouveauMuret1)==null)//n'est pas dans la liste
                         {
                             System.out.println("ajoute muret");
 
-                            liste.ajoutMuret(nouveauMuret);//ajoute a la liste
+                            liste.ajoutMuret(nouveauMuret1);//ajoute a la liste
                         }
                     }
-
 
                 }
 
@@ -292,8 +341,7 @@ public class Labyrinthe
                     }*/
                //if ((this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null))
                 if (this.liste.chercheMuret(muretDVert1)!=null)
-
-            {
+                {
 
                     if (this.liste.chercheMuret(muretDVert1)!=null)
                     {
@@ -305,6 +353,12 @@ public class Labyrinthe
                         this.liste.chercheMuret(muretDVert2).setVisible(true);
                     }*/
 
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    return false;
+                }
+
+                if (this.perso.getPositionYPersonnage()+.5==h-1)
+                {
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
@@ -347,6 +401,11 @@ public class Labyrinthe
                     return false;
                 }
 
+                if (this.perso.getPositionXPersonnage()-.5==0)
+                {
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    return false;
+                }
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()+1);
                 return true;
 
@@ -386,6 +445,12 @@ public class Labyrinthe
                     return false;
                 }
 
+                if (this.perso.getPositionYPersonnage()-.5==0)
+                {
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    return false;
+                }
+
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()+1);
                 return true;
 
@@ -419,6 +484,12 @@ public class Labyrinthe
                         this.liste.chercheMuret(muretHVert2).setVisible(true);
                     }*/
 
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    return false;
+                }
+
+                if (this.perso.getPositionXPersonnage()+.5==l-1)
+                {
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
