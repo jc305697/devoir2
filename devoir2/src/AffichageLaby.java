@@ -15,7 +15,7 @@ public class AffichageLaby extends JComponent
 
     public void paintComponent (Graphics g)
     {
-        super.paintComponent(g);//comme dans l'exemple en clasee
+        super.paintComponent(g);//comme dans l'exemple en classe
 
         Graphics2D graphics2D=(Graphics2D)g;//cast pour avoir plus de methodes
 

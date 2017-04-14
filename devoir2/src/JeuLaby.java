@@ -78,6 +78,8 @@ public class JeuLaby
 
                     fenetreJeu.setSize(largeurAffichage, hauteurAffichage);//specifie la taille au depart de la fentre de jeu
 
+                    fenetreJeu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
                     fenetreJeu.setVisible(true);
 
                     while (true) {
