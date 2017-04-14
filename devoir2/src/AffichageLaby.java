@@ -88,7 +88,10 @@ public class AffichageLaby extends JComponent
 
                         if(murVertical)
                         {
-                            g.drawLine(j * tailleMurHorizontal-1, i * tailleMurVertical-1, j * tailleMurHorizontal-1, y2-1);
+                            if (j!=labyrinthe.getSortieX()) //veut pas couper la sortie
+                            {
+                                g.drawLine(j * tailleMurHorizontal - 1, i * tailleMurVertical - 1, j * tailleMurHorizontal - 1, y2 - 1);
+                            }
                         }
 
                         if(murHorizontal)
