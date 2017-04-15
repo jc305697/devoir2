@@ -68,11 +68,14 @@ public class JeuLaby
 
                     JFrame fenetreJeu = new JFrame("Labyrinthe");//cree fenetre de jeu
 
+                    //JPanel jPanel= (JPanel) fenetreJeu.getContentPane();
+                    //jPanel=new JPanelLaby(laby);;
 
                     JPanelLaby panelLaby = new JPanelLaby(laby);
 
                     //System.out.println("rendu ici");
-                    fenetreJeu.add(panelLaby);
+                    fenetreJeu.setContentPane(panelLaby);
+                  //  fenetreJeu.add(panelLaby);
                    // System.out.println("rendu ici");
 
 
