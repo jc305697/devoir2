@@ -115,8 +115,8 @@ public class Labyrinthe
                          // System.out.println("ajoute muret");
                             nbMurs++;
 
-                            System.out.println("nombre murs");
-                            System.out.println(nbMurs);
+                            //System.out.println("nombre murs");
+                            //System.out.println(nbMurs);
 
                             liste.ajoutMuret(nouveauMuret);//ajoute a la liste
 
@@ -131,8 +131,8 @@ public class Labyrinthe
                             //System.out.println("ajoute muret");
                             nbMurs++;
 
-                            System.out.println("nombre murs");
-                            System.out.println(nbMurs);
+                           // System.out.println("nombre murs");
+                           // System.out.println(nbMurs);
                             liste.ajoutMuret(nouveauMuret1);//ajoute a la liste
 
 
