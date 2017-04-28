@@ -109,7 +109,7 @@ private JLabel texteVie;
             public void actionPerformed(ActionEvent e)
             {
                 labyrinthe.getListe().tousVisible();
-                //mettre appel à fonction de intelligence artificielle
+                labyrinthe.intelligenceArtificielle();
             }
 
         });
@@ -120,7 +120,7 @@ private JLabel texteVie;
         {
             public void actionPerformed(ActionEvent e)
             {
-                //mettre appel à fonction de intelligence artificielle
+                labyrinthe.intelligenceArtificielle();
             }
 
         });
@@ -324,4 +324,6 @@ private JLabel texteVie;
     {
         return this.affichageLaby;
     }
+
+
 }

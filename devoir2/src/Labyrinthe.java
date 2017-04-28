@@ -513,4 +513,42 @@ public class Labyrinthe
         }
         return false;
     }
+
+    public boolean intelligenceArtificielle()
+    {
+        while(true)
+        {
+            double posXperso = perso.getPositionXPersonnage();
+            double posYperso = perso.getPositionYPersonnage();
+
+            boolean murDroite = liste.chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
+            boolean murBas = liste.chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
+
+
+            boolean murGauche = liste.chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
+            boolean murHaut = liste.chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
+
+            if (murDroite) {
+                if (murGauche && murBas && murHaut)//bloque
+                {
+                    return false;
+                }
+
+                if (murBas && murHaut) {
+                    this.deplace('G');
+                }
+
+                if (murBas && murGauche) {
+                    this.deplace('H');
+                }
+
+
+            } else {
+                this.deplace('D');
+            }
+        }
+        return true;
+
+
+    }
 }
