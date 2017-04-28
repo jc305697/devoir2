@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -10,6 +12,7 @@ public class JPanelLaby extends JPanel implements KeyListener
 {
 private Labyrinthe labyrinthe;
 private AffichageLaby affichageLaby;
+private JLabel texteVie;
     //mettre differents boutons
     public JPanelLaby(Labyrinthe labyrinthe)
     {
@@ -21,6 +24,114 @@ private AffichageLaby affichageLaby;
         this.setLayout(new BorderLayout());//mets le Borderlayout comme layout
         this.requestFocus();
         this.add(affichageLaby,BorderLayout.CENTER);//mets affichageLaby au centre
+
+        JPanel panneauDroit=new JPanel();
+        panneauDroit.setLayout(new BorderLayout());
+
+       JLabel indicationsTouches = new JLabel("droite: d; gauche: g ou s; haut: h ou e; bas: b ou x");
+
+       JLabel texteVie= new JLabel("Il vous reste "+labyrinthe.getPerso().getviesRestantes()+" vies");
+
+      this.texteVie=texteVie;
+      JPanel panneauDroitHaut= new JPanel();
+
+      panneauDroitHaut.setLayout(new BorderLayout());
+
+      panneauDroitHaut.add(indicationsTouches,BorderLayout.NORTH);
+
+      panneauDroitHaut.add(texteVie,BorderLayout.CENTER);
+
+
+      panneauDroit.add(panneauDroitHaut,BorderLayout.NORTH);
+
+       //cree les boutons pour les deplacements
+        JButton haut = new JButton("haut");
+
+        haut.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('H');
+            }
+
+        });
+
+        JButton bas = new JButton("bas");
+
+        bas.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('B');
+            }
+
+        });
+
+        JButton droit = new JButton("droit");
+
+        droit.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('D');
+            }
+
+        });
+
+        JButton gauche = new JButton("gauche");
+
+        gauche.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('H');
+            }
+
+        });
+
+
+
+        JPanel panneauDroitDroit= new JPanel();//cree sous-panneau du sous-panneau du JPanel principal qui contiendra les boutons
+
+        panneauDroitDroit.setLayout(new BorderLayout());//met comme Layout border layout
+
+        panneauDroitDroit.add(haut,BorderLayout.NORTH);//ajoute boutons au panneau
+        panneauDroitDroit.add(bas,BorderLayout.SOUTH);
+        panneauDroitDroit.add(gauche,BorderLayout.EAST);
+        panneauDroitDroit.add(droit,BorderLayout.WEST);
+
+        panneauDroit.add(panneauDroitDroit,BorderLayout.WEST);//ajoute panneau avec boutons aux sous-panneaux droit du Jpanel principal
+
+       JButton mursVisible = new JButton("rendre murs visibles");
+
+        mursVisible.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.getListe().tousVisible();
+                //mettre appel à fonction de intelligence artificielle
+            }
+
+        });
+
+        JButton boutonIA = new JButton("intelligence artificielle");
+
+        mursVisible.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                //mettre appel à fonction de intelligence artificielle
+            }
+
+        });
+
+        panneauDroit.add(mursVisible,BorderLayout.SOUTH);
+
+        panneauDroit.add(boutonIA,BorderLayout.EAST);
+
+
+        this.add(panneauDroit,BorderLayout.EAST);
+
 
     }
 
@@ -202,5 +313,15 @@ private AffichageLaby affichageLaby;
                 System.out.println("3");
 
         }
+    }
+
+    public void setTextVie()
+    {
+        this.texteVie.setText("Il vous reste "+this.labyrinthe.getPerso().getviesRestantes()+" vies");
+    }
+
+    public AffichageLaby getAffichageLaby()
+    {
+        return this.affichageLaby;
     }
 }

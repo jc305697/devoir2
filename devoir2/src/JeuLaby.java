@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 /**
@@ -73,17 +75,37 @@ public class JeuLaby
 
                     JPanelLaby panelLaby = new JPanelLaby(laby);
 
-                    //System.out.println("rendu ici");
+                    int indicateurTimer=0;
+
+                    //rend invisible les murs après un certain temps
+                    ActionListener rendreMursInvisible = new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e)
+                        {
+                            if (indicateurTimer==0)
+                            {
+                                laby.getListe().tousInvisible();
+                                panelLaby.repaint();
+                                panelLaby.getAffichageLaby().repaint();
+                            }
+
+                        }
+                    };
+
+                    int delai= visibiliteTimed*1000;//converti en millisecondes
+                    Timer timer = new Timer(delai,rendreMursInvisible);
+
+
                     fenetreJeu.setContentPane(panelLaby);
                   //  fenetreJeu.add(panelLaby);
-                   // System.out.println("rendu ici");
+
 
 
 
                     Dimension dimensionEcran = Toolkit.getDefaultToolkit().getScreenSize();
-                    int hauteurAffichage = (int) (dimensionEcran.height * 0.25);//hauteur de la fenetre sera le 1/4 de l ecran au debut
+                    int hauteurAffichage = (int) (dimensionEcran.height * 0.50);//hauteur de la fenetre sera le 1/4 de l ecran au debut
 
-                    int largeurAffichage = (int) (dimensionEcran.width * 0.25);//largeur de la fenetre sera le 1/4 de l ecran au debut
+                    int largeurAffichage = (int) (dimensionEcran.width * 0.50);//largeur de la fenetre sera le 1/4 de l ecran au debut
 
                     fenetreJeu.setSize(largeurAffichage, hauteurAffichage);//specifie la taille au depart de la fentre de jeu
 
@@ -106,7 +128,7 @@ public class JeuLaby
                             //mettre fenetre de dialogue qui dit que la personne a gagner et demander si veut jouer encore...
                             //JoptionPane.showMessageDialog;
                             //if(veutplus jouer ) fait break
-                            //si veut jouer encore appele fonction qui reset le affichage jlaby et les composants
+                            //si veut jouer encore appele fonction qui reset le affichage jlaby et les composants et remet indicateurTimer a 0
                         }
 
 
