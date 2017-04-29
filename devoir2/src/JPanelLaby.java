@@ -13,16 +13,18 @@ public class JPanelLaby extends JPanel implements KeyListener
 private Labyrinthe labyrinthe;
 private AffichageLaby affichageLaby;
 private JLabel texteVie;
+private boolean timerBoolean;
+private Timer minuterie;
     //mettre differents boutons
-    public JPanelLaby(Labyrinthe labyrinthe)
+    public JPanelLaby(Labyrinthe labyrinthe,int visibilite)
     {
 
+        this.timerBoolean=false;
         AffichageLaby affichageLaby= new AffichageLaby(labyrinthe);
         //cree affichageLaby qui sera afficher au Centre
         this.labyrinthe=labyrinthe;
         this.affichageLaby=affichageLaby;
         this.setLayout(new BorderLayout());//mets le Borderlayout comme layout
-        this.requestFocus();
         this.add(affichageLaby,BorderLayout.CENTER);//mets affichageLaby au centre
 
         JPanel panneauDroit=new JPanel();
@@ -52,6 +54,7 @@ private JLabel texteVie;
             public void actionPerformed(ActionEvent e)
             {
                 labyrinthe.deplace('H');
+                repaint();
             }
 
         });
@@ -63,6 +66,7 @@ private JLabel texteVie;
             public void actionPerformed(ActionEvent e)
             {
                 labyrinthe.deplace('B');
+                repaint();
             }
 
         });
@@ -74,6 +78,7 @@ private JLabel texteVie;
             public void actionPerformed(ActionEvent e)
             {
                 labyrinthe.deplace('D');
+                repaint();
             }
 
         });
@@ -84,7 +89,8 @@ private JLabel texteVie;
         {
             public void actionPerformed(ActionEvent e)
             {
-                labyrinthe.deplace('H');
+                labyrinthe.deplace('G');
+                repaint();
             }
 
         });
@@ -109,7 +115,6 @@ private JLabel texteVie;
             public void actionPerformed(ActionEvent e)
             {
                 labyrinthe.getListe().tousVisible();
-                labyrinthe.intelligenceArtificielle();
             }
 
         });
@@ -133,6 +138,97 @@ private JLabel texteVie;
         this.add(panneauDroit,BorderLayout.EAST);
 
 
+        this.requestFocus();
+
+        Action versHaut =new AbstractAction()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('H');
+                repaint();
+                //affichageLaby.repaint();
+
+            }
+        };
+
+        String stringHaut= "vers Haut";
+        this.getInputMap().put(KeyStroke.getKeyStroke("h"),stringHaut);
+        this.getInputMap().put(KeyStroke.getKeyStroke("e"),stringHaut);
+
+
+        this.getActionMap().put(stringHaut,versHaut);
+
+        Action versBas =new AbstractAction()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('B');
+                repaint();
+                //affichageLaby.repaint();
+
+            }
+        };
+
+        String stringBas = "vers Bas";
+        this.getInputMap().put(KeyStroke.getKeyStroke("b"),stringBas);
+        this.getInputMap().put(KeyStroke.getKeyStroke("x"),stringBas);
+
+
+        this.getActionMap().put(stringBas,versHaut);
+
+        Action versGauche =new AbstractAction()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('G');
+                repaint();
+                // affichageLaby.repaint();
+            }
+        };
+
+        String stringGauche = "vers Gauche";
+        this.getInputMap().put(KeyStroke.getKeyStroke("g"),stringGauche);
+        this.getInputMap().put(KeyStroke.getKeyStroke("s"),stringGauche);
+
+
+        this.getActionMap().put(stringGauche,versHaut);
+
+        Action versDroite =new AbstractAction()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                labyrinthe.deplace('D');
+                repaint();
+                //affichageLaby.repaint();
+
+            }
+        };
+
+        String stringDroite = "vers Droite";
+        this.getInputMap().put(KeyStroke.getKeyStroke("d"),stringDroite);
+
+        this.getActionMap().put(stringDroite,versHaut);
+
+        int indicateurTimer;
+
+        //rend invisible les murs après un certain temps
+        ActionListener rendreMursInvisible = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                System.out.println("timer");
+                    labyrinthe.getListe().tousInvisible();
+                    repaint();
+                    affichageLaby.repaint();
+
+                    getMinuterie().stop();//arrete le timer
+            }
+        };
+
+        int delai= visibilite*1000;//converti en millisecondes
+        Timer timer = new Timer(delai,rendreMursInvisible);
+        timer.start();
+        this.minuterie=timer;
     }
 
 
@@ -211,108 +307,13 @@ private JLabel texteVie;
     {
         System.out.println("2");
 
-        switch (e.getKeyChar())
-        {
-            case('d'):
-                labyrinthe.deplace('D');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("d");
-                break;
-            case ('g'):
-                labyrinthe.deplace('G');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("g");
-                break;
-            case('s'):
-                labyrinthe.deplace('G');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("s");
-                break;
-            case('h'):
-                labyrinthe.deplace('H');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("h");
-                break;
-            case('e'):
-                labyrinthe.deplace('H');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("e");
-                break;
-            case ('b'):
-                labyrinthe.deplace('B');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("b");
-                break;
-            case('x'):
-                labyrinthe.deplace('x');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("x");
-                break;
-            default:
-                System.out.println("2");
 
-        }
     }
 
     public void keyTyped(KeyEvent e)
     {
         System.out.println("3");
 
-        switch (e.getKeyChar())
-        {
-            case('d'):
-                labyrinthe.deplace('D');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("d");
-                break;
-            case ('g'):
-                labyrinthe.deplace('G');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("g");
-                break;
-            case('s'):
-                labyrinthe.deplace('G');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("s");
-                break;
-            case('h'):
-                labyrinthe.deplace('H');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("h");
-                break;
-            case('e'):
-                labyrinthe.deplace('H');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("e");
-                break;
-            case ('b'):
-                labyrinthe.deplace('B');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("b");
-                break;
-            case('x'):
-                labyrinthe.deplace('x');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("x");
-                break;
-            default:
-                System.out.println("3");
-
-        }
     }
 
     public void setTextVie()
@@ -325,5 +326,14 @@ private JLabel texteVie;
         return this.affichageLaby;
     }
 
+    public Labyrinthe getLabyrinthe()
+    {
+        return this.labyrinthe;
+    }
+
+    public Timer getMinuterie()
+    {
+        return this.minuterie;
+    }
 
 }

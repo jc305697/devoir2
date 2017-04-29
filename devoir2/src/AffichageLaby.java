@@ -71,10 +71,21 @@ public class AffichageLaby extends JComponent
             for(int j=0; j< labyrinthe.getL();j++)//largeur x
             {
                 boolean murVertical= labyrinthe.getListe().chercheMuret(new Muret(j,i,true,false))!=null;
+
                 boolean murHorizontal= labyrinthe.getListe().chercheMuret(new Muret(j,i,false,false))!=null;
 
+                boolean murHorizontalVisible=false;
+                boolean murVerticalVisible=false;
+
+                if (murVertical) {
+                     murVerticalVisible = labyrinthe.getListe().chercheMuret(new Muret(j, i, true, false)).getVisible();
+                }
+                if (murHorizontal)
+                {
+                 murHorizontalVisible = labyrinthe.getListe().chercheMuret(new Muret(j, i, false, false)).getVisible();
+                }
                 //System.out.println("evalue condition");
-                if (murVertical || murHorizontal )
+                if ((murVertical && murVerticalVisible)|| (murHorizontal && murHorizontalVisible))
                 {
                   //  boolean enBordure= i==0 || j==labyrinthe.getL()-1 || j==0 || i== labyrinthe.getH()-1;
                     //System.out.println("condition non nulle vrai");

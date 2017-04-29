@@ -73,9 +73,9 @@ public class JeuLaby
                     //JPanel jPanel= (JPanel) fenetreJeu.getContentPane();
                     //jPanel=new JPanelLaby(laby);;
 
-                    JPanelLaby panelLaby = new JPanelLaby(laby);
+                    JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed);
 
-                    int indicateurTimer=0;
+                    /*int indicateurTimer=0;
 
                     //rend invisible les murs après un certain temps
                     ActionListener rendreMursInvisible = new ActionListener() {
@@ -93,7 +93,7 @@ public class JeuLaby
                     };
 
                     int delai= visibiliteTimed*1000;//converti en millisecondes
-                    Timer timer = new Timer(delai,rendreMursInvisible);
+                    Timer timer = new Timer(delai,rendreMursInvisible);*/
 
 
                     fenetreJeu.setContentPane(panelLaby);

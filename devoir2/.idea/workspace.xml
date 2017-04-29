@@ -16,8 +16,8 @@
       <file leaf-file-name="JeuLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="343">
+              <caret line="75" column="80" lean-forward="true" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -25,17 +25,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="122" column="54" lean-forward="false" selection-start-line="122" selection-start-column="54" selection-end-line="122" selection-end-column="54" />
+            <state relative-caret-position="124">
+              <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3685#3686#0" expanded="true" />
-                <element signature="e#3754#3755#0" expanded="true" />
-                <element signature="e#9631#9632#0" expanded="true" />
-                <element signature="e#9672#9673#0" expanded="true" />
+                <element signature="e#3523#3524#0" expanded="true" />
+                <element signature="e#3590#3591#0" expanded="true" />
+                <element signature="e#5124#5359#0" expanded="true" />
+                <element signature="e#5358#5359#0" expanded="true" />
+                <element signature="method#boucleDeJeu#0;class#JPanelLaby#0" expanded="false" />
+                <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
+                <element signature="e#9429#9430#0" expanded="true" />
+                <element signature="e#9466#9467#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,8 +48,8 @@
       <file leaf-file-name="AffichageLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="90" column="87" lean-forward="false" selection-start-line="90" selection-start-column="87" selection-end-line="90" selection-end-column="87" />
+            <state relative-caret-position="126">
+              <caret line="77" column="48" lean-forward="false" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -54,9 +58,11 @@
       <file leaf-file-name="Personnage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Personnage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="62">
+              <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+              <folding>
+                <element signature="e#651#652#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,9 +70,12 @@
       <file leaf-file-name="Muret.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Muret.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="622">
+              <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+              <folding>
+                <element signature="e#1854#1855#0" expanded="true" />
+                <element signature="e#1889#1890#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,19 +103,22 @@
       <file leaf-file-name="ListeMuret.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ListeMuret.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+            <state relative-caret-position="675">
+              <caret line="51" column="42" lean-forward="true" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="685">
-              <caret line="552" column="5" lean-forward="true" selection-start-line="552" selection-start-column="5" selection-end-line="552" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="137">
+              <caret line="332" column="10" lean-forward="false" selection-start-line="332" selection-start-column="10" selection-end-line="332" selection-end-column="10" />
+              <folding>
+                <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+                <element signature="method#intelligenceArtificielle#0;class#Labyrinthe#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,18 +149,19 @@
       <list>
         <option value="$PROJECT_DIR$/src/NoeudMuret.java" />
         <option value="$PROJECT_DIR$/src/Personnage.java" />
-        <option value="$PROJECT_DIR$/src/ListeMuret.java" />
         <option value="$PROJECT_DIR$/src/Muret.java" />
-        <option value="$PROJECT_DIR$/src/AffichageLaby.java" />
         <option value="$PROJECT_DIR$/src/JeuLaby.java" />
-        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
+        <option value="$PROJECT_DIR$/src/ListeMuret.java" />
         <option value="$PROJECT_DIR$/src/JPanelLaby.java" />
+        <option value="$PROJECT_DIR$/src/AffichageLaby.java" />
+        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -165,6 +178,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -193,13 +209,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -494,12 +504,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="813" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -511,7 +522,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32152778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26666668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -522,7 +533,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -545,7 +555,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -553,7 +565,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -577,7 +592,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#intelligenceArtificielle#0;class#Labyrinthe#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -604,10 +622,14 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#9631#9632#0" expanded="true" />
-            <element signature="e#9672#9673#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#5124#5359#0" expanded="true" />
+            <element signature="e#5358#5359#0" expanded="true" />
+            <element signature="method#boucleDeJeu#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#9429#9430#0" expanded="true" />
+            <element signature="e#9466#9467#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -624,7 +646,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -632,7 +656,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -656,7 +683,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#intelligenceArtificielle#0;class#Labyrinthe#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -666,10 +696,14 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#9631#9632#0" expanded="true" />
-            <element signature="e#9672#9673#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#5124#5359#0" expanded="true" />
+            <element signature="e#5358#5359#0" expanded="true" />
+            <element signature="method#boucleDeJeu#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#9429#9430#0" expanded="true" />
+            <element signature="e#9466#9467#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -686,7 +720,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#intelligenceArtificielle#0;class#Labyrinthe#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -727,7 +764,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -735,7 +774,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -755,10 +797,14 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#9631#9632#0" expanded="true" />
-            <element signature="e#9672#9673#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#5124#5359#0" expanded="true" />
+            <element signature="e#5358#5359#0" expanded="true" />
+            <element signature="method#boucleDeJeu#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#9429#9430#0" expanded="true" />
+            <element signature="e#9466#9467#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -775,7 +821,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -783,7 +831,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -807,7 +858,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#intelligenceArtificielle#0;class#Labyrinthe#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -834,10 +888,14 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#9631#9632#0" expanded="true" />
-            <element signature="e#9672#9673#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#5124#5359#0" expanded="true" />
+            <element signature="e#5358#5359#0" expanded="true" />
+            <element signature="method#boucleDeJeu#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#9429#9430#0" expanded="true" />
+            <element signature="e#9466#9467#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -854,7 +912,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -862,7 +922,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -886,7 +949,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#intelligenceArtificielle#0;class#Labyrinthe#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -904,11 +970,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Muret.java">
+    <entry file="file://$PROJECT_DIR$/devoir2.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+        <state relative-caret-position="150">
+          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="75" column="80" lean-forward="true" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Personnage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -920,66 +1006,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/devoir2.iml">
+    <entry file="file://$PROJECT_DIR$/src/Muret.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Personnage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="90" column="87" lean-forward="false" selection-start-line="90" selection-start-column="87" selection-end-line="90" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="622">
+          <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ListeMuret.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="552" column="5" lean-forward="true" selection-start-line="552" selection-start-column="5" selection-end-line="552" selection-end-column="5" />
+        <state relative-caret-position="675">
+          <caret line="51" column="42" lean-forward="true" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="122" column="54" lean-forward="false" selection-start-line="122" selection-start-column="54" selection-end-line="122" selection-end-column="54" />
+        <state relative-caret-position="124">
+          <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#9631#9632#0" expanded="true" />
-            <element signature="e#9672#9673#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#5124#5359#0" expanded="true" />
+            <element signature="e#5358#5359#0" expanded="true" />
+            <element signature="method#boucleDeJeu#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#9429#9430#0" expanded="true" />
+            <element signature="e#9466#9467#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="77" column="48" lean-forward="false" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="332" column="10" lean-forward="false" selection-start-line="332" selection-start-column="10" selection-end-line="332" selection-end-column="10" />
+          <folding>
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#intelligenceArtificielle#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>
