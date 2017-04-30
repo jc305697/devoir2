@@ -270,31 +270,37 @@ private String[] args;
                 int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
                 if (reponse==0) //oui
                 {
-                    //reset(args,fenetreJeu);
+                    reset(args,fenetreJeu);
                 }
 
                 if (reponse==1)
                 {
                         // break;
+                    fenetreJeu.dispose();
+
                 }
 
-                fenetreJeu.dispose();
                // return true;//a gagne et veut pas continuer
             }
             //return false;//pas fin de jeu
          }
 
-        int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez perdu. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
-        if (reponse==0) //oui
+        if (labyrinthe.getPerso().getviesRestantes()==0)
         {
-         //   reset(args,fenetreJeu);
-        }
+            int reponse = JOptionPane.showConfirmDialog(fenetreJeu, "vous avez perdu. Voulez-vous rejouer", "message important", JOptionPane.YES_NO_OPTION);
 
-        if (reponse==1)
-        {
-            //break;
+            if (reponse == 0) //oui
+            {
+                reset(args, fenetreJeu);
+            }
+
+            if (reponse == 1)
+            {
+                //break;
+                fenetreJeu.dispose();
+
+            }
         }
-        fenetreJeu.dispose();
         //return true;// nb de vie =0 et veut pas continuer
     }
 
