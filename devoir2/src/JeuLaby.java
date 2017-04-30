@@ -73,9 +73,9 @@ public class JeuLaby
                     //JPanel jPanel= (JPanel) fenetreJeu.getContentPane();
                     //jPanel=new JPanelLaby(laby);;
 
-                    JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed);
+                    JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed,args,fenetreJeu);
 
-                   reset(args,fenetreJeu);
+                   //reset(args,fenetreJeu);
 
                     /*int indicateurTimer=0;
 
@@ -115,11 +115,11 @@ public class JeuLaby
 
                     fenetreJeu.setVisible(true);
 
-                    while (true) {
+                   // while (true) {
 
-                        boolean gagne = panelLaby.boucleDeJeu(laby);
+                       // boolean gagne = panelLaby.boucleDeJeu(laby);
 
-                        if (gagne == false) {
+                        /*if (gagne == false) {
                             //mettre fenetre de dialogue qui dit que la personne a perdu et demander si veut jouer encore...
                             //JoptionPane.showMessageDialog;
                             //if(veutplus jouer ) fait break
@@ -154,10 +154,10 @@ public class JeuLaby
                             {
                                 break;
                             }
-                        }
+                        }*/
 
 
-                    }
+                    //}
                 }
 
 
@@ -257,7 +257,7 @@ public class JeuLaby
         }//Boucle while(true), afin d'executer l'interface lui-même
 
     }//MAIN
-    public static void reset(String[] args,JFrame fenetreJeu)
+   /* public static void reset(String[] args,JFrame fenetreJeu)
     {
         int hauteur = Integer.parseInt(args[0]);
         int largeur = Integer.parseInt(args[1]);
@@ -271,5 +271,5 @@ public class JeuLaby
 
         fenetreJeu.setContentPane(panelLaby);
 
-    }
+    }*/
 }//JEU LABY

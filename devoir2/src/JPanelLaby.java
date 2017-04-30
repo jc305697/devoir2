@@ -15,16 +15,25 @@ private AffichageLaby affichageLaby;
 private JLabel texteVie;
 private boolean timerBoolean;
 private Timer minuterie;
+private JFrame fenetreJeu;
+private String[] args;
     //mettre differents boutons
-    public JPanelLaby(Labyrinthe labyrinthe,int visibilite)
+    public JPanelLaby(Labyrinthe labyrinthe,int visibilite,String[] args,JFrame fenetreJeu)
     {
 
         this.timerBoolean=false;
         AffichageLaby affichageLaby= new AffichageLaby(labyrinthe);
         //cree affichageLaby qui sera afficher au Centre
         this.labyrinthe=labyrinthe;
+
+        this.args=args;
+        this.fenetreJeu=fenetreJeu;
+
         this.affichageLaby=affichageLaby;
+        reset(args,fenetreJeu);
+
         this.setLayout(new BorderLayout());//mets le Borderlayout comme layout
+
         this.add(affichageLaby,BorderLayout.CENTER);//mets affichageLaby au centre
 
         JPanel panneauDroit=new JPanel();
@@ -35,6 +44,7 @@ private Timer minuterie;
        JLabel texteVie= new JLabel("Il vous reste "+labyrinthe.getPerso().getviesRestantes()+" vies");
 
       this.texteVie=texteVie;
+
       JPanel panneauDroitHaut= new JPanel();
 
       panneauDroitHaut.setLayout(new BorderLayout());
@@ -55,6 +65,7 @@ private Timer minuterie;
             {
                 labyrinthe.deplace('H');
                 repaint();
+                finDejeu(labyrinthe);
             }
 
         });
@@ -67,6 +78,7 @@ private Timer minuterie;
             {
                 labyrinthe.deplace('B');
                 repaint();
+                finDejeu(labyrinthe);
             }
 
         });
@@ -79,6 +91,7 @@ private Timer minuterie;
             {
                 labyrinthe.deplace('D');
                 repaint();
+                finDejeu(labyrinthe);
             }
 
         });
@@ -91,6 +104,7 @@ private Timer minuterie;
             {
                 labyrinthe.deplace('G');
                 repaint();
+                finDejeu(labyrinthe);
             }
 
         });
@@ -125,7 +139,7 @@ private Timer minuterie;
         {
             public void actionPerformed(ActionEvent e)
             {
-                labyrinthe.intelligenceArtificielle();
+                intelligenceArtificielle();
             }
 
         });
@@ -137,16 +151,22 @@ private Timer minuterie;
 
         this.add(panneauDroit,BorderLayout.EAST);
 
+        //this.requestFocus();
 
-        this.requestFocus();
+        this.setFocusable(true);
 
-        Action versHaut =new AbstractAction()
+        this.requestFocusInWindow();
+
+        this.addKeyListener(this);
+
+      /*  Action versHaut =new AbstractAction()
         {
             public void actionPerformed(ActionEvent e)
             {
+                System.out.println("passe dans action haut");
                 labyrinthe.deplace('H');
                 repaint();
-                //affichageLaby.repaint();
+                affichageLaby.repaint();
 
             }
         };
@@ -162,9 +182,10 @@ private Timer minuterie;
         {
             public void actionPerformed(ActionEvent e)
             {
+                System.out.println("passe dans action bas");
                 labyrinthe.deplace('B');
                 repaint();
-                //affichageLaby.repaint();
+                affichageLaby.repaint();
 
             }
         };
@@ -174,15 +195,16 @@ private Timer minuterie;
         this.getInputMap().put(KeyStroke.getKeyStroke("x"),stringBas);
 
 
-        this.getActionMap().put(stringBas,versHaut);
+        this.getActionMap().put(stringBas,versBas);
 
         Action versGauche =new AbstractAction()
         {
             public void actionPerformed(ActionEvent e)
             {
+                System.out.println("passe dans action gauche");
                 labyrinthe.deplace('G');
                 repaint();
-                // affichageLaby.repaint();
+                affichageLaby.repaint();
             }
         };
 
@@ -191,15 +213,17 @@ private Timer minuterie;
         this.getInputMap().put(KeyStroke.getKeyStroke("s"),stringGauche);
 
 
-        this.getActionMap().put(stringGauche,versHaut);
+        this.getActionMap().put(stringGauche,versGauche);
 
         Action versDroite =new AbstractAction()
         {
             public void actionPerformed(ActionEvent e)
             {
+                System.out.println("passe dans action droit");
                 labyrinthe.deplace('D');
                 repaint();
-                //affichageLaby.repaint();
+                affichageLaby.repaint();
+
 
             }
         };
@@ -207,9 +231,9 @@ private Timer minuterie;
         String stringDroite = "vers Droite";
         this.getInputMap().put(KeyStroke.getKeyStroke("d"),stringDroite);
 
-        this.getActionMap().put(stringDroite,versHaut);
+        this.getActionMap().put(stringDroite,versDroite);*/
 
-        int indicateurTimer;
+        //int indicateurTimer;
 
         //rend invisible les murs après un certain temps
         ActionListener rendreMursInvisible = new ActionListener() {
@@ -232,94 +256,126 @@ private Timer minuterie;
     }
 
 
-    public boolean boucleDeJeu(Labyrinthe labyrinthe)
+    public void finDejeu(Labyrinthe labyrinthe)
     {
 
-        while (labyrinthe.getPerso().getviesRestantes()!=0)
+        if(labyrinthe.getPerso().getviesRestantes()!=0)
         {
-            double positionXPerso= labyrinthe.getPerso().getPositionXPersonnage();
+           double positionXPerso= labyrinthe.getPerso().getPositionXPersonnage();
 
             double positionYPerso= labyrinthe.getPerso().getPositionYPersonnage();
 
             if ((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()-0.5))
             {
-                return true;
-            }
+                int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
+                if (reponse==0) //oui
+                {
+                    reset(args,fenetreJeu);
+                }
 
+                if (reponse==1)
+                {
+                        // break;
+                }
+
+                fenetreJeu.dispose();
+               // return true;//a gagne et veut pas continuer
+            }
+            //return false;//pas fin de jeu
+         }
+
+        int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez perdu. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
+        if (reponse==0) //oui
+        {
+            reset(args,fenetreJeu);
         }
 
-        return false;
+        if (reponse==1)
+        {
+            //break;
+        }
+        fenetreJeu.dispose();
+        //return true;// nb de vie =0 et veut pas continuer
     }
 
     public  void keyPressed(KeyEvent e)
     {
-        System.out.println("1");
+       // System.out.println("1");
 
-        switch (e.getKeyChar())
-        {
-            case('d'):
-                labyrinthe.deplace('D');
-                //this.affichageLaby.repaint();
-                System.out.println("d");
-                break;
-            case ('g'):
-                labyrinthe.deplace('G');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("g");
-                break;
-            case('s'):
-                labyrinthe.deplace('G');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("s");
-                break;
-            case('h'):
-                labyrinthe.deplace('H');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("h");
-                break;
-            case('e'):
-                labyrinthe.deplace('H');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("e");
-                break;
-            case ('b'):
-                labyrinthe.deplace('B');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("b");
-                break;
-            case('x'):
-                labyrinthe.deplace('x');
-                //this.repaint();
-                //this.affichageLaby.repaint();
-                System.out.println("x");
-                break;
-             default:
-                 System.out.println("1");
-
-        }
     }
 
     public void keyReleased(KeyEvent e)
     {
-        System.out.println("2");
+       // System.out.println("2");
 
 
     }
 
     public void keyTyped(KeyEvent e)
     {
-        System.out.println("3");
-
+        System.out.println("keyTyped");
+        switch (e.getKeyChar()) {
+            case ('d'):
+                this.setTextVie(labyrinthe.deplace('D'));
+                this.repaint();
+                this.affichageLaby.repaint();
+                this.finDejeu(labyrinthe);
+                // System.out.println("d");
+                break;
+            case ('g'):
+                this.setTextVie(labyrinthe.deplace('G'));
+                this.repaint();
+                this.affichageLaby.repaint();
+                this.finDejeu(labyrinthe);
+               // System.out.println("g");
+                break;
+            case ('s'):
+                this.setTextVie(labyrinthe.deplace('G'));
+                this.repaint();
+                this.affichageLaby.repaint();
+                this.finDejeu(labyrinthe);
+               // System.out.println("s");
+                break;
+            case ('h'):
+                this.setTextVie(labyrinthe.deplace('H'));
+                this.repaint();
+                this.affichageLaby.repaint();
+                this.finDejeu(labyrinthe);
+              //  System.out.println("h");
+                break;
+            case ('e'):
+                this.setTextVie( labyrinthe.deplace('H'));
+                this.repaint();
+                this.affichageLaby.repaint();
+                this.finDejeu(labyrinthe);
+                //System.out.println("e");
+                break;
+            case ('b'):
+                this.setTextVie(labyrinthe.deplace('B'));
+                 this.repaint();
+                 this.affichageLaby.repaint();
+                this.finDejeu(labyrinthe);
+              //  System.out.println("b");
+                break;
+            case ('x'):
+                this.setTextVie( labyrinthe.deplace('x'));
+                this.repaint();
+                this.affichageLaby.repaint();
+                this.finDejeu(labyrinthe);
+                //System.out.println("x");
+                break;
+            default:
+                //System.out.println("1");
+                break;
+        }
     }
 
-    public void setTextVie()
+    public void setTextVie(boolean valeurDeplacement)
     {
-        this.texteVie.setText("Il vous reste "+this.labyrinthe.getPerso().getviesRestantes()+" vies");
+        if (valeurDeplacement==false)
+        {
+            this.texteVie.setText("Il vous reste " + this.labyrinthe.getPerso().getviesRestantes() + " vies");
+        }
     }
 
     public AffichageLaby getAffichageLaby()
@@ -335,6 +391,66 @@ private Timer minuterie;
     public Timer getMinuterie()
     {
         return this.minuterie;
+    }
+
+    public static void reset(String[] args,JFrame fenetreJeu)
+    {
+        int hauteur = Integer.parseInt(args[0]);
+        int largeur = Integer.parseInt(args[1]);
+        double densite = Double.parseDouble(args[2]);
+        int visibiliteTimed = Integer.parseInt(args[3]);
+        int viesRestantes = Integer.parseInt(args[4]);
+
+        Labyrinthe laby = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
+
+        JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed,args,fenetreJeu);
+
+        fenetreJeu.setContentPane(panelLaby);
+
+    }
+    public boolean intelligenceArtificielle()
+    {
+        double positionXPerso = labyrinthe.getPerso().getPositionXPersonnage();
+        double positionYPerso = labyrinthe.getPerso().getPositionYPersonnage();
+
+
+        while(!((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()-0.5)))//tant que atteint pas la sortie
+        {
+            double posXperso = labyrinthe.getPerso().getPositionXPersonnage();
+            double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
+
+            boolean murDroite = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
+            boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
+
+
+            boolean murGauche = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
+            boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
+
+            if (murDroite)
+            {
+                if (murGauche && murBas && murHaut)//bloque
+                {
+                    return false;
+                }
+
+                if (murBas && murHaut) {
+                    labyrinthe.deplace('G');
+                }
+
+                if (murBas && murGauche) {
+                    labyrinthe.deplace('H');
+                }
+
+
+            }
+
+            else {
+                labyrinthe.deplace('D');
+            }
+        }
+        return true;
+
+
     }
 
 }

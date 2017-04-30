@@ -360,45 +360,5 @@ public class Labyrinthe
         return false;
     }
 
-    public boolean intelligenceArtificielle()
-    {
-       double positionXPerso = perso.getPositionXPersonnage();
-       double positionYPerso = perso.getPositionYPersonnage();
 
-
-        while(!((positionXPerso==this.getSortieX()-0.5)&&(positionYPerso==this.getSortieY()-0.5)))//tant que atteint pas la sortie
-        {
-            double posXperso = perso.getPositionXPersonnage();
-            double posYperso = perso.getPositionYPersonnage();
-
-            boolean murDroite = liste.chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
-            boolean murBas = liste.chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
-
-
-            boolean murGauche = liste.chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
-            boolean murHaut = liste.chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
-
-            if (murDroite) {
-                if (murGauche && murBas && murHaut)//bloque
-                {
-                    return false;
-                }
-
-                if (murBas && murHaut) {
-                    this.deplace('G');
-                }
-
-                if (murBas && murGauche) {
-                    this.deplace('H');
-                }
-
-
-            } else {
-                this.deplace('D');
-            }
-        }
-        return true;
-
-
-    }
 }
