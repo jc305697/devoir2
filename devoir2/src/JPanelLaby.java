@@ -43,7 +43,9 @@ private String[] args;
 
        JLabel texteVie= new JLabel("Il vous reste "+labyrinthe.getPerso().getviesRestantes()+" vies");
 
-      this.texteVie=texteVie;
+
+       this.texteVie=texteVie;
+
 
       JPanel panneauDroitHaut= new JPanel();
 
@@ -63,7 +65,7 @@ private String[] args;
         {
             public void actionPerformed(ActionEvent e)
             {
-                labyrinthe.deplace('H');
+               setTextVie(labyrinthe.deplace('H'));
                 repaint();
                 finDejeu(labyrinthe);
             }
@@ -76,7 +78,7 @@ private String[] args;
         {
             public void actionPerformed(ActionEvent e)
             {
-                labyrinthe.deplace('B');
+                setTextVie(labyrinthe.deplace('B'));
                 repaint();
                 finDejeu(labyrinthe);
             }
@@ -89,7 +91,7 @@ private String[] args;
         {
             public void actionPerformed(ActionEvent e)
             {
-                labyrinthe.deplace('D');
+                setTextVie(labyrinthe.deplace('D'));
                 repaint();
                 finDejeu(labyrinthe);
             }
@@ -102,7 +104,7 @@ private String[] args;
         {
             public void actionPerformed(ActionEvent e)
             {
-                labyrinthe.deplace('G');
+                setTextVie(labyrinthe.deplace('G'));
                 repaint();
                 finDejeu(labyrinthe);
             }
@@ -380,7 +382,8 @@ private String[] args;
     {
         if (valeurDeplacement==false)
         {
-            this.texteVie.setText("Il vous reste " + this.labyrinthe.getPerso().getviesRestantes() + " vies");
+            System.out.println("setText");
+            this.texteVie.setText("Il vous reste "+ this.labyrinthe.getPerso().getviesRestantes()+ " vies");
         }
     }
 
@@ -460,4 +463,3 @@ private String[] args;
     }
 
 }
-0
