@@ -267,7 +267,10 @@ private String[] args;
 
             double positionYPerso= labyrinthe.getPerso().getPositionYPersonnage();
 
-            if ((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()-0.5))
+           if ((positionXPerso-1.5==labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()+0.5))
+          //  System.out.println(positionYPerso==labyrinthe.getSortieY()+0.5);
+           // if((positionXPerso>labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()-0.5))
+           // if((positionXPerso>labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()+0.5))
             {
                 int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
                 if (reponse==0) //oui
