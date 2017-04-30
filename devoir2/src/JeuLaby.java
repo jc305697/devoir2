@@ -75,6 +75,8 @@ public class JeuLaby
 
                     JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed);
 
+                   reset(args,fenetreJeu);
+
                     /*int indicateurTimer=0;
 
                     //rend invisible les murs après un certain temps
@@ -122,13 +124,36 @@ public class JeuLaby
                             //JoptionPane.showMessageDialog;
                             //if(veutplus jouer ) fait break
                             //si veut jouer encore appele fonction qui reset le affichage jlaby
+                            //JOptionPane.showMessageDialog(fenetreJeu,"vous avez perdu");
+                           int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez perdu. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
+                           if (reponse==0) //oui
+                           {
+                                reset(args,fenetreJeu);
+                           }
+
+                           if (reponse==1)
+                           {
+                               break;
+                           }
+
                         }
 
-                        if (gagne) {
+                        if (gagne)
+                        {
                             //mettre fenetre de dialogue qui dit que la personne a gagner et demander si veut jouer encore...
                             //JoptionPane.showMessageDialog;
                             //if(veutplus jouer ) fait break
                             //si veut jouer encore appele fonction qui reset le affichage jlaby et les composants et remet indicateurTimer a 0
+                            int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
+                            if (reponse==0) //oui
+                            {
+                                reset(args,fenetreJeu);
+                            }
+
+                            if (reponse==1)
+                            {
+                                break;
+                            }
                         }
 
 
@@ -232,4 +257,19 @@ public class JeuLaby
         }//Boucle while(true), afin d'executer l'interface lui-même
 
     }//MAIN
+    public static void reset(String[] args,JFrame fenetreJeu)
+    {
+        int hauteur = Integer.parseInt(args[0]);
+        int largeur = Integer.parseInt(args[1]);
+        double densite = Double.parseDouble(args[2]);
+        int visibiliteTimed = Integer.parseInt(args[3]);
+        int viesRestantes = Integer.parseInt(args[4]);
+
+        Labyrinthe laby = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
+
+        JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed);
+
+        fenetreJeu.setContentPane(panelLaby);
+
+    }
 }//JEU LABY
