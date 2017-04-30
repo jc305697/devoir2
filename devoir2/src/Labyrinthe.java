@@ -280,6 +280,7 @@ public class Labyrinthe
 
                 //pas a droite et pas de mur a droite
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()+1);
+                //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+1);
                 return true;
 
             case 'G':
@@ -307,6 +308,7 @@ public class Labyrinthe
 
                 //sinon deplacement valide
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()-1);
+                //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+5);
                 return true;
 
             case 'H':

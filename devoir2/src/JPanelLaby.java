@@ -117,8 +117,8 @@ private String[] args;
 
         panneauDroitDroit.add(haut,BorderLayout.NORTH);//ajoute boutons au panneau
         panneauDroitDroit.add(bas,BorderLayout.SOUTH);
-        panneauDroitDroit.add(gauche,BorderLayout.EAST);
-        panneauDroitDroit.add(droit,BorderLayout.WEST);
+        panneauDroitDroit.add(gauche,BorderLayout.WEST);
+        panneauDroitDroit.add(droit,BorderLayout.EAST);
 
         panneauDroit.add(panneauDroitDroit,BorderLayout.WEST);//ajoute panneau avec boutons aux sous-panneaux droit du Jpanel principal
 
@@ -460,3 +460,4 @@ private String[] args;
     }
 
 }
+0

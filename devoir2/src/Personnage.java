@@ -31,7 +31,7 @@ public class Personnage
 
     public double getPositionYPersonnage()
     {
-        return positionX;
+        return positionY;
     }
 
     public void setPositionYPersonnage(double newPosY)

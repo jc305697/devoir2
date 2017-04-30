@@ -27,7 +27,7 @@ public class AffichageLaby extends JComponent
 
        // int tailleMurHorizontal= (largeur/100)*labyrinthe.getL();
 
-         int tailleMurHorizontal= (int)((largeur/labyrinthe.getL())*.75);
+        int tailleMurHorizontal= (int)((largeur/labyrinthe.getL())*.75);
 
 
         //int tailleMurVertical= (hauteur/100)*labyrinthe.getH();
@@ -36,9 +36,9 @@ public class AffichageLaby extends JComponent
 
 
 
-        int longBordSup= labyrinthe.getL()*tailleMurHorizontal;
+        int longBordSup= (int)(labyrinthe.getL()*tailleMurHorizontal);
 
-        int longBordGauche=labyrinthe.getH()*tailleMurVertical;
+        int longBordGauche= (int)(labyrinthe.getH()*tailleMurVertical);
 
        graphics2D.drawRect(0,0,largeur,hauteur);//met rectangle pour enlever ce qui etait la avant
         //coordonne a verifier
