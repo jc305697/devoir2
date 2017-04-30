@@ -16,7 +16,7 @@
       <file leaf-file-name="JeuLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="1725">
               <caret line="119" column="51" lean-forward="false" selection-start-line="119" selection-start-column="51" selection-end-line="119" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -28,16 +28,15 @@
       <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="141" column="16" lean-forward="false" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
+            <state relative-caret-position="45">
+              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4143#4144#0" expanded="true" />
-                <element signature="e#4201#4202#0" expanded="true" />
-                <marker date="1493571815000" expanded="false" signature="5113:5212" ph="(AbstractAction) (e) → {" />
-                <marker date="1493571815000" expanded="false" signature="5392:5407" ph="}" />
-                <marker date="1493571815000" expanded="false" signature="6253:6352" ph="(AbstractAction) (e) → {" />
-                <marker date="1493571815000" expanded="false" signature="6535:6550" ph="}" />
+                <element signature="e#4145#4146#0" expanded="true" />
+                <element signature="e#4203#4204#0" expanded="true" />
+                <marker date="1493572941000" expanded="false" signature="5115:5214" ph="(AbstractAction) (e) → {" />
+                <marker date="1493572941000" expanded="false" signature="5394:5409" ph="}" />
+                <marker date="1493572941000" expanded="false" signature="6255:6354" ph="(AbstractAction) (e) → {" />
+                <marker date="1493572941000" expanded="false" signature="6537:6552" ph="}" />
               </folding>
             </state>
           </provider>
@@ -70,14 +69,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="885">
               <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-              <folding>
-                <element signature="e#393#394#0" expanded="false" />
-                <element signature="e#422#423#0" expanded="false" />
-                <element signature="e#451#452#0" expanded="false" />
-                <element signature="e#480#481#0" expanded="false" />
-                <element signature="e#1698#1699#0" expanded="false" />
-                <element signature="e#1741#1742#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,7 +97,7 @@
       <file leaf-file-name="ListeMuret.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ListeMuret.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
+            <state relative-caret-position="675">
               <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
               <folding />
             </state>
@@ -115,7 +107,7 @@
       <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
+            <state relative-caret-position="3555">
               <caret line="362" column="0" lean-forward="false" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
               <folding>
                 <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
@@ -138,6 +130,7 @@
       <find>orientation</find>
       <find>Sy</find>
       <find>haut</find>
+      <find>rese</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -160,9 +153,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="722" />
-    <option name="width" value="718" />
-    <option name="height" value="900" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="815" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -207,13 +200,10 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -509,7 +499,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="722" y="0" width="718" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="815" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -527,7 +517,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24094708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24027778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -570,14 +560,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="e#393#394#0" expanded="false" />
-            <element signature="e#422#423#0" expanded="false" />
-            <element signature="e#451#452#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#1698#1699#0" expanded="false" />
-            <element signature="e#1741#1742#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -629,13 +612,12 @@
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4143#4144#0" expanded="true" />
-            <element signature="e#4201#4202#0" expanded="true" />
-            <marker date="1493571815000" expanded="false" signature="5113:5212" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="5392:5407" ph="}" />
-            <marker date="1493571815000" expanded="false" signature="6253:6352" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="6535:6550" ph="}" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4203#4204#0" expanded="true" />
+            <marker date="1493572941000" expanded="false" signature="5115:5214" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="5394:5409" ph="}" />
+            <marker date="1493572941000" expanded="false" signature="6255:6354" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="6537:6552" ph="}" />
           </folding>
         </state>
       </provider>
@@ -662,14 +644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="e#393#394#0" expanded="false" />
-            <element signature="e#422#423#0" expanded="false" />
-            <element signature="e#451#452#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#1698#1699#0" expanded="false" />
-            <element signature="e#1741#1742#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -704,13 +679,12 @@
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4143#4144#0" expanded="true" />
-            <element signature="e#4201#4202#0" expanded="true" />
-            <marker date="1493571815000" expanded="false" signature="5113:5212" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="5392:5407" ph="}" />
-            <marker date="1493571815000" expanded="false" signature="6253:6352" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="6535:6550" ph="}" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4203#4204#0" expanded="true" />
+            <marker date="1493572941000" expanded="false" signature="5115:5214" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="5394:5409" ph="}" />
+            <marker date="1493572941000" expanded="false" signature="6255:6354" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="6537:6552" ph="}" />
           </folding>
         </state>
       </provider>
@@ -780,14 +754,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="e#393#394#0" expanded="false" />
-            <element signature="e#422#423#0" expanded="false" />
-            <element signature="e#451#452#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#1698#1699#0" expanded="false" />
-            <element signature="e#1741#1742#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -806,13 +773,12 @@
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4143#4144#0" expanded="true" />
-            <element signature="e#4201#4202#0" expanded="true" />
-            <marker date="1493571815000" expanded="false" signature="5113:5212" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="5392:5407" ph="}" />
-            <marker date="1493571815000" expanded="false" signature="6253:6352" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="6535:6550" ph="}" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4203#4204#0" expanded="true" />
+            <marker date="1493572941000" expanded="false" signature="5115:5214" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="5394:5409" ph="}" />
+            <marker date="1493572941000" expanded="false" signature="6255:6354" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="6537:6552" ph="}" />
           </folding>
         </state>
       </provider>
@@ -839,14 +805,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="e#393#394#0" expanded="false" />
-            <element signature="e#422#423#0" expanded="false" />
-            <element signature="e#451#452#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#1698#1699#0" expanded="false" />
-            <element signature="e#1741#1742#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -898,13 +857,12 @@
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4143#4144#0" expanded="true" />
-            <element signature="e#4201#4202#0" expanded="true" />
-            <marker date="1493571815000" expanded="false" signature="5113:5212" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="5392:5407" ph="}" />
-            <marker date="1493571815000" expanded="false" signature="6253:6352" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="6535:6550" ph="}" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4203#4204#0" expanded="true" />
+            <marker date="1493572941000" expanded="false" signature="5115:5214" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="5394:5409" ph="}" />
+            <marker date="1493572941000" expanded="false" signature="6255:6354" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="6537:6552" ph="}" />
           </folding>
         </state>
       </provider>
@@ -931,14 +889,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="e#393#394#0" expanded="false" />
-            <element signature="e#422#423#0" expanded="false" />
-            <element signature="e#451#452#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#1698#1699#0" expanded="false" />
-            <element signature="e#1741#1742#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -994,14 +945,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
           <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-          <folding>
-            <element signature="e#393#394#0" expanded="false" />
-            <element signature="e#422#423#0" expanded="false" />
-            <element signature="e#451#452#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#1698#1699#0" expanded="false" />
-            <element signature="e#1741#1742#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,7 +977,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ListeMuret.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
+        <state relative-caret-position="675">
           <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
           <folding />
         </state>
@@ -1041,7 +985,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
+        <state relative-caret-position="3555">
           <caret line="362" column="0" lean-forward="false" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
           <folding>
             <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
@@ -1051,7 +995,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="1725">
           <caret line="119" column="51" lean-forward="false" selection-start-line="119" selection-start-column="51" selection-end-line="119" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1061,16 +1005,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="141" column="16" lean-forward="false" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
+        <state relative-caret-position="45">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4143#4144#0" expanded="true" />
-            <element signature="e#4201#4202#0" expanded="true" />
-            <marker date="1493571815000" expanded="false" signature="5113:5212" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="5392:5407" ph="}" />
-            <marker date="1493571815000" expanded="false" signature="6253:6352" ph="(AbstractAction) (e) → {" />
-            <marker date="1493571815000" expanded="false" signature="6535:6550" ph="}" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4203#4204#0" expanded="true" />
+            <marker date="1493572941000" expanded="false" signature="5115:5214" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="5394:5409" ph="}" />
+            <marker date="1493572941000" expanded="false" signature="6255:6354" ph="(AbstractAction) (e) → {" />
+            <marker date="1493572941000" expanded="false" signature="6537:6552" ph="}" />
           </folding>
         </state>
       </provider>

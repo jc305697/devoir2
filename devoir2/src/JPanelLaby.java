@@ -30,7 +30,7 @@ private String[] args;
         this.fenetreJeu=fenetreJeu;
 
         this.affichageLaby=affichageLaby;
-        reset(args,fenetreJeu);
+        //reset(args,fenetreJeu);
 
         this.setLayout(new BorderLayout());//mets le Borderlayout comme layout
 
@@ -270,7 +270,7 @@ private String[] args;
                 int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
                 if (reponse==0) //oui
                 {
-                    reset(args,fenetreJeu);
+                    //reset(args,fenetreJeu);
                 }
 
                 if (reponse==1)
@@ -287,7 +287,7 @@ private String[] args;
         int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez perdu. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
         if (reponse==0) //oui
         {
-            reset(args,fenetreJeu);
+         //   reset(args,fenetreJeu);
         }
 
         if (reponse==1)
