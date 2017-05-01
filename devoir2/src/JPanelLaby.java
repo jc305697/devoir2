@@ -143,7 +143,23 @@ private String[] args;
         {
             public void actionPerformed(ActionEvent e)
             {
-                intelligenceArtificielle();
+                if (!intelligenceArtificielle())
+                {
+                    int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"L'intelligence artificielle ne peut résoudre le problème. Voulez-vous rejouez?","message important",JOptionPane.YES_NO_OPTION);
+                    if (reponse==0) //oui
+                    {
+                        reset(args,fenetreJeu);
+                    }
+
+                    if (reponse==1)
+                    {
+                        // break;
+                        //fenetreJeu.setVisible(false);
+                        // fenetreJeu.dispose();
+                        System.exit(0);
+
+                    }
+                }
             }
 
         });
@@ -283,8 +299,9 @@ private String[] args;
                 if (reponse==1)
                 {
                         // break;
-                    fenetreJeu.setVisible(false);
-                    fenetreJeu.dispose();
+                    //fenetreJeu.setVisible(false);
+                   // fenetreJeu.dispose();
+                    System.exit(0);
 
                 }
 
@@ -305,8 +322,9 @@ private String[] args;
             if (reponse == 1)
             {
 
-                fenetreJeu.setVisible(false);
-                fenetreJeu.dispose();
+                //fenetreJeu.setVisible(false);
+                // fenetreJeu.dispose();
+                System.exit(0);
 
             }
         }
@@ -436,9 +454,12 @@ private String[] args;
         double positionXPerso = labyrinthe.getPerso().getPositionXPersonnage();
         double positionYPerso = labyrinthe.getPerso().getPositionYPersonnage();
 
+        System.out.println("intelligence artificielle");
 
         while(!((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()+0.5)))//tant que atteint pas la sortie
         {
+            System.out.println("boucle");
+
             double posXperso = labyrinthe.getPerso().getPositionXPersonnage();
             double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 
@@ -470,53 +491,71 @@ private String[] args;
            boolean droit=murDroite || aDroite;
 
            char lastMove=' ';
-            if (droit)
+           //char preLastMove=' ';
+
+            if ((positionXPerso+.5==labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()+0.5))
             {
-                if (gauche && bas && haut)//bloque
+                setTextVie(labyrinthe.deplace('D'));
+                finDejeu(labyrinthe);
+                lastMove='D';
+                repaint();
+
+                setTextVie(labyrinthe.deplace('D'));
+                finDejeu(labyrinthe);
+                lastMove='D';
+                repaint();
+            }
+
+
+            if (gauche)
+            {
+                System.out.println("gauche");
+                if (droit && bas && haut)//bloque
                 {
+                    System.out.println("bloque");
                     return false;
                 }
 
-                if (bas && haut)
+                else if (bas && haut)
                 {
-                    labyrinthe.deplace('G');
+                    setTextVie(labyrinthe.deplace('D'));
                     finDejeu(labyrinthe);
-                    lastMove='G';
+                    lastMove='D';
                     repaint();
                 }
 
-                if (bas && gauche)
+               else if (bas && droit)
                 {
-                    labyrinthe.deplace('H');
+                    setTextVie(labyrinthe.deplace('H'));
                     finDejeu(labyrinthe);
                     repaint();
                     lastMove='H';
                 }
 
-                if(bas)//peut pas aller a droite ni en bas
+               else if(bas)//peut pas aller a droite ni en bas
                 {
-                    if (lastMove=='H')
+                    if (lastMove!='D')
                     {
-                        labyrinthe.deplace('G');
+                        setTextVie(labyrinthe.deplace('D'));
                         finDejeu(labyrinthe);
-                        lastMove='G';
+                        lastMove='D';
                         repaint();
                     }
 
-                    if (lastMove=='G')
+                    else if (lastMove!='H')
                     {
-                        labyrinthe.deplace('H');
+                        setTextVie(labyrinthe.deplace('H'));
                         finDejeu(labyrinthe);
                         lastMove='H';
                         repaint();
                     }
                 }
 
-                if (gauche)//peut pas aller a droite ni a gauche
+                else if (droit)//peut pas aller a droite ni a gauche
                 {
                     if (lastMove=='H')
                     {
-                        labyrinthe.deplace('B');
+                        setTextVie(labyrinthe.deplace('B'));
                         finDejeu(labyrinthe);
                         lastMove='B';
                         repaint();
@@ -524,35 +563,46 @@ private String[] args;
 
                     if (lastMove=='B')
                     {
-                        labyrinthe.deplace('H');
+                        setTextVie(labyrinthe.deplace('H'));
                         finDejeu(labyrinthe);
                         lastMove='H';
                         repaint();
                     }
                 }
 
-                if (haut)//peut pas aller a droite ni en haut
+               else if (haut)//peut pas aller a droite ni en haut
                 {
                     if (lastMove=='G')
                     {
-                        labyrinthe.deplace('B');
+                        setTextVie(labyrinthe.deplace('B'));
                         finDejeu(labyrinthe);
                         lastMove='B';
                         repaint();
                     }
 
-                    if (lastMove=='B')
+                    else if (lastMove=='H')
                     {
-                        labyrinthe.deplace('G');
+                        setTextVie(labyrinthe.deplace('D'));
+                        finDejeu(labyrinthe);
+                        lastMove='D';
+                        repaint();
+                    }
+
+                    else if (lastMove=='B')
+                    {
+                        setTextVie(labyrinthe.deplace('G'));
                         finDejeu(labyrinthe);
                         lastMove='G';
                         repaint();
                     }
+
                 }
+
+
 
                 else
                     {
-                        if ((lastMove=='G')||(lastMove=='H'))
+                       /* if ((lastMove=='G')||(lastMove=='H'))
                         {
                             labyrinthe.deplace('B');
                             finDejeu(labyrinthe);
@@ -574,7 +624,25 @@ private String[] args;
                             finDejeu(labyrinthe);
                             lastMove='H';
                             repaint();
-                        }
+                        }*/
+                       if (lastMove=='H')
+                       {
+                           if (droit)
+                           {
+                               setTextVie(labyrinthe.deplace('D'));
+                               finDejeu(labyrinthe);
+                               lastMove='D';
+                               repaint();
+                           }
+                       }
+
+                       if (murBasLoin)
+                       {
+                           setTextVie(labyrinthe.deplace('D'));
+                           finDejeu(labyrinthe);
+                           lastMove='D';
+                           repaint();
+                       }
                     }
 
             }
@@ -584,17 +652,53 @@ private String[] args;
                // boolean gaucheSortie= (posXperso==(labyrinthe.getSortieX()-0.5)) && (posYperso==(labyrinthe.getSortieY()+0.5));//est a cote de la sortie
 
              //   if (gaucheSortie && pasADroite)
-                if (!aDroite)
+                System.out.println("else");
+                if (bas)
                 {
-                    labyrinthe.deplace('D');
+                    if(droit)
+                    {
+                        if (!haut)
+                        {
+                           setTextVie(labyrinthe.deplace('H'));
+                            finDejeu(labyrinthe);
+                            lastMove='H';
+                            repaint();
+                        }
+                        else if (!gauche)//murs a droite en bas et en haut
+                        {
+                           setTextVie(labyrinthe.deplace('G'));
+                            finDejeu(labyrinthe);
+                            lastMove='G';
+                            repaint();
+                        }
+                    }
+
+                    else if (!droit)
+                    {
+                        setTextVie(labyrinthe.deplace('D'));
+                        finDejeu(labyrinthe);
+                        lastMove='D';
+                        repaint();
+                    }
+
+                }
+
+                else if (!droit)
+                {
+                    setTextVie(labyrinthe.deplace('D'));
                     lastMove='D';
+                    repaint();
+                }
+                else if (droit)
+                {
+                    setTextVie(labyrinthe.deplace('H'));
+                    finDejeu(labyrinthe);
+                    lastMove='H';
                     repaint();
                 }
             }
         }
         return true;
-
-
     }
 
     /*public boolean deplaceModifie(char direction)

@@ -257,12 +257,6 @@ public class Labyrinthe
                     }*/
                //if ((this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null))
 
-                if ((this.perso.getPositionYPersonnage()+.5==h-1) && !(this.perso.getPositionXPersonnage()+.5!=sortieX))
-                {//n'est pas la sortie, mais est sur le cote droit et va a droite donc fonce dans le mur
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
-                    return false;
-                }
-
                 if (this.liste.chercheMuret(muretDVert1)!=null)
                 {
 
@@ -277,6 +271,20 @@ public class Labyrinthe
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
+
+//                if ((this.perso.getPositionYPersonnage()+.5==h-1) && !(this.perso.getPositionXPersonnage()+.5!=sortieX))
+             //   if ((this.perso.getPositionYPersonnage()+.5==h-1) && !(this.perso.getPositionXPersonnage()+.5!=sortieX))
+               System.out.println(this.perso.getPositionXPersonnage()+.5==l);
+                System.out.println("pas sortie");
+                System.out.println(this.perso.getPositionYPersonnage()-.5!=sortieY);
+
+
+                if ((this.perso.getPositionXPersonnage()+.5==l) && (this.perso.getPositionYPersonnage()-.5!=sortieY))
+                {//n'est pas la sortie, mais est sur le cote droit et va a droite donc fonce dans le mur
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    return false;
+                }
+
 
                 //pas a droite et pas de mur a droite
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()+1);
@@ -349,7 +357,7 @@ public class Labyrinthe
                     return false;
                 }
 
-                if (this.perso.getPositionXPersonnage()+.5==l-1)
+                if (this.perso.getPositionYPersonnage()+.5==h)
                 {
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
