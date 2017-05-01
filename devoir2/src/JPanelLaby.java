@@ -426,48 +426,170 @@ private String[] args;
         fenetreJeu.setVisible(true);
 
     }
+
+    /**
+     *
+     * @return: un boolean indiquant si l'ia a fini ou si elle est bloqué
+     */
     public boolean intelligenceArtificielle()
     {
         double positionXPerso = labyrinthe.getPerso().getPositionXPersonnage();
         double positionYPerso = labyrinthe.getPerso().getPositionYPersonnage();
 
 
-        while(!((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()-0.5)))//tant que atteint pas la sortie
+        while(!((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()+0.5)))//tant que atteint pas la sortie
         {
             double posXperso = labyrinthe.getPerso().getPositionXPersonnage();
             double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 
             boolean murDroite = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
-            boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
+            boolean murDroiteLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + 1.5), (int) (posYperso - .5), true, false)) != null;
 
+ //           boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
+            boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + .5), false, false)) != null;
+            boolean murBasLoin=labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;
 
             boolean murGauche = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
-            boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
+            boolean murGaucheLoin =labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), true,false))!=null;
 
-            if (murDroite)
+            boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
+            boolean murHautLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), false, false)) != null;//true s'il y a un muret
+
+
+            boolean aDroite= (posXperso!=(labyrinthe.getL()-.5));//n'est pas sur le bord droit
+            boolean enBas= positionYPerso==(labyrinthe.getH()-.5);
+            boolean aGauche= positionXPerso == 0.5;
+            boolean enHaut= positionYPerso==0.5;
+
+           boolean haut= murHaut || enHaut;
+
+           boolean bas=murBas||enBas;
+
+           boolean gauche=murGauche|| aGauche;
+
+           boolean droit=murDroite || aDroite;
+
+           char lastMove=' ';
+            if (droit)
             {
-                if (murGauche && murBas && murHaut)//bloque
+                if (gauche && bas && haut)//bloque
                 {
                     return false;
                 }
 
-                if (murBas && murHaut) {
+                if (bas && haut)
+                {
                     labyrinthe.deplace('G');
                     finDejeu(labyrinthe);
+                    lastMove='G';
                     repaint();
                 }
 
-                if (murBas && murGauche) {
+                if (bas && gauche)
+                {
                     labyrinthe.deplace('H');
+                    finDejeu(labyrinthe);
                     repaint();
+                    lastMove='H';
                 }
 
+                if(bas)//peut pas aller a droite ni en bas
+                {
+                    if (lastMove=='H')
+                    {
+                        labyrinthe.deplace('G');
+                        finDejeu(labyrinthe);
+                        lastMove='G';
+                        repaint();
+                    }
+
+                    if (lastMove=='G')
+                    {
+                        labyrinthe.deplace('H');
+                        finDejeu(labyrinthe);
+                        lastMove='H';
+                        repaint();
+                    }
+                }
+
+                if (gauche)//peut pas aller a droite ni a gauche
+                {
+                    if (lastMove=='H')
+                    {
+                        labyrinthe.deplace('B');
+                        finDejeu(labyrinthe);
+                        lastMove='B';
+                        repaint();
+                    }
+
+                    if (lastMove=='B')
+                    {
+                        labyrinthe.deplace('H');
+                        finDejeu(labyrinthe);
+                        lastMove='H';
+                        repaint();
+                    }
+                }
+
+                if (haut)//peut pas aller a droite ni en haut
+                {
+                    if (lastMove=='G')
+                    {
+                        labyrinthe.deplace('B');
+                        finDejeu(labyrinthe);
+                        lastMove='B';
+                        repaint();
+                    }
+
+                    if (lastMove=='B')
+                    {
+                        labyrinthe.deplace('G');
+                        finDejeu(labyrinthe);
+                        lastMove='G';
+                        repaint();
+                    }
+                }
+
+                else
+                    {
+                        if ((lastMove=='G')||(lastMove=='H'))
+                        {
+                            labyrinthe.deplace('B');
+                            finDejeu(labyrinthe);
+                            lastMove='B';
+                            repaint();
+                        }
+
+                        if ((lastMove=='B')||(lastMove=='H'))
+                        {
+                            labyrinthe.deplace('G');
+                            finDejeu(labyrinthe);
+                            lastMove='G';
+                            repaint();
+                        }
+
+                        if((lastMove=='B')|| (lastMove=='G'))
+                        {
+                            labyrinthe.deplace('H');
+                            finDejeu(labyrinthe);
+                            lastMove='H';
+                            repaint();
+                        }
+                    }
 
             }
 
-            else {
-                labyrinthe.deplace('D');
-                repaint();
+            else
+            {
+               // boolean gaucheSortie= (posXperso==(labyrinthe.getSortieX()-0.5)) && (posYperso==(labyrinthe.getSortieY()+0.5));//est a cote de la sortie
+
+             //   if (gaucheSortie && pasADroite)
+                if (!aDroite)
+                {
+                    labyrinthe.deplace('D');
+                    lastMove='D';
+                    repaint();
+                }
             }
         }
         return true;
