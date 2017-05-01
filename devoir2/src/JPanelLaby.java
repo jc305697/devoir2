@@ -131,13 +131,15 @@ private String[] args;
             public void actionPerformed(ActionEvent e)
             {
                 labyrinthe.getListe().tousVisible();
+                repaint();
+                affichageLaby.repaint();
             }
 
         });
 
         JButton boutonIA = new JButton("intelligence artificielle");
 
-        mursVisible.addActionListener(new ActionListener()
+        boutonIA.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
@@ -281,6 +283,7 @@ private String[] args;
                 if (reponse==1)
                 {
                         // break;
+                    fenetreJeu.setVisible(false);
                     fenetreJeu.dispose();
 
                 }
@@ -301,7 +304,8 @@ private String[] args;
 
             if (reponse == 1)
             {
-                //break;
+
+                fenetreJeu.setVisible(false);
                 fenetreJeu.dispose();
 
             }
@@ -324,7 +328,7 @@ private String[] args;
 
     public void keyTyped(KeyEvent e)
     {
-        System.out.println("keyTyped");
+    //    System.out.println("keyTyped");
         switch (e.getKeyChar()) {
             case ('d'):
                 this.setTextVie(labyrinthe.deplace('D'));
@@ -385,7 +389,6 @@ private String[] args;
     {
         if (valeurDeplacement==false)
         {
-            System.out.println("setText");
             this.texteVie.setText("Il vous reste "+ this.labyrinthe.getPerso().getviesRestantes()+ " vies");
         }
     }
@@ -418,6 +421,9 @@ private String[] args;
         JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed,args,fenetreJeu);
 
         fenetreJeu.setContentPane(panelLaby);
+        fenetreJeu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        fenetreJeu.setVisible(true);
 
     }
     public boolean intelligenceArtificielle()
@@ -447,10 +453,13 @@ private String[] args;
 
                 if (murBas && murHaut) {
                     labyrinthe.deplace('G');
+                    finDejeu(labyrinthe);
+                    repaint();
                 }
 
                 if (murBas && murGauche) {
                     labyrinthe.deplace('H');
+                    repaint();
                 }
 
 
@@ -458,11 +467,52 @@ private String[] args;
 
             else {
                 labyrinthe.deplace('D');
+                repaint();
             }
         }
         return true;
 
 
     }
+
+    /*public boolean deplaceModifie(char direction)
+    {
+        double posXPerso= labyrinthe.getPerso().getPositionXPersonnage();
+
+        double posYPerso= labyrinthe.getPerso().getPositionYPersonnage();
+
+        switch (direction)
+        {
+            case 'D':
+                System.out.println("D");
+
+                //pas a droite et pas de mur a droite
+                labyrinthe.getPerso().setPositionXPersonnage(labyrinthe.getPerso().getPositionXPersonnage()+1);
+                return true;
+
+            case 'G':
+                System.out.println("G");
+
+                //sinon deplacement valide
+                labyrinthe.getPerso().setPositionXPersonnage(labyrinthe.getPerso().getPositionXPersonnage()-1);
+                //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+5);
+                return true;
+
+            case 'H':
+                System.out.println("H");
+
+                labyrinthe.getPerso().setPositionYPersonnage(labyrinthe.getPerso().getPositionYPersonnage()-1);
+                return true;
+
+            case 'B':
+
+                System.out.println("B");
+                labyrinthe.getPerso().setPositionYPersonnage(labyrinthe.getPerso().getPositionYPersonnage()+1);
+                return true;
+        }
+
+        return false;
+    }*/
+
 
 }
