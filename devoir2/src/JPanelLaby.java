@@ -70,11 +70,14 @@ private Timer ai;
                 {
                     repaint();
                     affichageLaby.repaint();
+                    ai.stop();
 
                     int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"L'intelligence artificielle ne peut résoudre le problème. Voulez-vous rejouez?","message important",JOptionPane.YES_NO_OPTION);
                     if (reponse==0) //oui
                     {
+
                         reset(args,fenetreJeu);
+
                     }
 
                     if (reponse==1)
@@ -452,12 +455,12 @@ private Timer ai;
 
 
             //char preLastMove=' ';
-            int delai= 3;
+            int delai= 2;
 
             //try
             //{
 
-            if ((posXperso + .5 == labyrinthe.getSortieX()) && (posYperso == labyrinthe.getSortieY() + 0.5))
+            if ((posXperso + .5 == labyrinthe.getSortieX()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))
             {
                 /*setTextVie(labyrinthe.deplace('D'));
                 finDejeu(labyrinthe);
@@ -468,15 +471,34 @@ private Timer ai;
                 this.lastMove = 'D';
                 deplacePanel(delai,'D');
 
-                lastMove = 'D';
-                deplacePanel(delai,'D');
-               /* setTextVie(labyrinthe.deplace('D'));
+                //lastMove = 'D';
+                //deplacePanel(delai,'D');
+
+                /* setTextVie(labyrinthe.deplace('D'));
                 finDejeu(labyrinthe);
                 lastMove = 'D';
                 repaint();
                 affichageLaby.repaint();
                 TimeUnit.SECONDS.sleep(delai);*/
             }
+
+            else if ((posXperso + .5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))
+            {
+                this.lastMove = 'D';
+                deplacePanel(delai,'D');
+            }
+
+            if ((posXperso + 1.5 == labyrinthe.getSortieX()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))
+            {
+                this.lastMove = 'D';
+                deplacePanel(delai,'D');
+            }
+
+        else if ((posXperso + 1.5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))
+        {
+            this.lastMove = 'D';
+            deplacePanel(delai,'D');
+        }
 
 
             if (gauche)
@@ -520,9 +542,20 @@ private Timer ai;
                 {
                     System.out.println("gauche bas ");
 
-                    if (lastMove != 'D') {
-                        lastMove = 'D';
-                        deplacePanel(delai,'D');
+                    if (lastMove != 'D')
+                    {
+                        if ( aDroiteLoin || murDroiteLoin )
+                        {
+                            //sait que haut pas vrai donc
+                            lastMove='H';
+                            deplacePanel(delai,'H');
+                        }
+
+                        else
+                        {
+                            lastMove = 'D';
+                            deplacePanel(delai, 'D');
+                        }
                         /*  setTextVie(labyrinthe.deplace('D'));
                         finDejeu(labyrinthe);
                         lastMove = 'D';
@@ -531,7 +564,9 @@ private Timer ai;
                         TimeUnit.SECONDS.sleep(delai);*/
 
 
-                    } else if (lastMove != 'H') {
+                    }
+                    else if (lastMove != 'H')
+                    {
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                         /* setTextVie(labyrinthe.deplace('H'));
@@ -550,18 +585,9 @@ private Timer ai;
 
                     if (lastMove == 'H')
                     {
-                        if (!murBasLoin && !murBas) {
-                            lastMove = 'B';
-                            deplacePanel(delai,'B');
-                            /*setTextVie(labyrinthe.deplace('B'));
-                            finDejeu(labyrinthe);
-                            lastMove = 'B';
-                            repaint();
-                            affichageLaby.repaint();
-                            TimeUnit.SECONDS.sleep(delai);*/
 
-
-                        } else if (!haut) {
+                        if (!haut)
+                        {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
                             /*setTextVie(labyrinthe.deplace('H'));
@@ -571,6 +597,26 @@ private Timer ai;
                             affichageLaby.repaint();
                             TimeUnit.SECONDS.sleep(delai);*/
 
+                        }
+
+                       else if (!basLoin && !murBas)//pas de mur enbas plus loin ou plus loin sera a la bordure du bas
+                        {
+                            lastMove = 'B';
+                            deplacePanel(delai,'B');
+
+                            /*setTextVie(labyrinthe.deplace('B'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'B';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(delai);*/
+
+                        }
+
+                        else
+                        {
+                            lastMove='B';
+                            deplacePanel(delai,'B');
                         }
 
                     }
@@ -986,11 +1032,10 @@ private Timer ai;
             finDejeu(labyrinthe);
             repaint();
             affichageLaby.repaint();
-            TimeUnit.SECONDS.sleep(delai);
-        }
+           TimeUnit.SECONDS.sleep(delai);
+       }
         catch (InterruptedException ex)
         {
-
             Thread.currentThread().interrupt();
         }
     }

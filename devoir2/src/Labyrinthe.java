@@ -267,6 +267,7 @@ public class Labyrinthe
                     {
                         this.liste.chercheMuret(muretDVert2).setVisible(true);
                     }*/
+                    System.out.println("touche un muret");
 
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
@@ -278,6 +279,7 @@ public class Labyrinthe
                 if ((this.perso.getPositionXPersonnage()+.5==l) && (this.perso.getPositionYPersonnage()-.5!=sortieY))
                 {//n'est pas la sortie, mais est sur le cote droit et va a droite donc fonce dans le mur
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    System.out.println("touche cote droit");
                     return false;
                 }
 
@@ -303,12 +305,14 @@ public class Labyrinthe
                     }
 
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    System.out.println("touche un muret");
                     return false;
                 }
 
                 if (this.perso.getPositionXPersonnage()-.5==0)//si a extreme gauche
                 {
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    System.out.println("touche cote gauche");
                     return false;
                 }
 
@@ -332,12 +336,14 @@ public class Labyrinthe
                         this.liste.chercheMuret(muretHHori1).setVisible(true);
 
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
-                    return false;
+                   System.out.println("touche un muret");
+                   return false;
                 }
 
                 if (this.perso.getPositionYPersonnage()-.5==0)
                 {
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    System.out.println("touche en haut");
                     return false;
                 }
                  //this.set
@@ -356,13 +362,15 @@ public class Labyrinthe
                     this.liste.chercheMuret(muretBHori1).setVisible(true);
 
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
-
+                    System.out.println("touche un muret");
+                    System.out.println(" ");
                     return false;
                 }
 
                 if (this.perso.getPositionYPersonnage()+.5==h)
                 {
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
+                    System.out.println("touche en bas");
                     return false;
                 }
 

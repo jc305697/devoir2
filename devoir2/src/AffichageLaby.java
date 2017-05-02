@@ -90,7 +90,7 @@ public class AffichageLaby extends JComponent
 
                     int y2=i*tailleMurVertical+tailleMurVertical;//Y jusqu'où je veux dessiner mon mur
 
-                        if(murVertical)
+                        if(murVertical && murVerticalVisible)
                         {
                             if (j!=labyrinthe.getSortieX()) //veut pas couper la sortie
                             {
@@ -99,7 +99,7 @@ public class AffichageLaby extends JComponent
                             }
                         }
 
-                        if(murHorizontal)
+                        if(murHorizontal&& murHorizontalVisible)
                         {
                             g.drawLine(j * tailleMurHorizontal-1,i * tailleMurVertical-1,x2-1,i * tailleMurVertical-1);
                             //trace une ligne horizontal de la longueur d'un mur horizontal

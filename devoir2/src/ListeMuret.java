@@ -43,7 +43,7 @@ public class ListeMuret
     }
 
     /**
-     * rend tous les murs invisible
+     * rend tous les murs de la liste invisible
      */
    public void tousInvisible()
     {
@@ -91,7 +91,6 @@ public class ListeMuret
           //  System.out.println("retourne null");
             //System.out.println("premierNoeud==null");
             return null;
-
         }
 
         NoeudMuret noeud = premierNoeud;
@@ -101,23 +100,13 @@ public class ListeMuret
             noeud = noeud.noeudSuivant;
         }
 
-       // if (noeud.element.equals(m))
-
-        if (noeud.element.equals(m))
+        if (noeud.element.equals(m))//j'ai trouvé mon élément
         {
-
-           /* if (noeud.element.equals(m))//methode equals redefini dans muret
-            {
-                System.out.println("retourne muret");
-                return noeud.element;
-            }*/
-          //  System.out.println("retourne muret");
 
             return noeud.element;
         }
-      //  System.out.println("retourne null");
 
-        return null;//si rendu ici alors pas dans la liste
+        return null;//si rendu ici alors pas dans la liste puisque rendu a la fin de la liste
 
     }
 
