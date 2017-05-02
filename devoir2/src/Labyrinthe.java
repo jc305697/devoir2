@@ -274,9 +274,9 @@ public class Labyrinthe
 
 //                if ((this.perso.getPositionYPersonnage()+.5==h-1) && !(this.perso.getPositionXPersonnage()+.5!=sortieX))
              //   if ((this.perso.getPositionYPersonnage()+.5==h-1) && !(this.perso.getPositionXPersonnage()+.5!=sortieX))
-               System.out.println(this.perso.getPositionXPersonnage()+.5==l);
-                System.out.println("pas sortie");
-                System.out.println(this.perso.getPositionYPersonnage()-.5!=sortieY);
+               //System.out.println(this.perso.getPositionXPersonnage()+.5==l);
+               // System.out.println("pas sortie");
+               // System.out.println(this.perso.getPositionYPersonnage()-.5!=sortieY);
 
 
                 if ((this.perso.getPositionXPersonnage()+.5==l) && (this.perso.getPositionYPersonnage()-.5!=sortieY))

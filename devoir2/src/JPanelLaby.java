@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by jeremycoulombe on 17-04-01.
@@ -451,157 +452,246 @@ private String[] args;
      */
     public boolean intelligenceArtificielle()
     {
-        double positionXPerso = labyrinthe.getPerso().getPositionXPersonnage();
-        double positionYPerso = labyrinthe.getPerso().getPositionYPersonnage();
+        //double positionXPerso = labyrinthe.getPerso().getPositionXPersonnage();
+        double posXperso = labyrinthe.getPerso().getPositionXPersonnage();
+        double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
+
+
+        //double positionYPerso = labyrinthe.getPerso().getPositionYPersonnage();
 
         System.out.println("intelligence artificielle");
 
-        while(!((positionXPerso==labyrinthe.getSortieX()-0.5)&&(positionYPerso==labyrinthe.getSortieY()+0.5)))//tant que atteint pas la sortie
+        while(!((posXperso-.5==labyrinthe.getSortieX())&&(posYperso-.5==labyrinthe.getSortieY())))//tant que atteint pas la sortie
         {
-            System.out.println("boucle");
+            //System.out.println("boucle");
 
-            double posXperso = labyrinthe.getPerso().getPositionXPersonnage();
-            double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
+            posXperso = labyrinthe.getPerso().getPositionXPersonnage();
+            posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 
             boolean murDroite = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
             boolean murDroiteLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + 1.5), (int) (posYperso - .5), true, false)) != null;
+            //System.out.println("murDroite");
+            // System.out.println(murDroite);
 
- //           boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
+
+            //           boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
             boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + .5), false, false)) != null;
-            boolean murBasLoin=labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;
+            boolean murBasLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;
+            // System.out.println("murBas");
+            // System.out.println(murBas);
+            //  System.out.println("murBasLoin");
+            // System.out.println(murBasLoin);
+
 
             boolean murGauche = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
-            boolean murGaucheLoin =labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), true,false))!=null;
+            boolean murGaucheLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), true, false)) != null;
+            //  System.out.println("murGauche");
+            //  System.out.println(murGauche);
 
             boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
             boolean murHautLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), false, false)) != null;//true s'il y a un muret
+            // System.out.println("murHaut");
+            // System.out.println(murHaut);
 
+            boolean aDroite = (posXperso == (labyrinthe.getL() - .5));//est sur le bord droit
+            boolean enBas = (posYperso + .5) == (labyrinthe.getH());
+            boolean aGauche = posXperso == 0.5;
+            boolean enHaut = posYperso == 0.5;
 
-            boolean aDroite= (posXperso!=(labyrinthe.getL()-.5));//n'est pas sur le bord droit
-            boolean enBas= positionYPerso==(labyrinthe.getH()-.5);
-            boolean aGauche= positionXPerso == 0.5;
-            boolean enHaut= positionYPerso==0.5;
+            boolean haut = murHaut || enHaut;
 
-           boolean haut= murHaut || enHaut;
+            boolean bas = murBas || enBas;
 
-           boolean bas=murBas||enBas;
+            boolean gauche = murGauche || aGauche;
 
-           boolean gauche=murGauche|| aGauche;
+            boolean droit = murDroite || aDroite;
 
-           boolean droit=murDroite || aDroite;
-
-           char lastMove=' ';
-           //char preLastMove=' ';
-
-            if ((positionXPerso+.5==labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()+0.5))
+            char lastMove = ' ';
+            //char preLastMove=' ';
+            int delai= 5;
+            try
             {
+
+            if ((posXperso + .5 == labyrinthe.getSortieX()) && (posYperso == labyrinthe.getSortieY() + 0.5)) {
                 setTextVie(labyrinthe.deplace('D'));
                 finDejeu(labyrinthe);
-                lastMove='D';
+                lastMove = 'D';
                 repaint();
+                affichageLaby.repaint();
+                TimeUnit.SECONDS.sleep(delai);
+
 
                 setTextVie(labyrinthe.deplace('D'));
                 finDejeu(labyrinthe);
-                lastMove='D';
+                lastMove = 'D';
                 repaint();
+                affichageLaby.repaint();
+                TimeUnit.SECONDS.sleep(delai);
+
+
             }
 
 
-            if (gauche)
-            {
-                System.out.println("gauche");
+            if (gauche) {
+
+                // System.out.println("gauche");
                 if (droit && bas && haut)//bloque
                 {
-                    System.out.println("bloque");
+                    System.out.println("gauche bas droit haut");
+                    //  System.out.println("bloque");
                     return false;
-                }
-
-                else if (bas && haut)
-                {
+                } else if (bas && haut) {
+                    System.out.println("gauche bas haut");
                     setTextVie(labyrinthe.deplace('D'));
                     finDejeu(labyrinthe);
-                    lastMove='D';
+                    lastMove = 'D';
                     repaint();
-                }
+                    affichageLaby.repaint();
+                    TimeUnit.SECONDS.sleep(delai);
 
-               else if (bas && droit)
-                {
+
+                } else if (bas && droit) {
+                    System.out.println("gauche bas droit");
                     setTextVie(labyrinthe.deplace('H'));
                     finDejeu(labyrinthe);
                     repaint();
-                    lastMove='H';
-                }
+                    affichageLaby.repaint();
+                    lastMove = 'H';
+                    TimeUnit.SECONDS.sleep(delai);
 
-               else if(bas)//peut pas aller a droite ni en bas
+                } else if (bas)//peut pas aller a droite ni en bas
                 {
-                    if (lastMove!='D')
-                    {
+                    System.out.println("gauche bas ");
+
+                    if (lastMove != 'D') {
                         setTextVie(labyrinthe.deplace('D'));
                         finDejeu(labyrinthe);
-                        lastMove='D';
+                        lastMove = 'D';
                         repaint();
-                    }
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
 
-                    else if (lastMove!='H')
+
+                    } else if (lastMove != 'H') {
+                        setTextVie(labyrinthe.deplace('H'));
+                        finDejeu(labyrinthe);
+                        lastMove = 'H';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
+
+                    }
+                } else if (droit)//peut pas aller a droite ni a gauche
+                {
+                    System.out.println("gauche  droit");
+
+                    if (lastMove == 'H') {
+                        if (!murBasLoin && !murBas) {
+                            setTextVie(labyrinthe.deplace('B'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'B';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(delai);
+
+
+                        } else if (!haut) {
+                            setTextVie(labyrinthe.deplace('H'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'H';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(delai);
+
+                        }
+
+                    }
+                    else if (lastMove == 'B')
                     {
                         setTextVie(labyrinthe.deplace('H'));
                         finDejeu(labyrinthe);
-                        lastMove='H';
+                        lastMove = 'H';
                         repaint();
-                    }
-                }
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
 
-                else if (droit)//peut pas aller a droite ni a gauche
-                {
-                    if (lastMove=='H')
-                    {
+                    }
+
+                    else if (!bas) {
                         setTextVie(labyrinthe.deplace('B'));
                         finDejeu(labyrinthe);
-                        lastMove='B';
+                        lastMove = 'B';
                         repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
                     }
 
-                    if (lastMove=='B')
-                    {
+                    else if (!haut) {
                         setTextVie(labyrinthe.deplace('H'));
                         finDejeu(labyrinthe);
-                        lastMove='H';
+                        lastMove = 'H';
                         repaint();
-                    }
-                }
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
 
-               else if (haut)//peut pas aller a droite ni en haut
+                    }
+
+
+                } else if (haut)//peut pas aller a droite ni en haut
                 {
-                    if (lastMove=='G')
-                    {
+                    System.out.println("gauche haut");
+                    if (lastMove == 'G') {
                         setTextVie(labyrinthe.deplace('B'));
                         finDejeu(labyrinthe);
-                        lastMove='B';
+                        lastMove = 'B';
                         repaint();
-                    }
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
 
-                    else if (lastMove=='H')
-                    {
+
+                    } else if (lastMove == 'H') {
                         setTextVie(labyrinthe.deplace('D'));
                         finDejeu(labyrinthe);
-                        lastMove='D';
+                        lastMove = 'D';
                         repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
                     }
 
-                    else if (lastMove=='B')
-                    {
+                    else if ((lastMove == 'B') && (bas) && (!droit)) {
                         setTextVie(labyrinthe.deplace('G'));
                         finDejeu(labyrinthe);
-                        lastMove='G';
+                        lastMove = 'G';
                         repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
+
+                    } else if (!bas) {
+                        setTextVie(labyrinthe.deplace('B'));
+                        finDejeu(labyrinthe);
+                        lastMove = 'B';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
+                    } else if (!droit) {
+                        setTextVie(labyrinthe.deplace('D'));
+                        finDejeu(labyrinthe);
+                        lastMove = 'D';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
                     }
 
                 }
-
-
-
                 else
-                    {
+                {
+                    System.out.println("gauche");
                        /* if ((lastMove=='G')||(lastMove=='H'))
                         {
                             labyrinthe.deplace('B');
@@ -625,78 +715,169 @@ private String[] args;
                             lastMove='H';
                             repaint();
                         }*/
-                       if (lastMove=='H')
-                       {
-                           if (droit)
-                           {
-                               setTextVie(labyrinthe.deplace('D'));
-                               finDejeu(labyrinthe);
-                               lastMove='D';
-                               repaint();
-                           }
-                       }
 
-                       if (murBasLoin)
+                    //  System.out.println("else");
+
+                    if (lastMove == 'H') {
+                        if (!droit) {
+                            setTextVie(labyrinthe.deplace('D'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'D';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(delai);
+
+                        } else if (!haut) {
+                            setTextVie(labyrinthe.deplace('H'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'H';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(delai);
+
+                        }
+                    }
+
+
+
+                       /*if (murBasLoin)
                        {
                            setTextVie(labyrinthe.deplace('D'));
                            finDejeu(labyrinthe);
                            lastMove='D';
                            repaint();
-                       }
-                    }
+                           affichageLaby.repaint();
 
-            }
-
-            else
-            {
-               // boolean gaucheSortie= (posXperso==(labyrinthe.getSortieX()-0.5)) && (posYperso==(labyrinthe.getSortieY()+0.5));//est a cote de la sortie
-
-             //   if (gaucheSortie && pasADroite)
-                System.out.println("else");
-                if (bas)
-                {
-                    if(droit)
-                    {
-                        if (!haut)
-                        {
-                           setTextVie(labyrinthe.deplace('H'));
-                            finDejeu(labyrinthe);
-                            lastMove='H';
-                            repaint();
-                        }
-                        else if (!gauche)//murs a droite en bas et en haut
-                        {
-                           setTextVie(labyrinthe.deplace('G'));
-                            finDejeu(labyrinthe);
-                            lastMove='G';
-                            repaint();
-                        }
-                    }
+                       }*/
 
                     else if (!droit)
                     {
                         setTextVie(labyrinthe.deplace('D'));
                         finDejeu(labyrinthe);
-                        lastMove='D';
+                        lastMove = 'D';
                         repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
                     }
 
+                    else if (!bas)
+                    {
+                        if (lastMove != 'H' || (murBasLoin || (posYperso + 1.5) == (labyrinthe.getH())))
+                        {
+                            setTextVie(labyrinthe.deplace('B'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'B';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(delai);
+                        }
+
+                        else if (!haut)
+                        {
+
+                        }
+
+                    } else if (!haut) {
+                        setTextVie(labyrinthe.deplace('H'));
+                        finDejeu(labyrinthe);
+                        lastMove = 'H';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(delai);
+
+                    }
+
+
                 }
 
-                else if (!droit)
+            } else {
+                // boolean gaucheSortie= (posXperso==(labyrinthe.getSortieX()-0.5)) && (posYperso==(labyrinthe.getSortieY()+0.5));//est a cote de la sortie
+
+                //   if (gaucheSortie && pasADroite)
+                if (bas)
                 {
-                    setTextVie(labyrinthe.deplace('D'));
-                    lastMove='D';
-                    repaint();
-                }
-                else if (droit)
-                {
-                    setTextVie(labyrinthe.deplace('H'));
-                    finDejeu(labyrinthe);
-                    lastMove='H';
-                    repaint();
+                    if (droit) {
+                        System.out.println("bas droit");
+
+                        if (!haut) {
+                            setTextVie(labyrinthe.deplace('H'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'H';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(10);
+
+
+                        } else if (!gauche)//murs a droite en bas et en haut
+                        {
+                            setTextVie(labyrinthe.deplace('G'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'G';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(10);
+
+
+                        }
+
+                    } else if (!droit) {
+                        System.out.println("bas ");
+                        setTextVie(labyrinthe.deplace('D'));
+                        finDejeu(labyrinthe);
+                        lastMove = 'D';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(10);
+
+
+                    }
+
+                } else if (!droit) {
+                    if (!bas) {
+                        setTextVie(labyrinthe.deplace('B'));
+                        lastMove = 'B';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(10);
+
+                    } else {
+                        System.out.println("vide");
+                        setTextVie(labyrinthe.deplace('D'));
+                        lastMove = 'D';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(10);
+
+                    }
+
+                } else if (droit) {
+                    System.out.println(" droit");
+                    if (bas) {
+                        setTextVie(labyrinthe.deplace('H'));
+                        finDejeu(labyrinthe);
+                        lastMove = 'H';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(10);
+
+                    } else {
+                        setTextVie(labyrinthe.deplace('B'));
+                        finDejeu(labyrinthe);
+                        lastMove = 'B';
+                        repaint();
+                        affichageLaby.repaint();
+                        TimeUnit.SECONDS.sleep(10);
+
+                    }
                 }
             }
+        }
+             catch (InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+
         }
         return true;
     }
