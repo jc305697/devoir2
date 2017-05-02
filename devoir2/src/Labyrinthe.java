@@ -256,7 +256,7 @@ public class Labyrinthe
                         this.liste.chercheMuret(muretDHori2).setVisible(true);
                     }*/
                //if ((this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null))
-
+                System.out.println("posXpersoAvant= "+posXPerso);
                 if (this.liste.chercheMuret(muretDVert1)!=null)
                 {
 
@@ -288,6 +288,8 @@ public class Labyrinthe
 
                 //pas a droite et pas de mur a droite
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()+1);
+                System.out.println("posXpersoApres= "+this.perso.getPositionXPersonnage());
+
                 //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+1);
                 return true;
 
@@ -295,6 +297,8 @@ public class Labyrinthe
                 System.out.println("G");
 
                 Muret muretGVert1= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),true,true);
+
+                System.out.println("posXpersoAvant= "+posXPerso);
 
                 if (this.liste.chercheMuret(muretGVert1)!=null)
                 {
@@ -316,6 +320,7 @@ public class Labyrinthe
 
                 //sinon deplacement valide
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()-1);
+                System.out.println("posXpersoAprès= "+this.perso.getPositionXPersonnage());
 
                 //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+5);
                 return true;
@@ -325,6 +330,8 @@ public class Labyrinthe
                 System.out.println("H");
 
                 Muret muretHHori1= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),false,true);
+
+                System.out.println("posYpersoAvant= "+posYPerso);
 
                 if (this.liste.chercheMuret(muretHHori1)!=null)
                {
@@ -341,14 +348,18 @@ public class Labyrinthe
                     this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
-
+                 //this.set
                 this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()-1);
+                System.out.println("posYpersoAprès= "+this.perso.getPositionYPersonnage());
+
                 return true;
 
             case 'B':
 
                 System.out.println("B");
                 Muret muretBHori1= new Muret((int)(posXPerso-0.5),(int)(posYPerso+0.5),false,true);
+
+                System.out.println("posYpersoAvant= "+posYPerso);
 
                 if (this.liste.chercheMuret(muretBHori1)!=null)
                 {
@@ -366,6 +377,8 @@ public class Labyrinthe
                 }
 
                 this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+1);
+                System.out.println("posYpersoAprès= "+this.perso.getPositionYPersonnage());
+
                 return true;
         }
 

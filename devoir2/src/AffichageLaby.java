@@ -19,30 +19,25 @@ public class AffichageLaby extends JComponent
 
         Graphics2D graphics2D=(Graphics2D)g;//cast pour avoir plus de methodes
 
-       // System.out.println("rendu affichage");
 
-        int largeur = getWidth();//obtient largeur disponible
+        int largeur = getWidth();//obtient largeur d'affichage disponible
 
-        int hauteur=getHeight();//obtient hauteur disponible
-
-       // int tailleMurHorizontal= (largeur/100)*labyrinthe.getL();
-
-        int tailleMurHorizontal= (int)((largeur/labyrinthe.getL())*.75);
+        int hauteur=getHeight();//obtient hauteur d'affichage disponible
 
 
-        //int tailleMurVertical= (hauteur/100)*labyrinthe.getH();
-        int tailleMurVertical= (int)((hauteur/labyrinthe.getH())*.75);
+        int tailleMurHorizontal= (int)((largeur/labyrinthe.getL())*.75);//regle de 3 pour adapter les mesures a la taille d'affichage pour les murs horizontal
+
+
+        int tailleMurVertical= (int)((hauteur/labyrinthe.getH())*.75);//regle de 3 pour adapter les mesures a la taille d'affichage pour les murs vertical
 
 
 
 
-        int longBordSup= (int)(labyrinthe.getL()*tailleMurHorizontal);
+        int longBordSup= (int)(labyrinthe.getL()*tailleMurHorizontal);//calcule la longueur de la bordure supérieure meme long. pour bordure du bas
 
-        int longBordGauche= (int)(labyrinthe.getH()*tailleMurVertical);
+        int longBordGauche= (int)(labyrinthe.getH()*tailleMurVertical);//calcule la longueur de la bordure gauche meme long. pour bord. du bas
 
        graphics2D.drawRect(0,0,largeur,hauteur);//met rectangle pour enlever ce qui etait la avant
-        //coordonne a verifier
-      //  graphics2D.drawRect(0,0,longBordSup,longBordGauche);//met rectangle pour enlever ce qui etait la avant
 
 
         //devrait faire cote gauche puis haut et bas puis cote droit avec sortie
@@ -62,7 +57,7 @@ public class AffichageLaby extends JComponent
         //fait cote droit jusqu a sortie
 
         if (labyrinthe.getSortieY()!= hauteur)
-        { //si sortie pas en bas a droite alors continue 1 case plus loin
+        { //si sortie pas en bas a droite alors continue 1 taille de mur vertical plus loin
             g.drawLine(longBordSup+1, labyrinthe.getSortieY()*tailleMurVertical + tailleMurVertical, longBordSup+1,longBordGauche+1 );
         }
 
@@ -77,37 +72,37 @@ public class AffichageLaby extends JComponent
                 boolean murHorizontalVisible=false;
                 boolean murVerticalVisible=false;
 
-                if (murVertical) {
+                if (murVertical) //si il y a un mur
+                {
                      murVerticalVisible = labyrinthe.getListe().chercheMuret(new Muret(j, i, true, false)).getVisible();
+                    //murVerticalVisible=boolean illustrant si mur visible ou pas
                 }
+
                 if (murHorizontal)
                 {
                  murHorizontalVisible = labyrinthe.getListe().chercheMuret(new Muret(j, i, false, false)).getVisible();
+                    //murVerticalVisible=boolean illustrant si mur visible ou pas
                 }
-                //System.out.println("evalue condition");
+
                 if ((murVertical && murVerticalVisible)|| (murHorizontal && murHorizontalVisible))
                 {
-                  //  boolean enBordure= i==0 || j==labyrinthe.getL()-1 || j==0 || i== labyrinthe.getH()-1;
-                    //System.out.println("condition non nulle vrai");
+                        int x2=j*tailleMurHorizontal+tailleMurHorizontal;//X jusqu'où je veux dessiner mon mur
 
-                 //   if(!enBordure)
-                  //  {
-                     //   System.out.println("pas en bordure");
-
-                        int x2=j*tailleMurHorizontal+tailleMurHorizontal;
-                        int y2=i*tailleMurVertical+tailleMurVertical;
+                    int y2=i*tailleMurVertical+tailleMurVertical;//Y jusqu'où je veux dessiner mon mur
 
                         if(murVertical)
                         {
                             if (j!=labyrinthe.getSortieX()) //veut pas couper la sortie
                             {
                                 g.drawLine(j * tailleMurHorizontal - 1, i * tailleMurVertical - 1, j * tailleMurHorizontal - 1, y2 - 1);
+                           //trace une ligne vertical
                             }
                         }
 
                         if(murHorizontal)
                         {
                             g.drawLine(j * tailleMurHorizontal-1,i * tailleMurVertical-1,x2-1,i * tailleMurVertical-1);
+                            //trace une ligne horizontal de la longueur d'un mur horizontal
                         }
 
                    // }
@@ -116,10 +111,10 @@ public class AffichageLaby extends JComponent
             }
         }
 
-        int x1= (int)(labyrinthe.getPerso().getPositionXPersonnage())*tailleMurHorizontal;
-        int y1= (int)(labyrinthe.getPerso().getPositionYPersonnage())*tailleMurVertical;
+        int x1= (int)(labyrinthe.getPerso().getPositionXPersonnage())*tailleMurHorizontal;//position en x du personnage dans l'affichage
+        int y1= (int)(labyrinthe.getPerso().getPositionYPersonnage())*tailleMurVertical;//position en y du personnage dans l'affichage
 
-        labyrinthe.getPerso().dessine(g,x1,y1,x1+tailleMurHorizontal,y1+tailleMurVertical);
+        labyrinthe.getPerso().dessine(g,x1,y1,x1+tailleMurHorizontal,y1+tailleMurVertical);//dessine le personnage
 
     }
 

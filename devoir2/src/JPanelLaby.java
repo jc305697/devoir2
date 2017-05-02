@@ -19,6 +19,7 @@ private Timer minuterie;
 private JFrame fenetreJeu;
 private String[] args;
 private char lastMove= ' ';
+private Timer ai;
     //mettre differents boutons
     public JPanelLaby(Labyrinthe labyrinthe,int visibilite,String[] args,JFrame fenetreJeu)
     {
@@ -60,7 +61,40 @@ private char lastMove= ' ';
 
       panneauDroit.add(panneauDroitHaut,BorderLayout.NORTH);
 
-       //cree les boutons pour les deplacements
+        ActionListener appelleAi = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+                if (!intelligenceArtificielle())
+                {
+                    repaint();
+                    affichageLaby.repaint();
+
+                    int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"L'intelligence artificielle ne peut résoudre le problème. Voulez-vous rejouez?","message important",JOptionPane.YES_NO_OPTION);
+                    if (reponse==0) //oui
+                    {
+                        reset(args,fenetreJeu);
+                    }
+
+                    if (reponse==1)
+                    {
+                        // break;
+                        //fenetreJeu.setVisible(false);
+                        // fenetreJeu.dispose();
+                        System.exit(0);
+
+                    }
+                }
+
+                repaint();
+                affichageLaby.repaint();
+            }
+        };
+
+        this.ai = new Timer(5,appelleAi);//cree timer qui appelle l'ia
+
+        //cree les boutons pour les deplacements
         JButton haut = new JButton("haut");
 
         haut.addActionListener(new ActionListener()
@@ -145,23 +179,7 @@ private char lastMove= ' ';
         {
             public void actionPerformed(ActionEvent e)
             {
-                if (!intelligenceArtificielle())
-                {
-                    int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"L'intelligence artificielle ne peut résoudre le problème. Voulez-vous rejouez?","message important",JOptionPane.YES_NO_OPTION);
-                    if (reponse==0) //oui
-                    {
-                        reset(args,fenetreJeu);
-                    }
-
-                    if (reponse==1)
-                    {
-                        // break;
-                        //fenetreJeu.setVisible(false);
-                        // fenetreJeu.dispose();
-                        System.exit(0);
-
-                    }
-                }
+               ai.start();
             }
 
         });
@@ -181,81 +199,6 @@ private char lastMove= ' ';
 
         this.addKeyListener(this);
 
-      /*  Action versHaut =new AbstractAction()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                System.out.println("passe dans action haut");
-                labyrinthe.deplace('H');
-                repaint();
-                affichageLaby.repaint();
-
-            }
-        };
-
-        String stringHaut= "vers Haut";
-        this.getInputMap().put(KeyStroke.getKeyStroke("h"),stringHaut);
-        this.getInputMap().put(KeyStroke.getKeyStroke("e"),stringHaut);
-
-
-        this.getActionMap().put(stringHaut,versHaut);
-
-        Action versBas =new AbstractAction()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                System.out.println("passe dans action bas");
-                labyrinthe.deplace('B');
-                repaint();
-                affichageLaby.repaint();
-
-            }
-        };
-
-        String stringBas = "vers Bas";
-        this.getInputMap().put(KeyStroke.getKeyStroke("b"),stringBas);
-        this.getInputMap().put(KeyStroke.getKeyStroke("x"),stringBas);
-
-
-        this.getActionMap().put(stringBas,versBas);
-
-        Action versGauche =new AbstractAction()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                System.out.println("passe dans action gauche");
-                labyrinthe.deplace('G');
-                repaint();
-                affichageLaby.repaint();
-            }
-        };
-
-        String stringGauche = "vers Gauche";
-        this.getInputMap().put(KeyStroke.getKeyStroke("g"),stringGauche);
-        this.getInputMap().put(KeyStroke.getKeyStroke("s"),stringGauche);
-
-
-        this.getActionMap().put(stringGauche,versGauche);
-
-        Action versDroite =new AbstractAction()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                System.out.println("passe dans action droit");
-                labyrinthe.deplace('D');
-                repaint();
-                affichageLaby.repaint();
-
-
-            }
-        };
-
-        String stringDroite = "vers Droite";
-        this.getInputMap().put(KeyStroke.getKeyStroke("d"),stringDroite);
-
-        this.getActionMap().put(stringDroite,versDroite);*/
-
-        //int indicateurTimer;
 
         //rend invisible les murs après un certain temps
         ActionListener rendreMursInvisible = new ActionListener() {
@@ -272,10 +215,13 @@ private char lastMove= ' ';
         };
 
         int delai= visibilite*1000;//converti en millisecondes
-        Timer timer = new Timer(delai,rendreMursInvisible);
-        timer.start();
-        this.minuterie=timer;
+
+        minuterie = new Timer(delai,rendreMursInvisible);
+        minuterie.start();
     }
+
+
+
 
 
     public void finDejeu(Labyrinthe labyrinthe)
@@ -292,6 +238,7 @@ private char lastMove= ' ';
            // if((positionXPerso>labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()-0.5))
            // if((positionXPerso>labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()+0.5))
             {
+                ai.stop();
                 int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
                 if (reponse==0) //oui
                 {
@@ -314,6 +261,7 @@ private char lastMove= ' ';
 
         if (labyrinthe.getPerso().getviesRestantes()==0)
         {
+            ai.stop();
             int reponse = JOptionPane.showConfirmDialog(fenetreJeu, "vous avez perdu. Voulez-vous rejouer", "message important", JOptionPane.YES_NO_OPTION);
 
             if (reponse == 0) //oui
@@ -460,10 +408,10 @@ private char lastMove= ' ';
 
         //double positionYPerso = labyrinthe.getPerso().getPositionYPersonnage();
 
-        System.out.println("intelligence artificielle");
+        //System.out.println("intelligence artificielle");
 
-        while(!((posXperso-.5==labyrinthe.getSortieX())&&(posYperso-.5==labyrinthe.getSortieY())))//tant que atteint pas la sortie
-        {
+        //while(!((posXperso-.5==labyrinthe.getSortieX())&&(posYperso-.5==labyrinthe.getSortieY())))//tant que atteint pas la sortie
+       // {
             //System.out.println("boucle");
 
             posXperso = labyrinthe.getPerso().getPositionXPersonnage();
@@ -501,6 +449,8 @@ private char lastMove= ' ';
             boolean aGauche = posXperso == 0.5;
             boolean enHaut = posYperso == 0.5;
             boolean enBasLoin = (posYperso + 1.5) == (labyrinthe.getH());
+
+            boolean aDroiteLoin =(posXperso == (labyrinthe.getL() - 1.5));
 
             boolean haut = murHaut || enHaut;
 
@@ -773,10 +723,10 @@ private char lastMove= ' ';
                            deplacePanel(delai,'D');
                        }
 
-                       if (!bas)
+                       if (!bas&&basLoin&&!droit)
                        {
-                           lastMove='B';
-                           deplacePanel(delai,'B');
+                           lastMove='D';
+                           deplacePanel(delai,'D');
 
                        }
                         else if (!droit)
@@ -852,7 +802,8 @@ private char lastMove= ' ';
 
                     }
 
-                    else if (!haut) {
+                    else if (!haut)
+                    {
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                         /*setTextVie(labyrinthe.deplace('H'));
@@ -876,7 +827,8 @@ private char lastMove= ' ';
                 if (bas)//obstacle ou limite du bas vers le bas
                 {
 
-                    if (droit) {
+                    if (droit)
+                    {
                         System.out.println("bas droit");
 
                         if (!haut)
@@ -909,6 +861,20 @@ private char lastMove= ' ';
 
                     }
 
+                   else if((lastMove=='G')&&(aDroiteLoin||murDroiteLoin))
+                    {
+                        if (!haut)
+                        {
+                            lastMove='H';
+                            deplacePanel(delai,'H');
+                        }
+
+                        else
+                        {//gauche libre puisque arrive ici seulement si gauche est faux
+                            lastMove='G';
+                            deplacePanel(delai,'G');
+                        }
+                    }
                     else if (!droit)
                     {
                         System.out.println("bas");
@@ -1000,7 +966,7 @@ private char lastMove= ' ';
                 Thread.currentThread().interrupt();
             }*/
 
-        }
+       // }
         return true;
     }
 
