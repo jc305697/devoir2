@@ -18,6 +18,7 @@ private boolean timerBoolean;
 private Timer minuterie;
 private JFrame fenetreJeu;
 private String[] args;
+private char lastMove= ' ';
     //mettre differents boutons
     public JPanelLaby(Labyrinthe labyrinthe,int visibilite,String[] args,JFrame fenetreJeu)
     {
@@ -470,6 +471,8 @@ private String[] args;
 
             boolean murDroite = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
             boolean murDroiteLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + 1.5), (int) (posYperso - .5), true, false)) != null;
+            boolean murDroiteLoinEnbas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - 1.5), true, false)) != null;
+
             //System.out.println("murDroite");
             // System.out.println(murDroite);
 
@@ -497,6 +500,7 @@ private String[] args;
             boolean enBas = (posYperso + .5) == (labyrinthe.getH());
             boolean aGauche = posXperso == 0.5;
             boolean enHaut = posYperso == 0.5;
+            boolean enBasLoin = (posYperso + 1.5) == (labyrinthe.getH());
 
             boolean haut = murHaut || enHaut;
 
@@ -506,9 +510,11 @@ private String[] args;
 
             boolean droit = murDroite || aDroite;
 
-            char lastMove = ' ';
+            boolean basLoin= murBasLoin || enBasLoin;
+
+            //char lastMove = ' ';
             //char preLastMove=' ';
-            int delai= 5;
+            int delai= 3;
 
             //try
             //{
@@ -521,7 +527,7 @@ private String[] args;
                 repaint();
                 affichageLaby.repaint();
                 TimeUnit.SECONDS.sleep(delai);*/
-                lastMove = 'D';
+                this.lastMove = 'D';
                 deplacePanel(delai,'D');
 
                 lastMove = 'D';
@@ -666,7 +672,9 @@ private String[] args;
                     }
 
 
-                } else if (haut)//peut pas aller a droite ni en haut
+                } //fin si droit
+
+                else if (haut)//peut pas aller a droite ni en haut
                 {
                     System.out.println("gauche haut");
                     if (lastMove == 'G') {
@@ -726,6 +734,7 @@ private String[] args;
                     }
 
                 }
+
                 else
                 {
                     System.out.println("gauche");
@@ -757,7 +766,21 @@ private String[] args;
 
                     if (lastMove == 'H')
                     {
-                        if (!droit) {
+                        System.out.println("last move=='H'");
+                       if (!bas&&basLoin&&murDroiteLoinEnbas&&!droit)
+                       {
+                           lastMove='D';
+                           deplacePanel(delai,'D');
+                       }
+
+                       if (!bas)
+                       {
+                           lastMove='B';
+                           deplacePanel(delai,'B');
+
+                       }
+                        else if (!droit)
+                        {
                             lastMove = 'D';
                             deplacePanel(delai,'D');
                             /*setTextVie(labyrinthe.deplace('D'));
@@ -767,7 +790,9 @@ private String[] args;
                             affichageLaby.repaint();
                             TimeUnit.SECONDS.sleep(delai);*/
 
-                        } else if (!haut) {
+                        }
+                        else if (!haut)
+                        {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
                             /* setTextVie(labyrinthe.deplace('H'));
@@ -792,6 +817,28 @@ private String[] args;
 
                        }*/
 
+                    else if (!bas)
+                    {
+                        if (lastMove != 'H' && (murBasLoin || (posYperso + 1.5) == (labyrinthe.getH())))
+                        {
+                            lastMove = 'B';
+                            deplacePanel(delai,'B');
+                            /*setTextVie(labyrinthe.deplace('B'));
+                            finDejeu(labyrinthe);
+                            lastMove = 'B';
+                            repaint();
+                            affichageLaby.repaint();
+                            TimeUnit.SECONDS.sleep(delai);*/
+                        }
+
+                        else if (lastMove!='H')
+                        {
+                            lastMove='B';
+                            deplacePanel(delai,'B');
+                        }
+
+                    }
+
                     else if (!droit)
                     {
                         lastMove = 'D';
@@ -805,26 +852,7 @@ private String[] args;
 
                     }
 
-                    else if (!bas)
-                    {
-                        if (lastMove != 'H' || (murBasLoin || (posYperso + 1.5) == (labyrinthe.getH())))
-                        {
-                            lastMove = 'B';
-                            deplacePanel(delai,'B');
-                            /*setTextVie(labyrinthe.deplace('B'));
-                            finDejeu(labyrinthe);
-                            lastMove = 'B';
-                            repaint();
-                            affichageLaby.repaint();
-                            TimeUnit.SECONDS.sleep(delai);*/
-                        }
-
-                        else if (!haut)
-                        {
-
-                        }
-
-                    } else if (!haut) {
+                    else if (!haut) {
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                         /*setTextVie(labyrinthe.deplace('H'));
@@ -839,16 +867,20 @@ private String[] args;
 
                 }
 
-            } else {
+            }
+            else//pas d'obtacle a gauche
+            {
                 // boolean gaucheSortie= (posXperso==(labyrinthe.getSortieX()-0.5)) && (posYperso==(labyrinthe.getSortieY()+0.5));//est a cote de la sortie
 
                 //   if (gaucheSortie && pasADroite)
-                if (bas)
+                if (bas)//obstacle ou limite du bas vers le bas
                 {
+
                     if (droit) {
                         System.out.println("bas droit");
 
-                        if (!haut) {
+                        if (!haut)
+                        {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
                             /*setTextVie(labyrinthe.deplace('H'));
@@ -859,7 +891,9 @@ private String[] args;
                             TimeUnit.SECONDS.sleep(delai);*/
 
 
-                        } else if (!gauche)//murs a droite en bas et en haut
+                        }
+
+                        else if (!gauche)//murs a droite en bas et en haut
                         {
                             lastMove = 'G';
                             deplacePanel(delai,'G');
@@ -873,7 +907,9 @@ private String[] args;
 
                         }
 
-                    } else if (!droit)
+                    }
+
+                    else if (!droit)
                     {
                         System.out.println("bas");
                         lastMove = 'D';
@@ -885,13 +921,17 @@ private String[] args;
                         repaint();
                         affichageLaby.repaint();
                         TimeUnit.SECONDS.sleep(delai);*/
-
-
                     }
 
-                } else if (!droit) {
-                    if (!bas) {
+                }
 
+                else if (!droit)
+                {
+
+                    if ((!bas) &&(lastMove!='H'))
+                    {
+                        System.out.println("rien a droit ni a gauche et en bas last move!='H'");
+                        System.out.println("lastmove= "+lastMove);
                         lastMove = 'B';
                         deplacePanel(delai,'B');
                         /*setTextVie(labyrinthe.deplace('B'));
@@ -900,8 +940,11 @@ private String[] args;
                         affichageLaby.repaint();
                         TimeUnit.SECONDS.sleep(delai);*/
 
-                    } else {
-                        System.out.println("vide");
+                    }
+
+                    else
+                    {
+                        System.out.println("rien a droite ni a gauche");
                         lastMove = 'D';
                         deplacePanel(delai,'D');
 
@@ -913,9 +956,11 @@ private String[] args;
 
                     }
 
-                } else if (droit)
+                }
+                else if (droit)
                 {
-                    if (bas) {
+                    if (bas)
+                    {
                         System.out.println(" droit bas");
                         lastMove = 'H';
                         deplacePanel(delai,'H');
@@ -925,17 +970,26 @@ private String[] args;
                         repaint();
                         affichageLaby.repaint();
                         TimeUnit.SECONDS.sleep(delai);*/
+                    }
+                    else
+                    {
 
-                    } else {
                         System.out.println(" droit");
-
-                        lastMove = 'B';
-                        deplacePanel(delai,'B');
+                        if (lastMove!='H')
+                        {
+                            lastMove = 'B';
+                            deplacePanel(delai, 'B');
                         /*setTextVie(labyrinthe.deplace('B'));
                         finDejeu(labyrinthe);
                         repaint();
                         affichageLaby.repaint();
                         TimeUnit.SECONDS.sleep(delai);*/
+                        }
+                        else if(haut&&(lastMove=='H')&& basLoin)
+                        {
+                            lastMove='G';
+                            deplacePanel(delai,'G');
+                        }
 
                     }
                 }
