@@ -18,7 +18,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -26,13 +28,15 @@
       <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="404" column="41" lean-forward="false" selection-start-line="404" selection-start-column="41" selection-end-line="404" selection-end-column="41" />
+            <state relative-caret-position="53">
+              <caret line="926" column="48" lean-forward="true" selection-start-line="926" selection-start-column="48" selection-end-line="926" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
                 <element signature="e#5422#5423#0" expanded="true" />
                 <element signature="e#5463#5464#0" expanded="true" />
                 <element signature="class#5892:6266" expanded="false" />
+                <element signature="method#finDejeu#0;class#JPanelLaby#0" expanded="false" />
                 <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
                 <element signature="method#keyReleased#0;class#JPanelLaby#0" expanded="false" />
                 <element signature="method#keyTyped#0;class#JPanelLaby#0" expanded="false" />
@@ -56,8 +60,8 @@
       <file leaf-file-name="Muret.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Muret.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -79,16 +83,9 @@
             <state relative-caret-position="675">
               <caret line="50" column="58" lean-forward="false" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
               <folding>
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#619#620#0" expanded="true" />
-                <element signature="e#651#652#0" expanded="true" />
-                <element signature="e#713#714#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
-                <element signature="e#891#892#0" expanded="true" />
-                <element signature="e#927#928#0" expanded="true" />
-                <element signature="e#993#994#0" expanded="true" />
-                <element signature="e#1045#1046#0" expanded="true" />
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="e#533#534#0" expanded="false" />
+                <element signature="e#568#569#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -101,6 +98,10 @@
               <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
               <folding>
                 <element signature="method#ListeMuret#0;class#ListeMuret#0" expanded="false" />
+                <element signature="e#292#293#0" expanded="false" />
+                <element signature="e#319#320#0" expanded="false" />
+                <element signature="e#366#367#0" expanded="false" />
+                <element signature="e#401#402#0" expanded="false" />
                 <element signature="method#ajoutMuret#0;class#ListeMuret#0" expanded="false" />
                 <element signature="method#tousInvisible#0;class#ListeMuret#0" expanded="false" />
               </folding>
@@ -111,8 +112,8 @@
       <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2880">
-              <caret line="390" column="0" lean-forward="false" selection-start-line="390" selection-start-column="0" selection-end-line="390" selection-end-column="0" />
+            <state relative-caret-position="-752">
+              <caret line="227" column="5" lean-forward="true" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
               <folding>
                 <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
                 <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
@@ -164,8 +165,8 @@
         <option value="$PROJECT_DIR$/src/NoeudDirection.java" />
         <option value="$PROJECT_DIR$/src/Direction.java" />
         <option value="$PROJECT_DIR$/src/ListeDirection.java" />
-        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
         <option value="$PROJECT_DIR$/src/AffichageLaby.java" />
+        <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
         <option value="$PROJECT_DIR$/src/JPanelLaby.java" />
       </list>
     </option>
@@ -539,6 +540,10 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#ListeMuret#0;class#ListeMuret#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#319#320#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#401#402#0" expanded="false" />
             <element signature="method#ajoutMuret#0;class#ListeMuret#0" expanded="false" />
             <element signature="method#tousInvisible#0;class#ListeMuret#0" expanded="false" />
           </folding>
@@ -567,7 +572,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -577,9 +584,11 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
             <element signature="e#5422#5423#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
             <element signature="class#5892:6266" expanded="false" />
+            <element signature="method#finDejeu#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyReleased#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyTyped#0;class#JPanelLaby#0" expanded="false" />
@@ -626,6 +635,10 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#ListeMuret#0;class#ListeMuret#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#319#320#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#401#402#0" expanded="false" />
             <element signature="method#ajoutMuret#0;class#ListeMuret#0" expanded="false" />
             <element signature="method#tousInvisible#0;class#ListeMuret#0" expanded="false" />
           </folding>
@@ -649,9 +662,11 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
             <element signature="e#5422#5423#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
             <element signature="class#5892:6266" expanded="false" />
+            <element signature="method#finDejeu#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyReleased#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyTyped#0;class#JPanelLaby#0" expanded="false" />
@@ -699,7 +714,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -709,6 +726,10 @@
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding>
             <element signature="method#ListeMuret#0;class#ListeMuret#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#319#320#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#401#402#0" expanded="false" />
             <element signature="method#ajoutMuret#0;class#ListeMuret#0" expanded="false" />
             <element signature="method#tousInvisible#0;class#ListeMuret#0" expanded="false" />
           </folding>
@@ -734,7 +755,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -744,9 +767,11 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
             <element signature="e#5422#5423#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
             <element signature="class#5892:6266" expanded="false" />
+            <element signature="method#finDejeu#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyReleased#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyTyped#0;class#JPanelLaby#0" expanded="false" />
@@ -793,6 +818,10 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#ListeMuret#0;class#ListeMuret#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#319#320#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#401#402#0" expanded="false" />
             <element signature="method#ajoutMuret#0;class#ListeMuret#0" expanded="false" />
             <element signature="method#tousInvisible#0;class#ListeMuret#0" expanded="false" />
           </folding>
@@ -821,7 +850,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -831,9 +862,11 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
             <element signature="e#5422#5423#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
             <element signature="class#5892:6266" expanded="false" />
+            <element signature="method#finDejeu#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyReleased#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyTyped#0;class#JPanelLaby#0" expanded="false" />
@@ -880,6 +913,10 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#ListeMuret#0;class#ListeMuret#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#319#320#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#401#402#0" expanded="false" />
             <element signature="method#ajoutMuret#0;class#ListeMuret#0" expanded="false" />
             <element signature="method#tousInvisible#0;class#ListeMuret#0" expanded="false" />
           </folding>
@@ -927,19 +964,12 @@
           <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
           <folding>
             <element signature="method#ListeMuret#0;class#ListeMuret#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#319#320#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#401#402#0" expanded="false" />
             <element signature="method#ajoutMuret#0;class#ListeMuret#0" expanded="false" />
             <element signature="method#tousInvisible#0;class#ListeMuret#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="390" column="0" lean-forward="false" selection-start-line="390" selection-start-column="0" selection-end-line="390" selection-end-column="0" />
-          <folding>
-            <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -948,15 +978,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Muret.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -973,16 +997,9 @@
         <state relative-caret-position="675">
           <caret line="50" column="58" lean-forward="false" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
           <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#533#534#0" expanded="false" />
+            <element signature="e#568#569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -995,15 +1012,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Muret.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-752">
+          <caret line="227" column="5" lean-forward="true" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
+          <folding>
+            <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="404" column="41" lean-forward="false" selection-start-line="404" selection-start-column="41" selection-end-line="404" selection-end-column="41" />
+        <state relative-caret-position="53">
+          <caret line="926" column="48" lean-forward="true" selection-start-line="926" selection-start-column="48" selection-end-line="926" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
             <element signature="e#5422#5423#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
             <element signature="class#5892:6266" expanded="false" />
+            <element signature="method#finDejeu#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyPressed#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyReleased#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#keyTyped#0;class#JPanelLaby#0" expanded="false" />

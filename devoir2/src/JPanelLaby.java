@@ -401,18 +401,14 @@ private Timer ai;
      */
     public boolean intelligenceArtificielle()
     {
-        //double positionXPerso = labyrinthe.getPerso().getPositionXPersonnage();
         double posXperso = labyrinthe.getPerso().getPositionXPersonnage();
         double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 
 
-        //double positionYPerso = labyrinthe.getPerso().getPositionYPersonnage();
 
-        //System.out.println("intelligence artificielle");
 
         //while(!((posXperso-.5==labyrinthe.getSortieX())&&(posYperso-.5==labyrinthe.getSortieY())))//tant que atteint pas la sortie
        // {
-            //System.out.println("boucle");
 
             posXperso = labyrinthe.getPerso().getPositionXPersonnage();
             posYperso = labyrinthe.getPerso().getPositionYPersonnage();
@@ -421,28 +417,20 @@ private Timer ai;
             boolean murDroiteLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + 1.5), (int) (posYperso - .5), true, false)) != null;
             boolean murDroiteLoinEnbas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - 1.5), true, false)) != null;
 
-            //System.out.println("murDroite");
-            // System.out.println(murDroite);
 
 
             //           boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), false, false)) != null;
             boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + .5), false, false)) != null;
             boolean murBasLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;
-            // System.out.println("murBas");
-            // System.out.println(murBas);
-            //  System.out.println("murBasLoin");
-            // System.out.println(murBasLoin);
 
 
             boolean murGauche = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
             boolean murGaucheLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), true, false)) != null;
-            //  System.out.println("murGauche");
-            //  System.out.println(murGauche);
+
 
             boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
             boolean murHautLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), false, false)) != null;//true s'il y a un muret
-            // System.out.println("murHaut");
-            // System.out.println(murHaut);
+
 
             boolean aDroite = (posXperso == (labyrinthe.getL() - .5));//est sur le bord droit
             boolean enBas = (posYperso + .5) == (labyrinthe.getH());
@@ -462,7 +450,7 @@ private Timer ai;
 
             boolean basLoin= murBasLoin || enBasLoin;
 
-            //char lastMove = ' ';
+
             //char preLastMove=' ';
             int delai= 3;
 
@@ -925,6 +913,13 @@ private Timer ai;
                 }
                 else if (droit)
                 {
+                    if (!haut)
+                    {
+                        System.out.println(" droit bas");
+                        lastMove = 'H';
+                        deplacePanel(delai,'H');
+                    }
+
                     if (bas)
                     {
                         System.out.println(" droit bas");
@@ -970,44 +965,6 @@ private Timer ai;
         return true;
     }
 
-    /*public boolean deplaceModifie(char direction)
-    {
-        double posXPerso= labyrinthe.getPerso().getPositionXPersonnage();
-
-        double posYPerso= labyrinthe.getPerso().getPositionYPersonnage();
-
-        switch (direction)
-        {
-            case 'D':
-                System.out.println("D");
-
-                //pas a droite et pas de mur a droite
-                labyrinthe.getPerso().setPositionXPersonnage(labyrinthe.getPerso().getPositionXPersonnage()+1);
-                return true;
-
-            case 'G':
-                System.out.println("G");
-
-                //sinon deplacement valide
-                labyrinthe.getPerso().setPositionXPersonnage(labyrinthe.getPerso().getPositionXPersonnage()-1);
-                //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+5);
-                return true;
-
-            case 'H':
-                System.out.println("H");
-
-                labyrinthe.getPerso().setPositionYPersonnage(labyrinthe.getPerso().getPositionYPersonnage()-1);
-                return true;
-
-            case 'B':
-
-                System.out.println("B");
-                labyrinthe.getPerso().setPositionYPersonnage(labyrinthe.getPerso().getPositionYPersonnage()+1);
-                return true;
-        }
-
-        return false;
-    }*/
 
     public void deplacePanel(int delai, char deplacement)
     {
