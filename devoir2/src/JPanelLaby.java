@@ -620,10 +620,19 @@ private Timer ai;
                         }
 
                     }
+
                     else if (lastMove == 'B')
                     {
-                        lastMove = 'H';
-                        deplacePanel(delai,'H');
+                        if (!basLoin)
+                        {
+                            lastMove='B';
+                            deplacePanel(delai,'B');
+                        }
+                        else
+                        {
+                            lastMove = 'H';
+                            deplacePanel(delai,'H');
+                        }
                         /* setTextVie(labyrinthe.deplace('H'));
                         finDejeu(labyrinthe);
                         lastMove = 'H';
@@ -855,6 +864,7 @@ private Timer ai;
                 }
 
             }
+
             else//pas d'obtacle a gauche
             {
                 // boolean gaucheSortie= (posXperso==(labyrinthe.getSortieX()-0.5)) && (posYperso==(labyrinthe.getSortieY()+0.5));//est a cote de la sortie
@@ -934,6 +944,7 @@ private Timer ai;
                     {
                         System.out.println("rien a droit ni a gauche et en bas last move!='H'");
                         System.out.println("lastmove= "+lastMove);
+
                         lastMove = 'B';
                         deplacePanel(delai,'B');
                         /*setTextVie(labyrinthe.deplace('B'));
@@ -959,6 +970,7 @@ private Timer ai;
                     }
 
                 }
+
                 else if (droit)
                 {
 
@@ -976,7 +988,12 @@ private Timer ai;
                         TimeUnit.SECONDS.sleep(delai);*/
                     }
 
-                    if (!haut)
+                    else if (!basLoin)
+                    {
+                        lastMove='B';
+                        deplacePanel(delai,'B');
+                    }
+                    else if (!haut)
                     {
                         System.out.println(" droit bas");
                         lastMove = 'H';

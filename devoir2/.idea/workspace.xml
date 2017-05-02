@@ -26,8 +26,8 @@
       <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="553" column="24" lean-forward="false" selection-start-line="553" selection-start-column="24" selection-end-line="553" selection-end-column="24" />
+            <state relative-caret-position="131">
+              <caret line="930" column="45" lean-forward="true" selection-start-line="930" selection-start-column="45" selection-end-line="930" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
@@ -147,11 +147,11 @@
       <find>Timer</find>
       <find>timer</find>
       <find>intelligence</find>
-      <find>droit</find>
       <find>droit bas</find>
       <find>gauche droit</find>
-      <find>bas droit</find>
       <find>gauche bas</find>
+      <find>droit</find>
+      <find>bas droit</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -1040,8 +1040,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="553" column="24" lean-forward="false" selection-start-line="553" selection-start-column="24" selection-end-line="553" selection-end-column="24" />
+        <state relative-caret-position="131">
+          <caret line="930" column="45" lean-forward="true" selection-start-line="930" selection-start-column="45" selection-end-line="930" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
