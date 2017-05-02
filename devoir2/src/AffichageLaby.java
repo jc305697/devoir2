@@ -121,8 +121,6 @@ public class AffichageLaby extends JComponent
 
         labyrinthe.getPerso().dessine(g,x1,y1,x1+tailleMurHorizontal,y1+tailleMurVertical);
 
-
-
     }
 
 }

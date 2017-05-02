@@ -16,7 +16,7 @@
       <file leaf-file-name="JeuLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="405">
               <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -25,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="467" column="30" lean-forward="true" selection-start-line="467" selection-start-column="30" selection-end-line="467" selection-end-column="30" />
+            <state relative-caret-position="498">
+              <caret line="1000" column="9" lean-forward="true" selection-start-line="1000" selection-start-column="9" selection-end-line="1000" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
@@ -46,8 +46,8 @@
       <file leaf-file-name="AffichageLaby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+            <state relative-caret-position="180">
+              <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -90,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="341" column="0" lean-forward="true" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
+            <state relative-caret-position="570">
+              <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
               <folding>
                 <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
                 <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
@@ -138,24 +138,24 @@
         <option value="$PROJECT_DIR$/src/Personnage.java" />
         <option value="$PROJECT_DIR$/src/Muret.java" />
         <option value="$PROJECT_DIR$/src/ListeMuret.java" />
-        <option value="$PROJECT_DIR$/src/AffichageLaby.java" />
         <option value="$PROJECT_DIR$/src/JeuLaby.java" />
         <option value="$PROJECT_DIR$/src/NoeudDirection.java" />
         <option value="$PROJECT_DIR$/src/Direction.java" />
         <option value="$PROJECT_DIR$/src/ListeDirection.java" />
         <option value="$PROJECT_DIR$/src/Labyrinthe.java" />
+        <option value="$PROJECT_DIR$/src/AffichageLaby.java" />
         <option value="$PROJECT_DIR$/src/JPanelLaby.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="424" />
-    <option name="y" value="25" />
+    <option name="x" value="323" />
+    <option name="y" value="23" />
     <option name="width" value="1117" />
     <option name="height" value="813" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -168,39 +168,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="devoir2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="devoir2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="devoir2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="devoir2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -496,7 +464,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="424" y="25" width="1117" height="813" extended-state="0" />
+    <frame x="323" y="23" width="1117" height="813" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -983,7 +951,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JeuLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="405">
           <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -991,10 +959,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
+          <folding>
+            <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
+            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="467" column="30" lean-forward="true" selection-start-line="467" selection-start-column="30" selection-end-line="467" selection-end-column="30" />
+        <state relative-caret-position="498">
+          <caret line="1000" column="9" lean-forward="true" selection-start-line="1000" selection-start-column="9" selection-end-line="1000" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
@@ -1003,25 +990,6 @@
             <element signature="method#keyTyped#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#setTextVie#0;class#JPanelLaby#0" expanded="false" />
             <element signature="method#reset#0;class#JPanelLaby#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="341" column="0" lean-forward="true" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
-          <folding>
-            <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>

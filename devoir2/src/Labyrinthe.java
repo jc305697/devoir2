@@ -316,8 +316,10 @@ public class Labyrinthe
 
                 //sinon deplacement valide
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()-1);
+
                 //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+5);
                 return true;
+
 
             case 'H':
                 System.out.println("H");
