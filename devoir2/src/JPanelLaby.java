@@ -543,11 +543,13 @@ private Timer ai;
 
 
                     }
-                } else if (droit)//peut pas aller a droite ni a gauche
+                }
+                else if (droit)//peut pas aller a droite ni a gauche
                 {
-                    System.out.println("gauche  droit");
+                    System.out.println("gauche droit");
 
-                    if (lastMove == 'H') {
+                    if (lastMove == 'H')
+                    {
                         if (!murBasLoin && !murBas) {
                             lastMove = 'B';
                             deplacePanel(delai,'B');
@@ -913,12 +915,7 @@ private Timer ai;
                 }
                 else if (droit)
                 {
-                    if (!haut)
-                    {
-                        System.out.println(" droit bas");
-                        lastMove = 'H';
-                        deplacePanel(delai,'H');
-                    }
+
 
                     if (bas)
                     {
@@ -932,6 +929,14 @@ private Timer ai;
                         affichageLaby.repaint();
                         TimeUnit.SECONDS.sleep(delai);*/
                     }
+
+                    if (!haut)
+                    {
+                        System.out.println(" droit bas");
+                        lastMove = 'H';
+                        deplacePanel(delai,'H');
+                    }
+
                     else
                     {
 
@@ -946,10 +951,17 @@ private Timer ai;
                         affichageLaby.repaint();
                         TimeUnit.SECONDS.sleep(delai);*/
                         }
+
                         else if(haut&&(lastMove=='H')&& basLoin)
                         {
                             lastMove='G';
                             deplacePanel(delai,'G');
+                        }
+
+                        else
+                        {
+                           lastMove='G';
+                           deplacePanel(delai,'G');
                         }
 
                     }

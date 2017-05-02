@@ -28,8 +28,8 @@
       <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="926" column="48" lean-forward="true" selection-start-line="926" selection-start-column="48" selection-end-line="926" selection-end-column="48" />
+            <state relative-caret-position="550">
+              <caret line="963" column="51" lean-forward="true" selection-start-line="963" selection-start-column="51" selection-end-line="963" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
@@ -112,11 +112,10 @@
       <file leaf-file-name="Labyrinthe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-752">
-              <caret line="227" column="5" lean-forward="true" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
+            <state relative-caret-position="222">
+              <caret line="278" column="66" lean-forward="false" selection-start-line="278" selection-start-column="61" selection-end-line="278" selection-end-column="66" />
               <folding>
                 <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-                <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -147,6 +146,9 @@
       <find>Timer</find>
       <find>timer</find>
       <find>intelligence</find>
+      <find>bas droit</find>
+      <find>droit</find>
+      <find>droit bas</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -174,7 +176,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="35" />
     <option name="y" value="23" />
-    <option name="width" value="1117" />
+    <option name="width" value="909" />
     <option name="height" value="813" />
   </component>
   <component name="ProjectView">
@@ -487,7 +489,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="23" width="1117" height="813" extended-state="0" />
+    <frame x="35" y="23" width="909" height="813" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -525,7 +527,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPanelLaby.java</url>
+          <line>522</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -556,7 +566,6 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -651,7 +660,6 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -690,7 +698,6 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -834,7 +841,6 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -929,7 +935,6 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1004,14 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Muret.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1022,19 +1019,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labyrinthe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-752">
-          <caret line="227" column="5" lean-forward="true" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
+        <state relative-caret-position="222">
+          <caret line="278" column="66" lean-forward="false" selection-start-line="278" selection-start-column="61" selection-end-line="278" selection-end-column="66" />
           <folding>
             <element signature="method#Labyrinthe#0;class#Labyrinthe#0" expanded="false" />
-            <element signature="method#toString#0;class#Labyrinthe#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AffichageLaby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="926" column="48" lean-forward="true" selection-start-line="926" selection-start-column="48" selection-end-line="926" selection-end-column="48" />
+        <state relative-caret-position="550">
+          <caret line="963" column="51" lean-forward="true" selection-start-line="963" selection-start-column="51" selection-end-line="963" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#JPanelLaby#0;class#JPanelLaby#0" expanded="false" />
