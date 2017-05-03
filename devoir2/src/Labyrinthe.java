@@ -122,7 +122,8 @@ public class Labyrinthe
         String ultimateAccumulator = "";
         String bordureSup = "______"; //On va accumuler cette unité
         String bordureAcc = ""; //Accumulateur, la longueur dépend de la largeur du laby demandé
-        for(int h=0; h<l; h++){ //Crée les lignes de bordure sup et inf. Besoin seulement que ce soit répété deux fois.
+        for(int h=0; h<l; h++)
+        { //Crée les lignes de bordure sup et inf. Besoin seulement que ce soit répété deux fois.
             bordureAcc += bordureSup;
         }
 
