@@ -3,7 +3,7 @@
  */
 public class Labyrinthe
 {
-    
+
     private int  l;//largeur en termes de cases
     private int h; //hauteur en termes de cases
     private Personnage perso;
@@ -122,20 +122,14 @@ public class Labyrinthe
         String ultimateAccumulator = "";
         String bordureSup = "______"; //On va accumuler cette unité
         String bordureAcc = ""; //Accumulateur, la longueur dépend de la largeur du laby demandé
-        for(int h=0; h<l; h++)
-        { //Crée les lignes de bordure sup et inf. Besoin seulement que ce soit répété deux fois.
+        for(int h=0; h<l; h++){ //Crée les lignes de bordure sup et inf. Besoin seulement que ce soit répété deux fois.
             bordureAcc += bordureSup;
         }
-
         String resultat=""; //Accumulateur pour tout la grille.
         resultat +=bordureAcc + "\n"; //Première ligne horizontale ajoutée, on va en ajouter une autre à la fin
         boolean flagCharTrouveEtMis = false;
         for(double j=0; j<this.l; j++)
         { //AXE Y, META-LIGNES
-
-            //les lignes horizontales qu'on change à chaque tour. Chaque tout de i permet de créer une méta-ligne qui sera ajoutée à résultat.
-
-            //Permet de déterminer si un personnage était à la ligne. C'est plus tard utilisé pour créer la méta-ligne
 
             String murLigne = "|"; //Mini-ligne, crée une ligne de murs verticaux uniquement, sans personnage
             String murPersLigne = "|"; //Ligne avec barres verticales AVEC personnage
@@ -147,43 +141,49 @@ public class Labyrinthe
                 Muret muretPosVert2 = new Muret((int) j, (int) i, true, true);
                 Muret muretPosHorizo2 = new Muret((int) j, (int) i, false, true);
 
+                if(i<this.h-1){
 
-                if(this.liste.chercheMuret(muretPosVert2) !=null) //S'il y a une sortie
-                {
-                    murLigne+="     |";
+                    if(this.liste.chercheMuret(muretPosVert2) !=null)
+                    {
+                        murLigne+="     |";
+                    }
+                    else if(this.liste.chercheMuret(muretPosVert2) ==null){
+                        murLigne+="      ";
+                    }
                 }
-
-                else if((this.sortieX==i&& this.sortieY==j))
-                {
-                    murLigne+="     out ";
-                }
-                else if(this.liste.chercheMuret(muretPosVert2) ==null){
-                    murLigne+="      ";
-                }
-
-                if(this.liste.chercheMuret(muretPosHorizo2) !=null&& this.liste.chercheMuret(muretPosVert2) !=null)
-                {
-                    murLigneHorizo+="_____|";
-                }
-                else if(this.liste.chercheMuret(muretPosHorizo2) !=null&& this.liste.chercheMuret(muretPosVert2) ==null)
-                {
-                    murLigneHorizo+="______";
+                else{
+                    if((this.sortieX==i&& this.sortieY==j)) {
+                        murLigne += "     out ";
+                    }
+                    else{
+                        murLigne+="     |";
+                    }
                 }
 
-                else if (this.liste.chercheMuret(muretPosHorizo2) ==null)
-                {
-                    murLigneHorizo+="      ";
+
+                if(j<this.l-1) {
+                    if ((this.liste.chercheMuret(muretPosHorizo2) != null) && (this.liste.chercheMuret(muretPosVert2) != null)) {
+                        murLigneHorizo += "_____|";
+                    } else if (this.liste.chercheMuret(muretPosHorizo2) != null && this.liste.chercheMuret(muretPosVert2) == null) {
+                        murLigneHorizo += "______";
+                    } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) == null) {
+                        murLigneHorizo += "      ";
+                    } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) != null) {
+                        murLigneHorizo += "      |";
+                    }
                 }
-                else if (this.liste.chercheMuret(muretPosHorizo2) ==null&&this.liste.chercheMuret(muretPosVert2) !=null)
-                {
-                    murLigneHorizo+="      ";
+                else{
+                    if ((this.liste.chercheMuret(muretPosVert2) != null)) {
+                        murLigneHorizo += "_____|";
+                    }
+                    else if((this.sortieX==i&& this.sortieY==j)) {
+                        murLigne += "______ ";
+                    }
+                    else{
+                        murLigneHorizo += "______";
+                    }
                 }
-                else if(flagCharTrouveEtMis && this.liste.chercheMuret(muretPosVert2) !=null){
-                    murPersLigne +="     |";//Avec mur
-                }
-                else if(flagCharTrouveEtMis && this.liste.chercheMuret(muretPosVert2) ==null){
-                    murPersLigne +="      ";//sans mur
-                }
+
                 if(this.perso.getPositionXPersonnage()==i+0.5)
                 { //Si dans la ligne y a un personnage, procédure spéciale
 
@@ -204,9 +204,6 @@ public class Labyrinthe
                             murPersLigne+= "  c  "; //Sans mur
                         }
                     }
-
-
-                        Muret muretPosVert = new Muret((int) j, (int) i, true, true);
 
                 }
             }
