@@ -42,23 +42,33 @@ public class AffichageLaby extends JComponent
 
         //devrait faire cote gauche puis haut et bas puis cote droit avec sortie
 
-        g.drawLine(2, 2, 2, longBordGauche+1);
+        //g.drawLine(2, 2, 2, longBordGauche+1);
+        g.drawLine(3, 3, 3, longBordGauche+2);
+
         //fait cote gauche
 
-        g.drawLine(2,2,longBordSup+1,2);
+        //g.drawLine(2,2,longBordSup+1,2);
+        g.drawLine(3,3,longBordSup+2,3);
+
         //fait haut
 
-        g.drawLine(2,longBordGauche+1,longBordSup+1,longBordGauche+1);
+       // g.drawLine(2,longBordGauche+1,longBordSup+1,longBordGauche+1);
+        g.drawLine(3,longBordGauche+2,longBordSup+2,longBordGauche+2);
+
         //fait bas
 
-        //g.drawLine(longBordSup-1,0,longBordSup-1,labyrinthe.getSortieY()*tailleMurVertical-1);
-        g.drawLine(longBordSup+1,2,longBordSup+1,labyrinthe.getSortieY()*tailleMurVertical);
+
+       // g.drawLine(longBordSup+1,2,longBordSup+1,labyrinthe.getSortieY()*tailleMurVertical);
+
+        g.drawLine(longBordSup+2,3,longBordSup+2,labyrinthe.getSortieY()*tailleMurVertical+2);
 
         //fait cote droit jusqu a sortie
 
         if (labyrinthe.getSortieY()!= hauteur)
         { //si sortie pas en bas a droite alors continue 1 taille de mur vertical plus loin
-            g.drawLine(longBordSup+1, labyrinthe.getSortieY()*tailleMurVertical + tailleMurVertical, longBordSup+1,longBordGauche+1 );
+           // g.drawLine(longBordSup+1, labyrinthe.getSortieY()*tailleMurVertical + tailleMurVertical, longBordSup+1,longBordGauche+1 );
+            g.drawLine(longBordSup+2, labyrinthe.getSortieY()*tailleMurVertical + tailleMurVertical+2, longBordSup+2,longBordGauche+2 );
+
         }
 
         for (int i=0;i<labyrinthe.getH();i++)//hauteur y
@@ -86,22 +96,26 @@ public class AffichageLaby extends JComponent
 
                 if ((murVertical && murVerticalVisible)|| (murHorizontal && murHorizontalVisible))
                 {
-                        int x2=j*tailleMurHorizontal+tailleMurHorizontal;//X jusqu'où je veux dessiner mon mur
+                    int x2=j*tailleMurHorizontal+tailleMurHorizontal;//X jusqu'où je veux dessiner mon mur
 
                     int y2=i*tailleMurVertical+tailleMurVertical;//Y jusqu'où je veux dessiner mon mur
 
-                        if(murVertical && murVerticalVisible)
+                        if(murVertical)
                         {
                             if (j!=labyrinthe.getSortieX()) //veut pas couper la sortie
                             {
-                                g.drawLine(j * tailleMurHorizontal - 1, i * tailleMurVertical - 1, j * tailleMurHorizontal - 1, y2 - 1);
-                           //trace une ligne vertical
+                               // g.drawLine(j * tailleMurHorizontal - 1, i * tailleMurVertical - 1, j * tailleMurHorizontal - 1, y2 - 1);
+                                //g.drawLine(j * tailleMurHorizontal +1, i * tailleMurVertical - 1, j * tailleMurHorizontal + 1, y2 - 1);
+                                  g.drawLine(j*tailleMurHorizontal+3,i*tailleMurVertical+3,j*tailleMurHorizontal+3,y2+3);
+                                //trace une ligne vertical et additionne 3 pour compenser pour compenser pour le decalage du dessin du contour
                             }
                         }
 
-                        if(murHorizontal&& murHorizontalVisible)
+                        if(murHorizontal)
                         {
-                            g.drawLine(j * tailleMurHorizontal-1,i * tailleMurVertical-1,x2-1,i * tailleMurVertical-1);
+                          // g.drawLine(j * tailleMurHorizontal-1,i * tailleMurVertical+1,x2-1,i * tailleMurVertical+1);
+                            g.drawLine(j * tailleMurHorizontal+3,i * tailleMurVertical+3,x2+3,i * tailleMurVertical+3);
+                            //g.drawLine(j * tailleMurHorizontal-1,i * tailleMurVertical-1,x2-1,i * tailleMurVertical-1);
                             //trace une ligne horizontal de la longueur d'un mur horizontal
                         }
 
@@ -111,10 +125,14 @@ public class AffichageLaby extends JComponent
             }
         }
 
-        int x1= (int)(labyrinthe.getPerso().getPositionXPersonnage())*tailleMurHorizontal;//position en x du personnage dans l'affichage
-        int y1= (int)(labyrinthe.getPerso().getPositionYPersonnage())*tailleMurVertical;//position en y du personnage dans l'affichage
+        //int x1= (int)(labyrinthe.getPerso().getPositionXPersonnage())*tailleMurHorizontal;//position en x du personnage dans l'affichage
+       // int y1= (int)(labyrinthe.getPerso().getPositionYPersonnage())*tailleMurVertical;//position en y du personnage dans l'affichage
+        int x1= (int)(labyrinthe.getPerso().getPositionXPersonnage())*tailleMurHorizontal+4;//position en x du personnage dans l'affichage ajoute 3 pour compenser
+        int y1= (int)(labyrinthe.getPerso().getPositionYPersonnage())*tailleMurVertical+4;//position en y du personnage dans l'affichage ajoute 3 pour compenser
 
-        labyrinthe.getPerso().dessine(g,x1,y1,x1+tailleMurHorizontal,y1+tailleMurVertical);//dessine le personnage
+       // labyrinthe.getPerso().dessine(g,x1,y1,x1+tailleMurHorizontal,y1+tailleMurVertical);//dessine le personnage
+        labyrinthe.getPerso().dessine(g,x1,y1,x1+tailleMurHorizontal-3,y1+tailleMurVertical-3);//dessine le personnage
+
 
     }
 
