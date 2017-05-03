@@ -103,7 +103,6 @@ public class Labyrinthe
 
 
     public String toString() {
-        String ultimateAccumulator = "";
         String bordureSup = "______"; //On va accumuler cette unité
         String bordureAcc = ""; //Accumulateur, la longueur dépend de la largeur du laby demandé
         for(int h=0; h<l; h++){ //Crée les lignes de bordure sup et inf. Besoin seulement que ce soit répété deux fois.
@@ -112,18 +111,20 @@ public class Labyrinthe
         String resultat=""; //Accumulateur pour tout la grille.
         resultat +=bordureAcc + "\n"; //Première ligne horizontale ajoutée, on va en ajouter une autre à la fin
         boolean flagCharTrouveEtMis = false;
-        for(double j=0; j<this.l; j++)
+        for(double j=0; j<this.h; j++)
         { //AXE Y, META-LIGNES
+
+
 
             String murLigne = "|"; //Mini-ligne, crée une ligne de murs verticaux uniquement, sans personnage
             String murPersLigne = "|"; //Ligne avec barres verticales AVEC personnage
             String murLigneHorizo = "|";//Ligne horizontale de murs horizontaux composés de tirets "-"
 
-            for(double i=0; i<this.h; i++)
+            for(double i=0; i<this.l; i++)
             { //AXE X, META-COLONNES
+                Muret muretPosVert2 = new Muret((int) i, (int) j, true, true);
+                Muret muretPosHorizo2 = new Muret((int) i, (int) j, false, true);
 
-                Muret muretPosVert2 = new Muret((int) j, (int) i, true, true);
-                Muret muretPosHorizo2 = new Muret((int) j, (int) i, false, true);
 
                 if(i<this.h-1){
 
@@ -153,39 +154,53 @@ public class Labyrinthe
                     } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) == null) {
                         murLigneHorizo += "      ";
                     } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) != null) {
-                        murLigneHorizo += "      |";
+                        murLigneHorizo += "     |";
                     }
                 }
                 else{
-                    if ((this.liste.chercheMuret(muretPosVert2) != null)) {
+                    if((this.sortieX==i&& this.sortieY==j)) {
+                        murLigneHorizo += "______";
+                    }
+                    if(j>this.l-1 && (this.sortieY==j)){
                         murLigneHorizo += "_____|";
                     }
-                    else if((this.sortieX==i&& this.sortieY==j)) {
-                        murLigne += "______ ";
-                    }
                     else{
-                        murLigneHorizo += "______";
+                        murLigneHorizo += "_____";
                     }
                 }
 
-                if(this.perso.getPositionXPersonnage()==i+0.5)
+                if(this.perso.getPositionYPersonnage()==j+0.5)
                 { //Si dans la ligne y a un personnage, procédure spéciale
-
-
-
-                    if(this.perso.getPositionYPersonnage()==j+0.5)
+                    if(this.perso.getPositionXPersonnage()==i+0.5)
                     { //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
-
-                        Muret muretPosVert = new Muret((int) j, (int) i, true, true);
                         flagCharTrouveEtMis=true;
-                        if(this.liste.chercheMuret(muretPosVert)!=null)
+                        if(this.liste.chercheMuret(muretPosVert2)!=null)
                         {//S'il y a un mur à cette position...
                             murPersLigne +="  c  |";//Avec mur
                         }
-
                         else
                         {
-                            murPersLigne+= "  c  "; //Sans mur
+                            murPersLigne+= "   c  "; //Sans mur
+                        }
+                    }
+                    else{
+                        if(i<this.h-1){
+
+                            if(this.liste.chercheMuret(muretPosVert2) !=null)
+                            {
+                                murPersLigne+="     |";
+                            }
+                            else if(this.liste.chercheMuret(muretPosVert2) ==null){
+                                murPersLigne+="      ";
+                            }
+                        }
+                        else{
+                            if((this.sortieX==i&& this.sortieY==j)) {
+                                murPersLigne += "     out ";
+                            }
+                            else{
+                                murPersLigne+="     |";
+                            }
                         }
                     }
 
