@@ -56,19 +56,17 @@ public class Personnage
 
 
     //////MÉTHODE POUR DESSINER LE PERSONNAGE DANS LE GRAPH
+
+    /**
+     *
+     * @param g Graphics
+     * @param x1 coordonne en x du haut a gauche de la boite dans laquelle je veux faire mon personnage
+     * @param y1 coordonne en y du haut a gauche de la boite dans laquelle je veux faire mon personnage
+     * @param x2 coordonne en x du bas a droite de la boite dans laquelle je veux faire mon personnage
+     * @param y2 coordonne en y du bas a droite de la boite dans laquelle je veux faire mon personnage
+     */
     public void dessine(Graphics g, int x1, int y1, int x2, int y2)
     {
-        //TO DO:
-        /*une méthode void dessine(Graphics g, int x1, int y1, int x2, int y2)
-        qui sera appelée en lui passant un contexte graphique,
-        ainsi que les dimensions (en pixels) de la boite dans
-        laquelle dessiner le personnage.
-        Cette méthode sera appelée par la méthode paintComponent de
-        votre AffichageLaby. Vous pouvez par exemple commencer
-        par représenter votre personnage par un simple cercle ou ovale
-        (et plus tard faire quelque chose de plus joli). */
-
-       // Graphics2D graphics2D= (Graphics2D)g;
         g.fillOval(x1,y1,x2-x1,y2-y1);
     }
 }

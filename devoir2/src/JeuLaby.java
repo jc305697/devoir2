@@ -61,45 +61,15 @@ public class JeuLaby
                     int visibiliteTimed = Integer.parseInt(args[3]);
                     int viesRestantes = Integer.parseInt(args[4]);
 
-                    //System.out.println("rendu ici");
                     Labyrinthe laby = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
-
-                    //System.out.println("rendu ici");
-                    // laby.toString();
-                    //System.out.println(laby);
 
                     JFrame fenetreJeu = new JFrame("Labyrinthe");//cree fenetre de jeu
 
-                    //JPanel jPanel= (JPanel) fenetreJeu.getContentPane();
-                    //jPanel=new JPanelLaby(laby);;
 
                     JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed,args,fenetreJeu);
 
-                   //reset(args,fenetreJeu);
-
-                    /*int indicateurTimer=0;
-
-                    //rend invisible les murs après un certain temps
-                    ActionListener rendreMursInvisible = new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e)
-                        {
-                            if (indicateurTimer==0)
-                            {
-                                laby.getListe().tousInvisible();
-                                panelLaby.repaint();
-                                panelLaby.getAffichageLaby().repaint();
-                            }
-
-                        }
-                    };
-
-                    int delai= visibiliteTimed*1000;//converti en millisecondes
-                    Timer timer = new Timer(delai,rendreMursInvisible);*/
-
 
                     fenetreJeu.setContentPane(panelLaby);
-                  //  fenetreJeu.add(panelLaby);
 
 
 
@@ -114,138 +84,7 @@ public class JeuLaby
                     fenetreJeu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                     fenetreJeu.setVisible(true);
-
-                   // while (true) {
-
-                       // boolean gagne = panelLaby.boucleDeJeu(laby);
-
-                        /*if (gagne == false) {
-                            //mettre fenetre de dialogue qui dit que la personne a perdu et demander si veut jouer encore...
-                            //JoptionPane.showMessageDialog;
-                            //if(veutplus jouer ) fait break
-                            //si veut jouer encore appele fonction qui reset le affichage jlaby
-                            //JOptionPane.showMessageDialog(fenetreJeu,"vous avez perdu");
-                           int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez perdu. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
-                           if (reponse==0) //oui
-                           {
-                                reset(args,fenetreJeu);
-                           }
-
-                           if (reponse==1)
-                           {
-                               break;
-                           }
-
-                        }
-
-                        if (gagne)
-                        {
-                            //mettre fenetre de dialogue qui dit que la personne a gagner et demander si veut jouer encore...
-                            //JoptionPane.showMessageDialog;
-                            //if(veutplus jouer ) fait break
-                            //si veut jouer encore appele fonction qui reset le affichage jlaby et les composants et remet indicateurTimer a 0
-                            int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
-                            if (reponse==0) //oui
-                            {
-                                reset(args,fenetreJeu);
-                            }
-
-                            if (reponse==1)
-                            {
-                                break;
-                            }
-                        }*/
-
-
-                    //}
                 }
-
-
-
-                       /* while (true)
-                        {
-                            System.out.println("veuillez entrez une direction");
-                            Scanner snap = new Scanner(System.in);
-                            String deplacement = snap.nextLine();
-                            //if(deplacement != "d" ||deplacement != "g"||deplacement != "h"||deplacement != "b"){
-
-                            if(deplacement.length()==1)
-                            {
-                                char direction= deplacement.charAt(0);//CharAt permet de faire un cast vers char
-
-                                if (direction!='D' || direction!='G' || direction!='H'|| direction!='B')
-                                {
-                                    System.out.println("Commande inconnue... S'il vous plâit entrer 'D', 'G', 'H' ou encore 'B'");
-                                }
-
-                                else
-                                {//Si touche est correcte...
-                                    laby.deplace(direction);
-                                    laby.toString(); //Reprint de la laby
-                                }
-                            }
-
-                            if (deplacement.length()!=1)
-                            {
-                                System.out.println("longueur de commande illégale veuillez recommencez");
-                            }
-
-                            //Partie du jeu, appeler fonctions.
-
-
-                            if (viesRestantes == 0)
-                            {
-                                break;
-                            }
-                        }//BOUCLE WHILE POUR LA PARTIE JEU, BREAK==PASSER À L'INTERFACE UTIL
-
-
-                        if (viesRestantes == 0)
-                        {
-                            while(true)
-                            {
-                                System.out.println("Vous êtes mort, il ne vous restait plus de vies! Réessayer? (Oui/Non):");
-                                Scanner scan = new Scanner(System.in);
-                                if (scan.equals("Oui"))
-                                {
-                                    System.out.println("Parfait, nous allons réinitialiser le jeu pour vous! Mêmes arguments?");//Lets continue the while!
-                                    //Faut avoir qqch pour changer les paramètres? Qqch plus interactif?
-                                    while (true)
-                                    {
-                                        if (scan.nextLine().equals("Non"))
-                                        {
-                                            alertChanged = 1;
-                                            break;
-                                        }
-
-                                        else if (scan.nextLine().equals("Oui"))
-                                        {
-                                            break;
-                                            //Do nothing, while(true) gonna take care of dis
-                                        }
-
-                                        else
-                                        {
-                                            System.out.println("Désolé, la réponse n'était pas claire! Voulez-vous réinitialiser les arguments? (Oui/Non)");
-                                        }
-                                    }
-
-                                }
-
-                                else if (scan.equals("Non"))
-                                {
-                                    Runtime.getRuntime().exit(0);//Sortie de la console, status=0 signifie que tout va bien
-                                    //Le programme achève ici? Commande permettant de shutdown l'app?
-                                }
-
-                                else
-                                {
-                                    System.out.println("Désolé, la réponse n'était pas claire! Voulez-vous sortir du jeu? (Oui/Non)");
-                                }
-                            }
-                        }
-                    }
-                }//ELSE SI TOUT EST CORRECT DANS LES BORNES DES PARAMÈTRES --- BOUCLE DE JEU*/
 
             }//IF DE IF (ARGS LENGTH==5)
 
@@ -257,19 +96,5 @@ public class JeuLaby
         }//Boucle while(true), afin d'executer l'interface lui-même
 
     }//MAIN
-   /* public static void reset(String[] args,JFrame fenetreJeu)
-    {
-        int hauteur = Integer.parseInt(args[0]);
-        int largeur = Integer.parseInt(args[1]);
-        double densite = Double.parseDouble(args[2]);
-        int visibiliteTimed = Integer.parseInt(args[3]);
-        int viesRestantes = Integer.parseInt(args[4]);
 
-        Labyrinthe laby = new Labyrinthe(largeur, hauteur, densite, visibiliteTimed, viesRestantes);
-
-        JPanelLaby panelLaby = new JPanelLaby(laby,visibiliteTimed);
-
-        fenetreJeu.setContentPane(panelLaby);
-
-    }*/
 }//JEU LABY

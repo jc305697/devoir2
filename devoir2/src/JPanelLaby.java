@@ -14,7 +14,6 @@ public class JPanelLaby extends JPanel implements KeyListener
 private Labyrinthe labyrinthe;
 private AffichageLaby affichageLaby;
 private JLabel texteVie;
-//private boolean timerBoolean;
 private Timer minuterie;
 private JFrame fenetreJeu;
 private String[] args;
@@ -23,7 +22,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
     public JPanelLaby(Labyrinthe labyrinthe,int visibilite,String[] args,JFrame fenetreJeu)
     {
         //je mets les  differents boutons et l'affichage du labyrinthe
-        //this.timerBoolean=false;//je n'ai pas encore activé le timer
 
         AffichageLaby affichageLaby= new AffichageLaby(labyrinthe);//cree affichageLaby qui sera afficher au Centre
 
@@ -85,12 +83,11 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                     }
                 }
 
-                repaint();//
-                //affichageLaby.repaint();
+                repaint();
             }
         };
 
-        this.ai = new Timer(5,appelleAi);//cree timer qui appelle l'ia
+        this.ai = new Timer(1500,appelleAi);//cree timer qui appelle l'ia
 
         //cree les boutons pour les deplacements
         JButton haut = new JButton("haut");
@@ -99,7 +96,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         {
             public void actionPerformed(ActionEvent e)
             {
-               setTextVie(labyrinthe.deplace('H'));
+                setTextVie(labyrinthe.deplace('H'));//utilise le boolean retourner par deplace pour determiner si chhange le texte donnant le nb de vie
                 repaint();
                 finDejeu(labyrinthe);
             }
@@ -132,7 +129,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
         });
 
-        JButton gauche = new JButton("gauche");
+        JButton gauche = new JButton("gauche");//bouton pour aller a gauche
 
         gauche.addActionListener(new ActionListener()
         {
@@ -166,7 +163,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
             {
                 labyrinthe.getListe().tousVisible();
                 repaint();
-               // affichageLaby.repaint();
             }
 
         });
@@ -204,9 +200,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                 System.out.println("timer");
                     labyrinthe.getListe().tousInvisible();
                     repaint();
-                    //affichageLaby.repaint();
-
-                    getMinuterie().stop();//arrete le timer
+                    minuterie.stop();//arrete le timer
             }
         };
 
@@ -222,7 +216,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
     public void finDejeu(Labyrinthe labyrinthe)
     {
-
         if(labyrinthe.getPerso().getviesRestantes()!=0)//si nbs de vies restantes n'est pas égal à 0
         {
            double positionXPerso= labyrinthe.getPerso().getPositionXPersonnage();
@@ -271,22 +264,20 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
             }
         }
-        //return true;// nb de vie =0 et veut pas continuer
     }
 
     public  void keyPressed(KeyEvent e)
     {
-       // System.out.println("1");
-
     }
 
     public void keyReleased(KeyEvent e)
     {
-       // System.out.println("2");
-
-
     }
 
+    /**
+     *
+     * @param e: keyEvent
+     */
     public void keyTyped(KeyEvent e)
     {
     //    System.out.println("keyTyped");
@@ -346,6 +337,10 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         }
     }
 
+    /**
+     *
+     * @param valeurDeplacement: valeur boolean retourné par la fonction deplace
+     */
     public void setTextVie(boolean valeurDeplacement)
     {
         if (valeurDeplacement==false)
@@ -354,21 +349,12 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         }
     }
 
-    public AffichageLaby getAffichageLaby()
-    {
-        return this.affichageLaby;
-    }
 
-    public Labyrinthe getLabyrinthe()
-    {
-        return this.labyrinthe;
-    }
-
-    public Timer getMinuterie()
-    {
-        return this.minuterie;
-    }
-
+    /**
+     *
+     * @param args: tableau des arguments passé dans la ligne de commande
+     * @param fenetreJeu: JFrame qui est utilisé pour afficher le labyrithe et l'ensemble des autres composantes
+     */
     public static void reset(String[] args,JFrame fenetreJeu)
     {
         int hauteur = Integer.parseInt(args[0]);
@@ -439,36 +425,37 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
             boolean basLoin= murBasLoin || enBasLoin;
 
 
-            int delai= 2;
+            int delai= 0;
 
 
-            /*if ((posXperso + .5 == labyrinthe.getSortieX()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))
-            {
-                this.lastMove = 'D';
-                deplacePanel(delai,'D');
-
-                //lastMove = 'D';
-                //deplacePanel(delai,'D');
-
-            }*/
 
              if ((posXperso + .5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))//je suis a côté de la sortie
-            {
-                this.lastMove = 'D';
-                deplacePanel(delai,'D');
-            }
+             {
+                lastMove = 'D';
+                System.out.println("devant la sortie");
 
-           /* if ((posXperso + 1.5 == labyrinthe.getSortieX()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))
-            {
-                this.lastMove = 'D';
                 deplacePanel(delai,'D');
-            }*/
+             }
 
-        else if ((posXperso + 1.5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))//je suis 1 case à côté de la sortie
-        {
-            this.lastMove = 'D';
-            deplacePanel(delai,'D');
-        }
+
+            else if ((posXperso + 1.5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))//je suis 1 case à côté de la sortie
+             {
+                System.out.println("a 1 case de la sortie");
+                lastMove = 'D';
+                deplacePanel(delai,'D');
+             }
+
+             else if ((posXperso + .5 == labyrinthe.getL()) && (posYperso-1.5==labyrinthe.getSortieY()) && haut && !gauche)
+             {
+                lastMove='G';
+                deplacePanel(delai,'G');
+             }
+
+             else if((posXperso + 1.5 == labyrinthe.getL())&& (posYperso-1.5==labyrinthe.getSortieY()) && !haut)
+             {
+                lastMove='H';
+                deplacePanel(delai,'G');
+             }
 
 
             if (gauche)//mur ou ordure a gauche
@@ -633,29 +620,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                 else
                 {
                     System.out.println("gauche");
-                       /* if ((lastMove=='G')||(lastMove=='H'))
-                        {
-                            labyrinthe.deplace('B');
-                            finDejeu(labyrinthe);
-                            lastMove='B';
-                            repaint();
-                        }
-
-                        if ((lastMove=='B')||(lastMove=='H'))
-                        {
-                            labyrinthe.deplace('G');
-                            finDejeu(labyrinthe);
-                            lastMove='G';
-                            repaint();
-                        }
-
-                        if((lastMove=='B')|| (lastMove=='G'))
-                        {
-                            labyrinthe.deplace('H');
-                            finDejeu(labyrinthe);
-                            lastMove='H';
-                            repaint();
-                        }*/
 
                     if (lastMove == 'H')
                     {
@@ -752,7 +716,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         {
                             lastMove = 'G';
                             deplacePanel(delai,'G');
-
                         }
 
                     }
@@ -780,7 +743,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
                 }
 
-                else if (!droit)
+                else if (!droit)//rien à droite
                 {
                     if ((aDroiteLoin || murDroiteLoin || droit || murDroite) && ((murBasLoin || basLoin || bas || murBas)||(murHaut || enHaut)))// pris dans une boite
                     {
@@ -804,8 +767,16 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         System.out.println("rien a droit ni a gauche et en bas last move!='H'");
                         System.out.println("lastmove= "+lastMove);
 
-                        lastMove = 'B';
-                        deplacePanel(delai,'B');
+                        if ((labyrinthe.getL()-posXperso<5) && (!haut) )
+                        {
+                            lastMove ='B';
+                            deplacePanel(delai,'B');
+                        }
+                        else
+                        {
+                            lastMove = 'B';
+                            deplacePanel(delai, 'B');
+                        }
                     }
 
                     else
@@ -829,7 +800,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
                 else if (droit)
                 {
-
 
                     if (bas)
                     {
