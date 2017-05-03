@@ -82,7 +82,7 @@ public class AffichageLaby extends JComponent
                 boolean murHorizontalVisible=false;
                 boolean murVerticalVisible=false;
 
-                if (murVertical) //si il y a un mur
+                if (murVertical) //s'il y a un mur
                 {
                      murVerticalVisible = labyrinthe.getListe().chercheMuret(new Muret(j, i, true, false)).getVisible();
                     //murVerticalVisible=boolean illustrant si mur visible ou pas
@@ -107,7 +107,7 @@ public class AffichageLaby extends JComponent
                                // g.drawLine(j * tailleMurHorizontal - 1, i * tailleMurVertical - 1, j * tailleMurHorizontal - 1, y2 - 1);
                                 //g.drawLine(j * tailleMurHorizontal +1, i * tailleMurVertical - 1, j * tailleMurHorizontal + 1, y2 - 1);
                                   g.drawLine(j*tailleMurHorizontal+3,i*tailleMurVertical+3,j*tailleMurHorizontal+3,y2+3);
-                                //trace une ligne vertical et additionne 3 pour compenser pour compenser pour le decalage du dessin du contour
+                                //trace une ligne vertical et additionne 3  pour compenser pour le decalage du dessin du contour
                             }
                         }
 

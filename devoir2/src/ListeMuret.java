@@ -56,6 +56,7 @@ public class ListeMuret
                noeud.element.setVisible(false);
                noeud=noeud.noeudSuivant;
            }
+           noeud.element.setVisible(false);
 
        }
     }
@@ -74,6 +75,8 @@ public class ListeMuret
                 noeud.element.setVisible(true);
                 noeud=noeud.noeudSuivant;
             }
+
+            noeud.element.setVisible(true);
 
         }
     }
