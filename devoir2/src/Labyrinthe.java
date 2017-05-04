@@ -103,7 +103,10 @@ public class Labyrinthe
         return liste;
     }
 
-
+    /**
+     *
+     * @return string representant le labyrithe
+     */
     public String toString() {
         String bordureSup = "______"; //On va accumuler cette unité
         String bordureAcc = ""; //Accumulateur, la longueur dépend de la largeur du laby demandé

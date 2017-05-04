@@ -91,8 +91,7 @@ public class ListeMuret
 
         if (premierNoeud == null)//si premier noeud n'est pas nulle
         {
-          //  System.out.println("retourne null");
-            //System.out.println("premierNoeud==null");
+
             return null;
         }
 
