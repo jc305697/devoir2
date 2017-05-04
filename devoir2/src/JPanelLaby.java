@@ -14,6 +14,7 @@ public class JPanelLaby extends JPanel implements KeyListener
 private Labyrinthe labyrinthe;
 private AffichageLaby affichageLaby;
 private JLabel texteVie;
+//private boolean timerBoolean;
 private Timer minuterie;
 private JFrame fenetreJeu;
 private String[] args;
@@ -22,6 +23,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
     public JPanelLaby(Labyrinthe labyrinthe,int visibilite,String[] args,JFrame fenetreJeu)
     {
         //je mets les  differents boutons et l'affichage du labyrinthe
+        //this.timerBoolean=false;//je n'ai pas encore activé le timer
 
         AffichageLaby affichageLaby= new AffichageLaby(labyrinthe);//cree affichageLaby qui sera afficher au Centre
 
@@ -83,11 +85,12 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                     }
                 }
 
-                repaint();
+                repaint();//
+                //affichageLaby.repaint();
             }
         };
 
-        this.ai = new Timer(1500,appelleAi);//cree timer qui appelle l'ia
+        this.ai = new Timer(5,appelleAi);//cree timer qui appelle l'ia
 
         //cree les boutons pour les deplacements
         JButton haut = new JButton("haut");
@@ -96,7 +99,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         {
             public void actionPerformed(ActionEvent e)
             {
-                setTextVie(labyrinthe.deplace('H'));//utilise le boolean retourner par deplace pour determiner si chhange le texte donnant le nb de vie
+               setTextVie(labyrinthe.deplace('H'));
                 repaint();
                 finDejeu(labyrinthe);
             }
@@ -129,7 +132,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
         });
 
-        JButton gauche = new JButton("gauche");//bouton pour aller a gauche
+        JButton gauche = new JButton("gauche");
 
         gauche.addActionListener(new ActionListener()
         {
@@ -163,6 +166,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
             {
                 labyrinthe.getListe().tousVisible();
                 repaint();
+               // affichageLaby.repaint();
             }
 
         });
@@ -200,7 +204,9 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                 System.out.println("timer");
                     labyrinthe.getListe().tousInvisible();
                     repaint();
-                    minuterie.stop();//arrete le timer
+                    //affichageLaby.repaint();
+
+                    getMinuterie().stop();//arrete le timer
             }
         };
 
@@ -216,6 +222,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
     public void finDejeu(Labyrinthe labyrinthe)
     {
+
         if(labyrinthe.getPerso().getviesRestantes()!=0)//si nbs de vies restantes n'est pas égal à 0
         {
            double positionXPerso= labyrinthe.getPerso().getPositionXPersonnage();
@@ -264,20 +271,22 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
             }
         }
+        //return true;// nb de vie =0 et veut pas continuer
     }
 
     public  void keyPressed(KeyEvent e)
     {
+       // System.out.println("1");
+
     }
 
     public void keyReleased(KeyEvent e)
     {
+       // System.out.println("2");
+
+
     }
 
-    /**
-     *
-     * @param e: keyEvent
-     */
     public void keyTyped(KeyEvent e)
     {
     //    System.out.println("keyTyped");
@@ -337,10 +346,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         }
     }
 
-    /**
-     *
-     * @param valeurDeplacement: valeur boolean retourné par la fonction deplace
-     */
     public void setTextVie(boolean valeurDeplacement)
     {
         if (valeurDeplacement==false)
@@ -349,12 +354,21 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         }
     }
 
+    public AffichageLaby getAffichageLaby()
+    {
+        return this.affichageLaby;
+    }
 
-    /**
-     *
-     * @param args: tableau des arguments passé dans la ligne de commande
-     * @param fenetreJeu: JFrame qui est utilisé pour afficher le labyrithe et l'ensemble des autres composantes
-     */
+    public Labyrinthe getLabyrinthe()
+    {
+        return this.labyrinthe;
+    }
+
+    public Timer getMinuterie()
+    {
+        return this.minuterie;
+    }
+
     public static void reset(String[] args,JFrame fenetreJeu)
     {
         int hauteur = Integer.parseInt(args[0]);
@@ -384,106 +398,81 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 
 
+        System.out.println(this.labyrinthe.toString());
+        posXperso = labyrinthe.getPerso().getPositionXPersonnage();
+        posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 
-            posXperso = labyrinthe.getPerso().getPositionXPersonnage();
-            posYperso = labyrinthe.getPerso().getPositionYPersonnage();
-
-            boolean murDroite = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
-            boolean murDroiteLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + 1.5), (int) (posYperso - .5), true, false)) != null;
-            boolean murDroiteLoinEnbas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - 1.5), true, false)) != null;
-
-
-
-            boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + .5), false, false)) != null;
-            boolean murBasLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;
+        boolean murDroite = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - .5), true, false)) != null;
+        boolean murDroiteLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + 1.5), (int) (posYperso - .5), true, false)) != null;
+        boolean murDroiteLoinEnbas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso + .5), (int) (posYperso - 1.5), true, false)) != null;
+        //Pour chaque élément de ce paquet: on cherche s'il y a un mur à droite immédiatement, plus loin, et en bas aussi
 
 
-            boolean murGauche = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
-            boolean murGaucheLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), true, false)) != null;
+        boolean murBas = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + .5), false, false)) != null;
+        boolean murBasLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;
+
+        boolean murGauche = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
+        boolean murGaucheLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), true, false)) != null;
+
+        boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
+        boolean murHautLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), false, false)) != null;//true s'il y a un muret
+        ////Pour ces trois paquets, c'est le même principe
+
+        boolean aDroite = (posXperso == (labyrinthe.getL() - .5));//Si sur le bord droit
+        boolean enBas = (posYperso + .5) == (labyrinthe.getH());//Si sur le bord en bas
+        boolean aGauche = posXperso == 0.5;     //Si au bord  en bas
+        boolean enHaut = posYperso == 0.5;      //Si au bord en haut
+        boolean enBasLoin = (posYperso + 1.5) == (labyrinthe.getH()); //Si une case du bord en bas
+
+        boolean aDroiteLoin =(posXperso == (labyrinthe.getL() - 1.5));
+
+        boolean haut = murHaut || enHaut;
+
+        boolean bas = murBas || enBas;
+
+        boolean gauche = murGauche || aGauche;
+
+        boolean droit = murDroite || aDroite;
+
+        boolean basLoin= murBasLoin || enBasLoin;
 
 
-            boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
-            boolean murHautLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), false, false)) != null;//true s'il y a un muret
+        int delai= 1; //Pour pouvoir visualiser le mouvement de l'AI
+
+        if ((posXperso + .5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))//je suis a côté de la sortie
+        {
+            this.lastMove = 'D';
+            deplacePanel(delai,'D');
+        }
 
 
-            boolean aDroite = (posXperso == (labyrinthe.getL() - .5));//est sur le bord droit
-            boolean enBas = (posYperso + .5) == (labyrinthe.getH());
-            boolean aGauche = posXperso == 0.5;
-            boolean enHaut = posYperso == 0.5;
-            boolean enBasLoin = (posYperso + 1.5) == (labyrinthe.getH());
-
-            boolean aDroiteLoin =(posXperso == (labyrinthe.getL() - 1.5));
-
-            boolean haut = murHaut || enHaut;
-
-            boolean bas = murBas || enBas;
-
-            boolean gauche = murGauche || aGauche;
-
-            boolean droit = murDroite || aDroite;
-
-            boolean basLoin= murBasLoin || enBasLoin;
+        else if ((posXperso + 1.5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))//je suis 1 case à côté de la sortie
+        {
+            this.lastMove = 'D';
+            deplacePanel(delai,'D');
+        }
 
 
-            int delai= 0;
-
-
-
-             if ((posXperso + .5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))//je suis a côté de la sortie
-             {
-                lastMove = 'D';
-                System.out.println("devant la sortie");
-
-                deplacePanel(delai,'D');
-             }
-
-
-            else if ((posXperso + 1.5 == labyrinthe.getL()) && (posYperso - 0.5 == labyrinthe.getSortieY() ))//je suis 1 case à côté de la sortie
-             {
-                System.out.println("a 1 case de la sortie");
-                lastMove = 'D';
-                deplacePanel(delai,'D');
-             }
-
-             else if ((posXperso + .5 == labyrinthe.getL()) && (posYperso-1.5==labyrinthe.getSortieY()) && haut && !gauche)
-             {
-                lastMove='G';
-                deplacePanel(delai,'G');
-             }
-
-             else if((posXperso + 1.5 == labyrinthe.getL())&& (posYperso-1.5==labyrinthe.getSortieY()) && !haut)
-             {
-                lastMove='H';
-                deplacePanel(delai,'G');
-             }
-
-
-            if (gauche)//mur ou ordure a gauche
+            if (gauche)//mur a gauche
             {
                 if (droit && bas && haut)// je suis bloque
                 {
-                    System.out.println("gauche bas droit haut");
                     return false;
                 }
 
                 else if (bas && haut) // peut pas aller a gauche en bas et en haut
                 {
-                    System.out.println("gauche bas haut");
                     lastMove = 'D';
                     deplacePanel(delai,'D');
                 }
                 else if (bas && droit)//peut pas aller à gauche en bas et à droite
                 {
-                    System.out.println("gauche bas droit");
                     lastMove = 'H';
                     deplacePanel(delai,'H');
-
                 }
 
                 else if (bas)//peut pas aller à gauche ou en bas
                 {
-                    System.out.println("gauche bas ");
-
                     if (lastMove != 'D')
                     {
                         boolean murHautLoinDroit = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;//true s'il y a un muret
@@ -494,13 +483,11 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                             lastMove='H';
                             deplacePanel(delai,'H');
                         }
-
                         else if ((murDroiteLoin || aDroiteLoin ) && (!haut) && (murHautLoinDroit))//j'ai un mur a droite  ou la bourdure doite dans plus d'une case vers la droite
                         {
                             lastMove = 'H';
                             deplacePanel(delai, 'H');
                         }
-
                         else
                         {
                             lastMove = 'D';
@@ -515,37 +502,30 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                 }
                 else if (droit)//peut pas aller a droite ni a gauche
                 {
-                    System.out.println("gauche droit");
-
                     if (lastMove == 'H')
                     {
-
-                        if (!haut)
+                        if (!haut)//S'il y a rien en haut, on continue en haut
                         {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
 
                         }
-
-
-                        else if (!basLoin && !murBas)//pas de mur enbas 1 case plus loin ou ne sera  pas a la bordure du bas 1 case plus loin
+                        else if (!basLoin && !murBas)//pas de mur en bas 1 case plus loin, ou ne sera  pas a la bordure du bas 1 case plus loin
                         {
                             lastMove = 'B';
                             deplacePanel(delai,'B');
 
                         }
-
-                        else
+                        else //S'il y a un mur en haut et à droite/gauche, on va vers le bas
                         {
                             lastMove='B';
                             deplacePanel(delai,'B');
                         }
-
                     }
 
                     else if (lastMove == 'B')
                     {
-                        if (!basLoin)
+                        if (!basLoin)//S'il y a rien au loin en bas, on continue en bas
                         {
                             lastMove='B';
                             deplacePanel(delai,'B');
@@ -557,14 +537,14 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                             lastMove='B';
                             deplacePanel(delai,'B');
                         }
-                        else if (!droit)
+                        else if (!droit)//S'il y a pas de mur à droite, alors on va vers la droite
                         {
                             lastMove='D';
                             deplacePanel(delai,'D');
                         }
 
 
-                        else
+                        else //S'il y a un mur en bas, gauche, droite, on va vers le haut
                         {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
@@ -582,20 +562,17 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                     }
 
 
-                } //fin si droit
+                } ////FIN SI IL Y A MUR À DROITE
 
                 else if (haut)//peut pas aller a droite ni en haut
                 {
-                    System.out.println("gauche haut");
                     if (lastMove == 'G') {
                         lastMove = 'B';
                         deplacePanel(delai,'B');
-
                     }
                     else if (lastMove == 'H') {
                         lastMove = 'D';
                         deplacePanel(delai,'D');
-
                     }
 
                     else if ((lastMove == 'B') && (bas) && (!droit))
@@ -614,22 +591,16 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         lastMove = 'D';
                         deplacePanel(delai,'D');
                     }
-
                 }
-
-                else
+                else//Ni à droite ni en haut, peut? en bas et à gauche
                 {
-                    System.out.println("gauche");
-
                     if (lastMove == 'H')
                     {
-                        System.out.println("last move=='H'");
                        if (!bas&&basLoin&&murDroiteLoinEnbas&&!droit)
                        {
                            lastMove='D';
                            deplacePanel(delai,'D');
                        }
-
                        if (!bas&&basLoin&&!droit)
                        {
                            lastMove='D';
@@ -646,20 +617,17 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
-
                         }
                     }
-
-                    else if ((aDroiteLoin || murDroiteLoin || droit || murDroite) && (murBasLoin || basLoin || bas || murBas))// pris dans une boite
+                    else if ((aDroiteLoin || murDroiteLoin || droit || murDroite) && (murBasLoin || basLoin || bas || murBas))
+                    // pris dans une boite
                     {
-                        System.out.println("pris dans une boite");
                         if (!haut)
                         {
                             lastMove='H';
                             deplacePanel(delai,'H');
                         }
                     }
-
                     else if (!bas)
                     {
                         if (lastMove != 'H' && (murBasLoin || (posYperso + 1.5) == (labyrinthe.getH())))
@@ -667,59 +635,41 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                             lastMove = 'B';
                             deplacePanel(delai,'B');
                         }
-
                         else if (lastMove!='H')
                         {
                             lastMove='B';
                             deplacePanel(delai,'B');
                         }
-
                     }
-
                     else if (!droit)
                     {
                         lastMove = 'D';
                         deplacePanel(delai,'D');
-
                     }
-
                     else if (!haut)
                     {
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                     }
-
-
                 }
-
             }
-
             else//pas d'obtacle a gauche
             {
-                // boolean gaucheSortie= (posXperso==(labyrinthe.getSortieX()-0.5)) && (posYperso==(labyrinthe.getSortieY()+0.5));//est a cote de la sortie
-
-                //   if (gaucheSortie && pasADroite)
                 if (bas)//obstacle ou limite du bas vers le bas
                 {
-
                     if (droit)
                     {
-                        System.out.println("bas droit");
-
                         if (!haut)
                         {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
                         }
-
                         else if (!gauche)//murs a droite en bas et en haut
                         {
                             lastMove = 'G';
                             deplacePanel(delai,'G');
                         }
-
                     }
-
                    else if((lastMove=='G')&&(aDroiteLoin||murDroiteLoin))
                     {
                         if (!haut)
@@ -736,18 +686,15 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                     }
                     else if (!droit)
                     {
-                        System.out.println("bas");
                         lastMove = 'D';
                         deplacePanel(delai,'D');
                     }
 
                 }
-
-                else if (!droit)//rien à droite
+                else if (!droit)
                 {
                     if ((aDroiteLoin || murDroiteLoin || droit || murDroite) && ((murBasLoin || basLoin || bas || murBas)||(murHaut || enHaut)))// pris dans une boite
                     {
-                        System.out.println("pris dans une boite");
                         if (!haut)
                         {
                         lastMove='H';
@@ -764,86 +711,60 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
                     if ((!bas) &&(lastMove!='H'))
                     {
-                        System.out.println("rien a droit ni a gauche et en bas last move!='H'");
-                        System.out.println("lastmove= "+lastMove);
-
-                        if ((labyrinthe.getL()-posXperso<5) && (!haut) )
-                        {
-                            lastMove ='B';
-                            deplacePanel(delai,'B');
-                        }
-                        else
-                        {
-                            lastMove = 'B';
-                            deplacePanel(delai, 'B');
-                        }
+                        lastMove = 'B';
+                        deplacePanel(delai,'B');
                     }
 
-                    else
+                    else //S'il y a un mur en bas, et que le dernier mouvement n'était pas vers le haut
                     {
-                        if ((lastMove=='H')&&(basLoin || murBasLoin) && (murDroiteLoin|| aDroiteLoin) && (!haut))
+                        if ((lastMove=='H')&&(basLoin || murBasLoin) && (murDroiteLoin|| aDroiteLoin) && (!haut)) //S'il y a un mur en bas loin ou près, et à droite loin ou près et y a rien en haut
                         {
-                            System.out.println("rien a droite ni a gauche last move = H et obstacle a doite loin");
                             lastMove='H';
                             deplacePanel(delai,'H');
                         }
-
                         else
                         {
-                            System.out.println("rien a droite ni a gauche");
                             lastMove = 'D';
                             deplacePanel(delai, 'D');
                         }
                     }
-
                 }
-
                 else if (droit)
                 {
-
-                    if (bas)
+                    if (bas) //Droite et en bas, donc on va en haut
                     {
-                        System.out.println(" droit bas");
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                     }
 
                     else if (!basLoin && (lastMove!='H'))// afin d'éviter de monter et descendre
                     {
-                        System.out.println("droit pas bas loin et lastmove!=H");
                         lastMove='B';
                         deplacePanel(delai,'B');
                     }
-                    else if (!haut)
+                    else if (!haut)//Droite et en bas, vers le haut
                     {
-                        System.out.println(" droit");
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                     }
 
                     else
                     {
-
-                        System.out.println(" droit");
                         if (lastMove!='H')
                         {
-
                             lastMove = 'B';
                             deplacePanel(delai, 'B');
                         }
-
                         else if(haut&&(lastMove=='H')&& basLoin)
                         {
                             lastMove='G';
                             deplacePanel(delai,'G');
                         }
-
                         else
                         {
                            lastMove='G';
                            deplacePanel(delai,'G');
                         }
-
                     }
                 }
             }
