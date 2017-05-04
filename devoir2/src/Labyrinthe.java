@@ -18,18 +18,28 @@ public class Labyrinthe
         this.liste=new ListeMuret();
         this.perso=new Personnage(0,0,nbVie);
 
+
+
+
          int nbMurs=0;
      for (int i=0;i<h;i++)//hauteur commence a 0 genre de y
         {
             for (int j=0;j<l;j++)//largeur commence a 0 genre de x
             {
+                boolean contour= (i==0) || (i==h-1) || (j==l-1) || (j==0);
+
+
+
                     if (Math.random()<densiteLaby)//nb aleatoire < densitelaby   et pas completement a droite
                     {
                         Muret nouveauMuret=new Muret(j,i,false,true);//cree muret horizontal en j,i
 
+
                         if (liste.chercheMuret(nouveauMuret)==null)//le muret n'est pas dans la liste
                         {
-                            nbMurs++;//incrémente le nbs de murets
+
+                            nbMurs++;
+
                             liste.ajoutMuret(nouveauMuret);//ajoute a la liste
 
                         }
@@ -41,9 +51,14 @@ public class Labyrinthe
                         if (liste.chercheMuret(nouveauMuret1)==null)//n'est pas dans la liste
                         {
                             nbMurs++;
+
                             liste.ajoutMuret(nouveauMuret1);//ajoute a la liste
+
+
                         }
                     }
+
+
             }
         }
 
@@ -64,6 +79,7 @@ public class Labyrinthe
        //sortie doit etre sur le mur droit
             posAleatSortieX=l-1;
             posAleatSortieY=(int)(Math.random()*(h-1));
+
 
         this.sortieX=posAleatSortieX;
 
@@ -229,10 +245,6 @@ public class Labyrinthe
         return resultat; //Et le résultat, la grille, est retournée, pour impressiond ans le jeu!
     }
 
-    /**
-     * @param direction: direction dans laquel je veux aller représenté par un caratère
-     * @return un boolean qui est = à true si le deplacement ne se heurte a rien et est = à false s'il se heurte à quelque chose
-     */
     public boolean deplace(char direction)
     {
         double posXPerso= this.perso.getPositionXPersonnage();
@@ -245,13 +257,36 @@ public class Labyrinthe
                 System.out.println("D");
 
                 Muret muretDVert1= new Muret((int)(posXPerso+0.5),(int)(posYPerso-0.5),true,true);
+              //  Muret muretDVert2= new Muret((int)(posXPerso+0.5),(int)(posYPerso+1),true,true);
 
+              //  Muret muretDHori1= new Muret((int)(posXPerso+0.5),(int)posYPerso,false,true);
+               // Muret muretDHori2= new Muret((int)(posXPerso-0.5),(int)posYPerso,false,true);
 
-                if (this.liste.chercheMuret(muretDVert1)!=null)//si muret est dans la liste
+               /* if ((this.liste.chercheMuret(muretDHori1)!=null) || (this.liste.chercheMuret(muretDHori2)!=null)
+                        ||(this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null) )                {
+                    if (this.liste.chercheMuret(muretDHori1)!=null)
+                    {
+                        this.liste.chercheMuret(muretDHori1).setVisible(true);
+                    }
+
+                    if (this.liste.chercheMuret(muretDHori2)!=null)
+                    {
+                        this.liste.chercheMuret(muretDHori2).setVisible(true);
+                    }*/
+               //if ((this.liste.chercheMuret(muretDVert1)!=null)||(this.liste.chercheMuret(muretDVert2)!=null))
+
+                if (this.liste.chercheMuret(muretDVert1)!=null)
                 {
-                    this.liste.chercheMuret(muretDVert1).setVisible(true);//le rend visible
 
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enlève 1 vie
+                    this.liste.chercheMuret(muretDVert1).setVisible(true);
+
+
+                    /*if (this.liste.chercheMuret(muretDVert2)!=null)
+                    {
+                        this.liste.chercheMuret(muretDVert2).setVisible(true);
+                    }*/
+
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
 
@@ -260,13 +295,15 @@ public class Labyrinthe
 
                 if ((this.perso.getPositionXPersonnage()+.5==l) && (this.perso.getPositionYPersonnage()-.5!=sortieY))
                 {//n'est pas la sortie, mais est sur le cote droit et va a droite donc fonce dans le mur
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enlève 1 vie
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
 
-                //pas a droite et pas de mur a droite
-                this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()+1);//modifie la position en X
 
+                //pas a droite et pas de mur a droite
+                this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()+1);
+
+                //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+1);
                 return true;
 
             case 'G':
@@ -275,24 +312,28 @@ public class Labyrinthe
                 Muret muretGVert1= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),true,true);
 
 
-                if (this.liste.chercheMuret(muretGVert1)!=null)//si muret est dans la liste
+                if (this.liste.chercheMuret(muretGVert1)!=null)
                 {
-                    this.liste.chercheMuret(muretGVert1).setVisible(true);//rend mur visible
 
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enlève 1 vie
+                    if (this.liste.chercheMuret(muretGVert1)!=null)
+                    {
+                        this.liste.chercheMuret(muretGVert1).setVisible(true);//rend mur visible
+                    }
 
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
 
                 if (this.perso.getPositionXPersonnage()-.5==0)//si a extreme gauche
                 {
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enleve vie
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
 
                 //sinon deplacement valide
                 this.perso.setPositionXPersonnage(this.perso.getPositionXPersonnage()-1);
 
+                //this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+5);
                 return true;
 
 
@@ -302,22 +343,23 @@ public class Labyrinthe
                 Muret muretHHori1= new Muret((int)(posXPerso-0.5),(int)(posYPerso-0.5),false,true);
 
 
-                if (this.liste.chercheMuret(muretHHori1)!=null)//si muret est dans la liste
+                if (this.liste.chercheMuret(muretHHori1)!=null)
                {
-                    this.liste.chercheMuret(muretHHori1).setVisible(true);//rend mur visible
 
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enlève 1 vie
 
+                        this.liste.chercheMuret(muretHHori1).setVisible(true);
+
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
 
-                if (this.perso.getPositionYPersonnage()-.5==0)//si a la bordure en haut
+                if (this.perso.getPositionYPersonnage()-.5==0)
                 {
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enlève 1 vie
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
-
-                this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()-1);//met a jour la position du personnage
+                 //this.set
+                this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()-1);
 
                 return true;
 
@@ -327,27 +369,27 @@ public class Labyrinthe
                 Muret muretBHori1= new Muret((int)(posXPerso-0.5),(int)(posYPerso+0.5),false,true);
 
 
-                if (this.liste.chercheMuret(muretBHori1)!=null)//si muret est dans la liste
+                if (this.liste.chercheMuret(muretBHori1)!=null)
                 {
-                    this.liste.chercheMuret(muretBHori1).setVisible(true);//rend mur visible
+                    this.liste.chercheMuret(muretBHori1).setVisible(true);
 
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enlève 1 vie
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
 
                     return false;
                 }
 
-                if (this.perso.getPositionYPersonnage()+.5==h)//est sur le bord de la bourdure inférieure
+                if (this.perso.getPositionYPersonnage()+.5==h)
                 {
-                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);//enlève 1 vie
+                    this.perso.setViesRestantes(this.perso.getviesRestantes()-1);
                     return false;
                 }
 
-                this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+1);//met a jour coordonnées du personnage
+                this.perso.setPositionYPersonnage(this.perso.getPositionYPersonnage()+1);
 
                 return true;
         }
 
-        return false;//pour que java soit content et compile et si arrive à ce cas alors nécessairement faux
+        return false;
     }
 
 
