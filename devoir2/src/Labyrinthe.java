@@ -126,11 +126,9 @@ public class Labyrinthe
         }
         String resultat=""; //Accumulateur pour tout la grille.
         resultat +=bordureAcc + "\n"; //Première ligne horizontale ajoutée, on va en ajouter une autre à la fin
-        boolean flagCharTrouveEtMis = false;
+        boolean flagCharTrouveEtMis = false;// Je n'ai pas trouvé mon personnage
         for(double j=0; j<this.h; j++)
         { //AXE Y, META-LIGNES
-
-
 
             String murLigne = "|"; //Mini-ligne, crée une ligne de murs verticaux uniquement, sans personnage
             String murPersLigne = "|"; //Ligne avec barres verticales AVEC personnage
@@ -142,51 +140,54 @@ public class Labyrinthe
                 Muret muretPosHorizo2 = new Muret((int) i, (int) j, false, true);
 
 
-                if(i<this.h-1){
+                if(i<this.h-1)
+                {
 
-                    if(this.liste.chercheMuret(muretPosVert2) !=null)
+                    if(this.liste.chercheMuret(muretPosVert2) !=null)//j'ai un muret vertical à cette position
                     {
                         murLigne+="     |";
                     }
-                    else if(this.liste.chercheMuret(muretPosVert2) ==null){
-                        murLigne+="      ";
+                    else if(this.liste.chercheMuret(muretPosVert2) ==null)//il n'y pas de muret à cette position
+                    {
+                        murLigne+="      ";//espace + pas de colonne à l'emplacement de la colonne
                     }
                 }
                 else{
-                    if((this.sortieX==i&& this.sortieY==j)) {
+                    if((this.sortieX==i && this.sortieY==j)) // i et j sont à l'emplacement de la sortie
+                    {
                         murLigne += "     out ";
                     }
                     else{
-                        murLigne+="     |";
+                        murLigne+="     |";//sinon ajoute bordure droite
                     }
                 }
 
 
-                if(j<this.l-1) {
-                    if ((this.liste.chercheMuret(muretPosHorizo2) != null) && (this.liste.chercheMuret(muretPosVert2) != null)) {
+                if(j<this.l-1)
+                {
+                    if ((this.liste.chercheMuret(muretPosHorizo2) != null) && (this.liste.chercheMuret(muretPosVert2) != null)) {//j'ai un mur vertical et horizontal
                         murLigneHorizo += "_____|";
-                    } else if (this.liste.chercheMuret(muretPosHorizo2) != null && this.liste.chercheMuret(muretPosVert2) == null) {
+                    } else if (this.liste.chercheMuret(muretPosHorizo2) != null && this.liste.chercheMuret(muretPosVert2) == null) {//j'ai un mur horizontal seulement
                         murLigneHorizo += "______";
-                    } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) == null) {
+                    } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) == null) {//je n'ai aucun mur
                         murLigneHorizo += "      ";
-                    } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) != null) {
+                    } else if (this.liste.chercheMuret(muretPosHorizo2) == null && this.liste.chercheMuret(muretPosVert2) != null) {//j'ai un mur vertical seulement
                         murLigneHorizo += "     |";
                     }
                 }
-                else{
-                    if((this.sortieX==i&& this.sortieY==j)) {
+                else
+                {
+                    if((this.sortieX==i&& this.sortieY==j)) { //si sortie en bas a droite
                         murLigneHorizo += "______";
                     }
-                    if(j>this.l-1 && (this.sortieY==j)){
+                    if(j>this.l-1 && (this.sortieY==j)){// si il n'y a pas de sortie en bas dans le coin
                         murLigneHorizo += "_____|";
                     }
-                    else{
-                        murLigneHorizo += "_____";
-                    }
+
                 }
 
                 if(this.perso.getPositionYPersonnage()==j+0.5)
-                { //Si dans la ligne y a un personnage, procédure spéciale
+                { //Si dans la ligne il y a un personnage, procédure spéciale
                     if(this.perso.getPositionXPersonnage()==i+0.5)
                     { //Si le perso est exactement à cette position, on dessine juste le perso avec espaces
                         flagCharTrouveEtMis=true;
@@ -194,28 +195,30 @@ public class Labyrinthe
                         {//S'il y a un mur à cette position...
                             murPersLigne +="  c  |";//Avec mur
                         }
+
                         else
                         {
                             murPersLigne+= "   c  "; //Sans mur
                         }
                     }
-                    else{
+                    else//pas de personnage à ce x
+                    {
                         if(i<this.h-1){
 
                             if(this.liste.chercheMuret(muretPosVert2) !=null)
                             {
-                                murPersLigne+="     |";
+                                murPersLigne+="     |";// s'il y a un mur vertical
                             }
                             else if(this.liste.chercheMuret(muretPosVert2) ==null){
-                                murPersLigne+="      ";
+                                murPersLigne+="      "; // s'il n'y a pas de mur vertical
                             }
                         }
                         else{
                             if((this.sortieX==i&& this.sortieY==j)) {
-                                murPersLigne += "     out ";
+                                murPersLigne += "     out ";//il y a une sortie à cette position
                             }
                             else{
-                                murPersLigne+="     |";
+                                murPersLigne+="     |";//sinon ajoute bordure droite
                             }
                         }
                     }
@@ -223,7 +226,7 @@ public class Labyrinthe
                 }
             }
 
-            if (flagCharTrouveEtMis==true)
+            if (flagCharTrouveEtMis==true)//si personnage trouvé et ajouté à la string
             { //À la méta-ligne donnée, si flagCharTrouvéEtMis n'est pas égal à 0, on va créer une méta-ligne
                 resultat+=murLigne+ "\n"; //Ligne de murs simples, car le personnage est au centre
                 resultat+=murPersLigne+ "\n"; //Ligne de murs CONTENANT le personnage
@@ -240,7 +243,7 @@ public class Labyrinthe
             //Une fois la meta-ligne faite, on passe à la meta-ligne suivante, avec incrémentation de i, dans sa boucle for
         }
 
-        resultat+= "\n"; //On ajoute ici une bordure horizontale inférieure ("-----------.....------")
+        resultat+= "\n"; //ajoute saut de ligne
 
         return resultat; //Et le résultat, la grille, est retournée, pour impressiond ans le jeu!
     }
