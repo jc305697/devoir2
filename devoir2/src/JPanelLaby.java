@@ -69,8 +69,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                 if (!intelligenceArtificielle())//si intelligence artificielle retourne false donc intelligence artificielle peut pas trouver un chemin
                 {
                     repaint();
-                    affichageLaby.repaint();
-                    ai.stop();
+                    ai.stop();//arrête l'ai
 
                     int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"L'intelligence artificielle ne peut résoudre le problème. Voulez-vous rejouez?","message important",JOptionPane.YES_NO_OPTION);
 
@@ -85,8 +84,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                     }
                 }
 
-                repaint();//
-                //affichageLaby.repaint();
+                repaint();//affiche nouveau labyrinthe avec ancien paramètre
             }
         };
 
@@ -166,7 +164,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
             {
                 labyrinthe.getListe().tousVisible();
                 repaint();
-               // affichageLaby.repaint();
             }
 
         });
@@ -187,7 +184,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         panneauDroit.add(boutonIA,BorderLayout.EAST);
 
 
-        this.add(panneauDroit,BorderLayout.EAST);
+        this.add(panneauDroit,BorderLayout.EAST);//ajoute panneau droit au JPanelLaby
 
         this.setFocusable(true);
 
@@ -201,10 +198,8 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println("timer");
                     labyrinthe.getListe().tousInvisible();
                     repaint();
-                    //affichageLaby.repaint();
 
                     getMinuterie().stop();//arrete le timer
             }
@@ -229,7 +224,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
            double positionYPerso= labyrinthe.getPerso().getPositionYPersonnage();
 
-           if ((positionXPerso-1.5==labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()+0.5))
+           if ((positionXPerso-1.5==labyrinthe.getSortieX())&&(positionYPerso==labyrinthe.getSortieY()+0.5))//sorti par la sortie du labyrinthe
             {
                 ai.stop();
                 int reponse= JOptionPane.showConfirmDialog(fenetreJeu,"vous avez gagné. Voulez-vous rejouer","message important",JOptionPane.YES_NO_OPTION);
@@ -238,18 +233,11 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                     reset(args,fenetreJeu);
                 }
 
-                if (reponse==1)
+                if (reponse==1)//non
                 {
-                        // break;
-                    //fenetreJeu.setVisible(false);
-                   // fenetreJeu.dispose();
-                    System.exit(0);
-
+                    System.exit(0);//arrête le processus et ferme la fenêtre
                 }
-
-               // return true;//a gagne et veut pas continuer
             }
-            //return false;//pas fin de jeu
          }
 
         if (labyrinthe.getPerso().getviesRestantes()==0)
@@ -262,86 +250,64 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                 reset(args, fenetreJeu);
             }
 
-            if (reponse == 1)
+            if (reponse == 1)//non
             {
-
-                //fenetreJeu.setVisible(false);
-                // fenetreJeu.dispose();
-                System.exit(0);
+                System.exit(0);//arrête le processus et ferme la fenêtre
 
             }
         }
-        //return true;// nb de vie =0 et veut pas continuer
     }
 
-    public  void keyPressed(KeyEvent e)
+    public  void keyPressed(KeyEvent e)//méthode pour keyListener
     {
-       // System.out.println("1");
 
     }
 
-    public void keyReleased(KeyEvent e)
+    public void keyReleased(KeyEvent e)//méthode pour keyListener
     {
-       // System.out.println("2");
-
 
     }
 
-    public void keyTyped(KeyEvent e)
+    public void keyTyped(KeyEvent e)//méthode pour keyListener
     {
     //    System.out.println("keyTyped");
-        switch (e.getKeyChar()) {
+        switch (e.getKeyChar()) {//touche tapé au clavier et appele fonction deplace avec direction correspondante puis affiche les changements et évalue si fin du jeu
             case ('d'):
                 this.setTextVie(labyrinthe.deplace('D'));
                 this.repaint();
-                this.affichageLaby.repaint();
                 this.finDejeu(labyrinthe);
-                // System.out.println("d");
                 break;
             case ('g'):
                 this.setTextVie(labyrinthe.deplace('G'));
                 this.repaint();
-                this.affichageLaby.repaint();
                 this.finDejeu(labyrinthe);
-               // System.out.println("g");
                 break;
             case ('s'):
                 this.setTextVie(labyrinthe.deplace('G'));
                 this.repaint();
-                this.affichageLaby.repaint();
                 this.finDejeu(labyrinthe);
-               // System.out.println("s");
                 break;
             case ('h'):
                 this.setTextVie(labyrinthe.deplace('H'));
                 this.repaint();
-                this.affichageLaby.repaint();
                 this.finDejeu(labyrinthe);
-              //  System.out.println("h");
                 break;
             case ('e'):
                 this.setTextVie( labyrinthe.deplace('H'));
                 this.repaint();
-                this.affichageLaby.repaint();
                 this.finDejeu(labyrinthe);
-                //System.out.println("e");
                 break;
             case ('b'):
                 this.setTextVie(labyrinthe.deplace('B'));
                  this.repaint();
-                 this.affichageLaby.repaint();
                 this.finDejeu(labyrinthe);
-              //  System.out.println("b");
                 break;
             case ('x'):
                 this.setTextVie( labyrinthe.deplace('x'));
                 this.repaint();
-                this.affichageLaby.repaint();
                 this.finDejeu(labyrinthe);
-                //System.out.println("x");
                 break;
             default:
-                //System.out.println("1");
                 break;
         }
     }
@@ -412,10 +378,8 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         boolean murBasLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso + 1.5), false, false)) != null;
 
         boolean murGauche = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), true, false)) != null;//true s'il y a un muret
-        boolean murGaucheLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), true, false)) != null;
 
         boolean murHaut = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - .5), false, false)) != null;//true s'il y a un muret
-        boolean murHautLoin = labyrinthe.getListe().chercheMuret(new Muret((int) (posXperso - .5), (int) (posYperso - 1.5), false, false)) != null;//true s'il y a un muret
         ////Pour ces trois paquets, c'est le même principe
 
         boolean aDroite = (posXperso == (labyrinthe.getL() - .5));//Si sur le bord droit
@@ -424,17 +388,17 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         boolean enHaut = posYperso == 0.5;      //Si au bord en haut
         boolean enBasLoin = (posYperso + 1.5) == (labyrinthe.getH()); //Si une case du bord en bas
 
-        boolean aDroiteLoin =(posXperso == (labyrinthe.getL() - 1.5));
+        boolean aDroiteLoin =(posXperso == (labyrinthe.getL() - 1.5));//bloque 1 case vers la droite par la bordure droite
 
-        boolean haut = murHaut || enHaut;
+        boolean haut = murHaut || enHaut;//bloqué vers le haut
 
-        boolean bas = murBas || enBas;
+        boolean bas = murBas || enBas;//bloqué vers le bas
 
-        boolean gauche = murGauche || aGauche;
+        boolean gauche = murGauche || aGauche;//bloqué à gauche
 
-        boolean droit = murDroite || aDroite;
+        boolean droit = murDroite || aDroite;//pas pas aller à droite sans perdre une vie donc bloqué à droite
 
-        boolean basLoin= murBasLoin || enBasLoin;
+        boolean basLoin= murBasLoin || enBasLoin;//vrai si bloqué 1 case plus loin en direction du bas pourra pas aller vers le bas rendu à cette case
 
 
         int delai= 1; //Pour pouvoir visualiser le mouvement de l'AI
@@ -493,7 +457,8 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                             lastMove = 'D';
                             deplacePanel(delai, 'D');
                         }
-                    }
+                    }//fin si dernier mouvemnt !=D
+
                     else if (lastMove != 'H')
                     {
                         lastMove = 'H';
@@ -551,12 +516,14 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         }
                     }
 
-                    else if (!bas) {
+                    else if (!bas) //rien vers le bas
+                    {
                         lastMove = 'B';
                         deplacePanel(delai,'B');
                     }
 
-                    else if (!haut) {
+                    else if (!haut) //rien vers le haut
+                    {
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                     }
@@ -566,71 +533,74 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
                 else if (haut)//peut pas aller a droite ni en haut
                 {
-                    if (lastMove == 'G') {
+                    if ((lastMove == 'G') && (!bas)) //rien vers le bas
+                    {
                         lastMove = 'B';
                         deplacePanel(delai,'B');
                     }
-                    else if (lastMove == 'H') {
+
+                    else if ((lastMove == 'H') && !droit)//rien a droite
+                    {
                         lastMove = 'D';
                         deplacePanel(delai,'D');
                     }
 
-                    else if ((lastMove == 'B') && (bas) && (!droit))
+                    else if ((lastMove == 'B') && (bas) && (!droit))// bloque vers le bas et rien a droite
                     {
                         lastMove = 'G';
                         deplacePanel(delai,'G');
                     }
 
-                    else if (!bas)
+                    else if (!bas)//rien vers le bas
                     {
                         lastMove = 'B';
                         deplacePanel(delai,'B');
                     }
-                    else if (!droit)
+                    else if (!droit)//rien a droite
                     {
                         lastMove = 'D';
                         deplacePanel(delai,'D');
                     }
                 }
-                else//Ni à droite ni en haut, peut? en bas et à gauche
+
+                else//Ni à droite ni en haut
                 {
-                    if (lastMove == 'H')
+                    if (lastMove == 'H')//si dernier mouvement == H
                     {
-                       if (!bas&&basLoin&&murDroiteLoinEnbas&&!droit)
-                       {
+                       if (!bas && basLoin && murDroiteLoinEnbas && !droit)//rien vers le bas mais  bloqué par quelque chose une case vers le bas et par mur droit
+                       {                                                    //de la prochaine case vers le bas et pas bloqué à droite
                            lastMove='D';
                            deplacePanel(delai,'D');
                        }
-                       if (!bas&&basLoin&&!droit)
+                       if (!bas && basLoin && !droit)//rien vers le bas et bloqué par quelque chose une case vers le bas et rien vers la droite
                        {
                            lastMove='D';
                            deplacePanel(delai,'D');
 
                        }
-                        else if (!droit)
+                        else if (!droit)//rien vers la droite
                         {
                             lastMove = 'D';
                             deplacePanel(delai,'D');
 
                         }
-                        else if (!haut)
+                        else if (!haut)//rien vers le haut
                         {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
                         }
                     }
-                    else if ((aDroiteLoin || murDroiteLoin || droit || murDroite) && (murBasLoin || basLoin || bas || murBas))
-                    // pris dans une boite
+                    else if ((aDroiteLoin || murDroiteLoin || droit || murDroite) && (murBasLoin || basLoin || bas || murBas))// pris dans une boite
                     {
-                        if (!haut)
+                        if (!haut)//rien ver le haut
                         {
                             lastMove='H';
                             deplacePanel(delai,'H');
                         }
                     }
-                    else if (!bas)
+                    else if (!bas)//rien en bas
                     {
-                        if (lastMove != 'H' && (murBasLoin || (posYperso + 1.5) == (labyrinthe.getH())))
+                        if (lastMove != 'H' && (murBasLoin || (posYperso + 1.5) == (labyrinthe.getH())))// bloqué par mur 1 case plus loin vers le bas ou par bordure du bas
                         {
                             lastMove = 'B';
                             deplacePanel(delai,'B');
@@ -653,13 +623,14 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                     }
                 }
             }
+
             else//pas d'obtacle a gauche
             {
                 if (bas)//obstacle ou limite du bas vers le bas
                 {
-                    if (droit)
+                    if (droit)//bloqué à droite
                     {
-                        if (!haut)
+                        if (!haut)//pas bloqué en haut
                         {
                             lastMove = 'H';
                             deplacePanel(delai,'H');
@@ -670,20 +641,21 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                             deplacePanel(delai,'G');
                         }
                     }
-                   else if((lastMove=='G')&&(aDroiteLoin||murDroiteLoin))
+                   else if((lastMove=='G') && (aDroiteLoin||murDroiteLoin))//dernier mouvement vers la gauche et bloqué 1 case plus loin vers la droite
                     {
-                        if (!haut)
+                        if (!haut)//rien vers le haut
                         {
                             lastMove='H';
                             deplacePanel(delai,'H');
                         }
 
                         else
-                        {//gauche libre puisque arrive ici seulement si gauche est faux
+                        {//gauche libre puisque arrive ici si et seulement si gauche est faux
                             lastMove='G';
                             deplacePanel(delai,'G');
                         }
                     }
+
                     else if (!droit)
                     {
                         lastMove = 'D';
@@ -701,7 +673,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         deplacePanel(delai,'H');
                         }
 
-                        if (!gauche)
+                     else  if (!gauche)
                         {
                             lastMove='G';
                             deplacePanel(delai,'G');
@@ -709,7 +681,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
                     }
 
-                    if ((!bas) &&(lastMove!='H'))
+                    else if ((!bas) &&(lastMove!='H'))
                     {
                         lastMove = 'B';
                         deplacePanel(delai,'B');
@@ -729,7 +701,8 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         }
                     }
                 }
-                else if (droit)
+
+                else if (droit)//bloqué à droite
                 {
                     if (bas) //Droite et en bas, donc on va en haut
                     {
@@ -742,20 +715,20 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                         lastMove='B';
                         deplacePanel(delai,'B');
                     }
-                    else if (!haut)//Droite et en bas, vers le haut
+                    else if (!haut)//Droite et en bas, va vers le haut puisque rien vers le haut
                     {
                         lastMove = 'H';
                         deplacePanel(delai,'H');
                     }
 
-                    else
+                    else//si les autres sont faux
                     {
                         if (lastMove!='H')
                         {
                             lastMove = 'B';
                             deplacePanel(delai, 'B');
                         }
-                        else if(haut&&(lastMove=='H')&& basLoin)
+                        else if(haut && (lastMove=='H') && basLoin)//bloqué en haut et en bas loin il ya un mur
                         {
                             lastMove='G';
                             deplacePanel(delai,'G');
@@ -776,11 +749,10 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
     {
         try
         {
-            setTextVie(labyrinthe.deplace(deplacement));
-            repaint();
-            finDejeu(labyrinthe);
-            affichageLaby.repaint();
-           TimeUnit.SECONDS.sleep(delai);
+            setTextVie(labyrinthe.deplace(deplacement));//utilise boolean donné par deplacement comme paramètre à setTexteVie
+            repaint();//pour afficher les modifications
+            finDejeu(labyrinthe);//pour déterminer si c'est la fin du jeu
+           TimeUnit.SECONDS.sleep(delai);//stop le processus pour un certain delai en secondes
        }
         catch (InterruptedException ex)
         {
