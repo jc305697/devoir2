@@ -1,6 +1,8 @@
 /**
  * Created by jeremycoulombe on 17-04-01.
  */
+//Jérémy Coulombe et Stephanie Guay-Vachon
+
 public class ListeMuret
 {
     private NoeudMuret premierNoeud;

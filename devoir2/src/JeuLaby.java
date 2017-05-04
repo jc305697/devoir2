@@ -8,6 +8,7 @@ import java.util.Scanner;
  * Created by jeremycoulombe on 17-04-01.
  */
 
+//Jérémy Coulombe et Stephanie Guay-Vachon
 
 /////Note: cette version de jeuLaby est concue pour être executée en console uniquement. Ne pas executer sur la console de IntelliJ
 public class JeuLaby
@@ -16,6 +17,7 @@ public class JeuLaby
     { //RETIRER LE 2 DE ARGS POUR MÉTHODE CMD
         int alertChanged = 1;                   /////changer alertChanged à 0 POUR MÉTHODE CMD
         String[] args = new String[5];/////////AJOUTÉ POUR JOUABILITÉ DANS CONSOLE INTELLIJ, SUPPRIMER LE 2 DE ARGS
+
         while(true)
         {//Si les paramètres sont incorrects, on recommence la saisie de données pour le jeu lui-même
 

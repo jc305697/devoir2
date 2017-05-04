@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by jeremycoulombe on 17-04-01.
  */
+//Jérémy Coulombe et Stephanie Guay-Vachon
+
 public class JPanelLaby extends JPanel implements KeyListener
 {
 private Labyrinthe labyrinthe;

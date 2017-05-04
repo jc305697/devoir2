@@ -2,6 +2,8 @@
  * Created by jeremycoulombe on 17-04-01.
  */
 import java.awt.*;
+//Jérémy Coulombe et Stephanie Guay-Vachon
+
 public class Personnage
 {
     //////SET ET GET POUR POSITIONS

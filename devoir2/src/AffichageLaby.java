@@ -4,6 +4,8 @@ import java.awt.*;
 /**
  * Created by jeremycoulombe on 17-04-01.
  */
+//Jérémy Coulombe et Stephanie Guay-Vachon
+
 public class AffichageLaby extends JComponent
 {
     Labyrinthe labyrinthe;
