@@ -270,7 +270,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
 
     public void keyTyped(KeyEvent e)//méthode pour keyListener
     {
-    //    System.out.println("keyTyped");
         switch (e.getKeyChar()) {//touche tapé au clavier et appele fonction deplace avec direction correspondante puis affiche les changements et évalue si fin du jeu
             case ('d'):
                 this.setTextVie(labyrinthe.deplace('D'));
@@ -364,7 +363,6 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         double posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 
 
-        System.out.println(this.labyrinthe.toString());
         posXperso = labyrinthe.getPerso().getPositionXPersonnage();
         posYperso = labyrinthe.getPerso().getPositionYPersonnage();
 

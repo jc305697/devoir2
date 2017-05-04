@@ -26,19 +26,18 @@
       <file leaf-file-name="JPanelLaby.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="54" column="53" lean-forward="true" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
+            <state relative-caret-position="99">
+              <caret line="336" column="47" lean-forward="false" selection-start-line="336" selection-start-column="47" selection-end-line="336" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6048#6049#0" expanded="true" />
                 <element signature="e#6089#6090#0" expanded="true" />
-                <element signature="e#10608#10609#0" expanded="true" />
-                <element signature="e#10649#10650#0" expanded="true" />
-                <element signature="e#10694#10695#0" expanded="true" />
-                <element signature="e#10732#10733#0" expanded="true" />
-                <element signature="e#10771#10772#0" expanded="true" />
-                <element signature="e#10808#10809#0" expanded="true" />
-                <element signature="method#intelligenceArtificielle#0;class#JPanelLaby#0" expanded="false" />
+                <element signature="e#10566#10567#0" expanded="true" />
+                <element signature="e#10607#10608#0" expanded="true" />
+                <element signature="e#10652#10653#0" expanded="true" />
+                <element signature="e#10690#10691#0" expanded="true" />
+                <element signature="e#10729#10730#0" expanded="true" />
+                <element signature="e#10766#10767#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>orientation</find>
       <find>Sy</find>
       <find>haut</find>
       <find>rese</find>
@@ -148,6 +146,7 @@
       <find>Timer</find>
       <find>delai</find>
       <find>pris</find>
+      <find>System.o</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -173,8 +172,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="189" />
-    <option name="y" value="66" />
+    <option name="x" value="4" />
+    <option name="y" value="23" />
     <option name="width" value="1183" />
     <option name="height" value="815" />
   </component>
@@ -488,7 +487,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="66" width="1183" height="815" extended-state="0" />
+    <frame x="4" y="23" width="1183" height="815" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -578,13 +577,12 @@
             <element signature="imports" expanded="true" />
             <element signature="e#6048#6049#0" expanded="true" />
             <element signature="e#6089#6090#0" expanded="true" />
-            <element signature="e#10608#10609#0" expanded="true" />
-            <element signature="e#10649#10650#0" expanded="true" />
-            <element signature="e#10694#10695#0" expanded="true" />
-            <element signature="e#10732#10733#0" expanded="true" />
-            <element signature="e#10771#10772#0" expanded="true" />
-            <element signature="e#10808#10809#0" expanded="true" />
-            <element signature="method#intelligenceArtificielle#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#10566#10567#0" expanded="true" />
+            <element signature="e#10607#10608#0" expanded="true" />
+            <element signature="e#10652#10653#0" expanded="true" />
+            <element signature="e#10690#10691#0" expanded="true" />
+            <element signature="e#10729#10730#0" expanded="true" />
+            <element signature="e#10766#10767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -647,13 +645,12 @@
             <element signature="imports" expanded="true" />
             <element signature="e#6048#6049#0" expanded="true" />
             <element signature="e#6089#6090#0" expanded="true" />
-            <element signature="e#10608#10609#0" expanded="true" />
-            <element signature="e#10649#10650#0" expanded="true" />
-            <element signature="e#10694#10695#0" expanded="true" />
-            <element signature="e#10732#10733#0" expanded="true" />
-            <element signature="e#10771#10772#0" expanded="true" />
-            <element signature="e#10808#10809#0" expanded="true" />
-            <element signature="method#intelligenceArtificielle#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#10566#10567#0" expanded="true" />
+            <element signature="e#10607#10608#0" expanded="true" />
+            <element signature="e#10652#10653#0" expanded="true" />
+            <element signature="e#10690#10691#0" expanded="true" />
+            <element signature="e#10729#10730#0" expanded="true" />
+            <element signature="e#10766#10767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -739,13 +736,12 @@
             <element signature="imports" expanded="true" />
             <element signature="e#6048#6049#0" expanded="true" />
             <element signature="e#6089#6090#0" expanded="true" />
-            <element signature="e#10608#10609#0" expanded="true" />
-            <element signature="e#10649#10650#0" expanded="true" />
-            <element signature="e#10694#10695#0" expanded="true" />
-            <element signature="e#10732#10733#0" expanded="true" />
-            <element signature="e#10771#10772#0" expanded="true" />
-            <element signature="e#10808#10809#0" expanded="true" />
-            <element signature="method#intelligenceArtificielle#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#10566#10567#0" expanded="true" />
+            <element signature="e#10607#10608#0" expanded="true" />
+            <element signature="e#10652#10653#0" expanded="true" />
+            <element signature="e#10690#10691#0" expanded="true" />
+            <element signature="e#10729#10730#0" expanded="true" />
+            <element signature="e#10766#10767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -823,13 +819,12 @@
             <element signature="imports" expanded="true" />
             <element signature="e#6048#6049#0" expanded="true" />
             <element signature="e#6089#6090#0" expanded="true" />
-            <element signature="e#10608#10609#0" expanded="true" />
-            <element signature="e#10649#10650#0" expanded="true" />
-            <element signature="e#10694#10695#0" expanded="true" />
-            <element signature="e#10732#10733#0" expanded="true" />
-            <element signature="e#10771#10772#0" expanded="true" />
-            <element signature="e#10808#10809#0" expanded="true" />
-            <element signature="method#intelligenceArtificielle#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#10566#10567#0" expanded="true" />
+            <element signature="e#10607#10608#0" expanded="true" />
+            <element signature="e#10652#10653#0" expanded="true" />
+            <element signature="e#10690#10691#0" expanded="true" />
+            <element signature="e#10729#10730#0" expanded="true" />
+            <element signature="e#10766#10767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -978,19 +973,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPanelLaby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="54" column="53" lean-forward="true" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
+        <state relative-caret-position="99">
+          <caret line="336" column="47" lean-forward="false" selection-start-line="336" selection-start-column="47" selection-end-line="336" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#6048#6049#0" expanded="true" />
             <element signature="e#6089#6090#0" expanded="true" />
-            <element signature="e#10608#10609#0" expanded="true" />
-            <element signature="e#10649#10650#0" expanded="true" />
-            <element signature="e#10694#10695#0" expanded="true" />
-            <element signature="e#10732#10733#0" expanded="true" />
-            <element signature="e#10771#10772#0" expanded="true" />
-            <element signature="e#10808#10809#0" expanded="true" />
-            <element signature="method#intelligenceArtificielle#0;class#JPanelLaby#0" expanded="false" />
+            <element signature="e#10566#10567#0" expanded="true" />
+            <element signature="e#10607#10608#0" expanded="true" />
+            <element signature="e#10652#10653#0" expanded="true" />
+            <element signature="e#10690#10691#0" expanded="true" />
+            <element signature="e#10729#10730#0" expanded="true" />
+            <element signature="e#10766#10767#0" expanded="true" />
           </folding>
         </state>
       </provider>
