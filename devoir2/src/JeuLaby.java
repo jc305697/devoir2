@@ -13,15 +13,15 @@ import java.util.Scanner;
 /////Note: cette version de jeuLaby est concue pour être executée en console uniquement. Ne pas executer sur la console de IntelliJ
 public class JeuLaby
 {
-    public static void main (String[] args2)
+    public static void main (String[] args)
     { //RETIRER LE 2 DE ARGS POUR MÉTHODE CMD
-        int alertChanged = 1;                   /////changer alertChanged à 0 POUR MÉTHODE CMD
-        String[] args = new String[5];/////////AJOUTÉ POUR JOUABILITÉ DANS CONSOLE INTELLIJ, SUPPRIMER LE 2 DE ARGS
-
-        while(true)
+        //int alertChanged = 0;                   /////changer alertChanged à 0 POUR MÉTHODE CMD
+        //String[] args = new String[5];/////////AJOUTÉ POUR JOUABILITÉ DANS CONSOLE INTELLIJ, SUPPRIMER LE 2 DE ARGS
+        int bonParametre=0;
+        while(bonParametre==0)
         {//Si les paramètres sont incorrects, on recommence la saisie de données pour le jeu lui-même
 
-            if(alertChanged!=0)
+            /*if(alertChanged!=0)
             { //Si la personne désire changer les paramètres
                 Scanner snap = new Scanner(System.in);
                 System.out.println("Hauteur?");
@@ -35,7 +35,7 @@ public class JeuLaby
                 args[3] = snap.nextLine();
                 System.out.println("Nombre de vies??");
                 args[4] = snap.nextLine();
-            }
+            }*/
 
 
             if (args.length == 5)
@@ -52,8 +52,9 @@ public class JeuLaby
                     System.out.println("Exemple: java Laby 10 20 0.20 10 5");
                 } //FIN IF SI PARAMÈTRES ONT BORNES NON RESPECTÉES
 
-                else {
-
+                else
+                    {
+                    bonParametre=1;
                     // while(true) {
 
 
@@ -74,8 +75,6 @@ public class JeuLaby
                     fenetreJeu.setContentPane(panelLaby);
 
 
-
-
                     Dimension dimensionEcran = Toolkit.getDefaultToolkit().getScreenSize();
                     int hauteurAffichage = (int) (dimensionEcran.height * 0.50);//hauteur de la fenetre sera le 1/4 de l ecran au debut
 
@@ -86,6 +85,7 @@ public class JeuLaby
                     fenetreJeu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                     fenetreJeu.setVisible(true);
+
                 }
 
             }//IF DE IF (ARGS LENGTH==5)

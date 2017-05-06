@@ -173,6 +173,11 @@ public class Labyrinthe
                     if(j>this.l-1 && (this.sortieY==j)){// si il n'y a pas de sortie en bas dans le coin
                         murLigneHorizo += "_____|";
                     }
+                  /*  else
+                    {
+                            // si il n'y a pas de sortie en bas dans le coin
+                                murLigneHorizo += "_____|";
+                    }*/
 
                 }
 
@@ -235,7 +240,7 @@ public class Labyrinthe
 
         resultat+= "\n"; //ajoute saut de ligne
 
-        return resultat; //Et le résultat, la grille, est retournée, pour impressiond ans le jeu!
+        return resultat; //Et le résultat, la grille, est retournée, pour impression dans le jeu!
     }
 
     /**

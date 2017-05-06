@@ -157,6 +157,19 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
         panneauDroitDroit.add(droit,BorderLayout.EAST);
 
         panneauDroit.add(panneauDroitDroit,BorderLayout.WEST);//ajoute panneau avec boutons aux sous-panneaux droit du Jpanel principal
+        JButton reset = new JButton("nouveau labyrinthe");
+
+        reset.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                reset(args,fenetreJeu);
+                repaint();
+            }
+
+        });
+
+        this.add(reset,BorderLayout.SOUTH);
 
        JButton mursVisible = new JButton("rendre murs visibles");//bouton pour rendre les murs visibles
 
@@ -207,10 +220,13 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
             }
         };
 
+
         int delai= visibilite*1000;//converti en millisecondes
 
         minuterie = new Timer(delai,rendreMursInvisible);//rend les murs invisibles apres un certain délai en millisecondes
         minuterie.start();
+
+
     }
 
 
@@ -304,7 +320,7 @@ private Timer ai;//controle le temps en seconde entre les appels de l'intelligne
                 this.finDejeu(labyrinthe);
                 break;
             case ('x'):
-                this.setTextVie( labyrinthe.deplace('x'));
+                this.setTextVie( labyrinthe.deplace('B'));
                 this.repaint();
                 this.finDejeu(labyrinthe);
                 break;
